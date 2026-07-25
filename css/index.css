@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-inline: 5rem;
   margin-bottom: 6rem;
 }
 .box1_billede {
@@ -56,7 +55,6 @@
 
   .streg1 {
     background-color: var(--color-header);
-    color: black;
     padding: 2rem;
     margin-top: auto;
     text-align: right;
@@ -78,7 +76,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-inline: 5rem;
   }
 
   .info h1 {
@@ -348,8 +345,8 @@
 
 .billede2_6 {
   width: 60%;
-  margin-left: 10rem;
-  margin-bottom: 1rem;
+  margin-left: 6rem;
+  margin-block: 1rem;
 }
 
 @media (min-width: 768px) {

@@ -5,14 +5,12 @@
 .box1 {
   margin-top: 3rem;
 }
-.intro {
-  text-align: center;
-}
 .intro h2 {
-  margin: 0;
+  margin-left: 3rem;
 }
+
 .billede_box1 {
-  width: 50%;
+  width: 60%;
   height: auto;
   margin-inline: auto;
   margin-top: 2rem;
@@ -58,7 +56,8 @@
 .box2 {
   position: relative;
   background-image: url("../baggrunds-papir.png");
-  background-size: cover;
+  background-size: 100% 100%;
+
   background-position: center;
   background-repeat: no-repeat;
   padding: 0.5rem;
@@ -85,7 +84,9 @@
   margin-inline: auto;
   max-width: 500px;
 }
-
+.om_mig p {
+  margin-inline: 2.5rem;
+}
 .billede_box2 {
   order: 2;
 }
@@ -104,13 +105,11 @@
 
 .om_mig h2 {
   margin-top: 3rem;
-  font-size: 2rem;
 }
 
 .om_mig h3 {
   color: #b07a6a;
 
-  font-size: 1rem;
   margin-bottom: 4rem;
   text-align: end;
   margin-right: 6rem;
@@ -184,11 +183,9 @@
 }
 
 .about_text h2 {
-  font-size: 2.5rem;
   line-height: 0.9;
-  font-weight: 500;
-  text-transform: uppercase;
   margin-block: 2rem;
+  margin-inline: 2.5rem;
 }
 
 .small-text {
@@ -202,14 +199,7 @@
   margin-bottom: 1.3rem;
   line-height: 1.7;
 }
-.specielh3 {
-  color: #b07a6a;
-  font-size: 1rem;
-  padding: 3rem;
-  text-align: center;
-  border: var(--color-header) 2px solid;
-  margin-block: 6rem;
-}
+
 /*billeder*/
 .about_images {
   display: flex;
