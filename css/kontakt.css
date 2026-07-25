@@ -1,0 +1,63 @@
+/*****KONTAKT SIDE (lidt anderledes end de andre)*******/
+.grid1_1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.info h1 {
+  font-size: 1.8rem;
+
+  margin-top: 3rem;
+}
+.info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: start;
+  color: var(--color-box-bg-1);
+}
+
+.info p {
+  margin-bottom: 2rem;
+  text-align: start;
+}
+
+.speciel {
+  text-align: center;
+}
+.kontakt {
+  text-align: center;
+  color: var(--color-box-bg-1);
+  font-style: italic;
+  font-size: 1rem;
+  margin-block: 3rem;
+  font-weight: bold;
+}
+.kontakt_billede {
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .grid1_1 {
+    display: grid;
+    grid-template-columns: 1fr 400px; /* tekst | billede */
+    gap: 5rem;
+    align-items: center;
+    margin-inline: 7rem;
+  }
+
+  .info {
+    grid-column: 1;
+  }
+
+  .kontakt_billede {
+    grid-column: 2;
+    width: 100%;
+  }
+
+  .kontakt_billede img {
+    width: 100%;
+    height: auto;
+    margin-block: 7rem;
+  }
+}
