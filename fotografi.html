@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografi</title>
+    <link rel="stylesheet" href="css/generel.css?v=6">
+    <link rel="stylesheet" href="css/fotografi.css?v=6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" type="image/png" href="fav.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Prata&family=Silkscreen&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="footer_iimg/logo.png" alt="Sandra Møller logo">
+        </a>
+        <nav>
+            <ul class="menu">
+                <li><a href="om_mig.html">Hvem er jeg?</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle active" aria-expanded="false" aria-controls="undermenu-karriere">Karrierer & Erfaring</button>
+                    <ul class="undermenu" id="undermenu-karriere">
+                        <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
+                        <li><a href="fotografi.html" aria-current="page">Fotografi</a></li>
+                        <li><span class="kommer">Webdesign <small>kommer snart</small></span></li>
+                    </ul>
+                </li>
+                <li><a href="mmd_studie.html">Multimediedesign studiet</a></li>
+                <li class="booking-btn"><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+            <button class="burger" aria-label="menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="magasin">
+
+        <a class="tilbage" href="karriere_erfarring.html">&larr; Tilbage til karriere & erfaring</a>
+
+        <!-- ===== Opslag 1: citat + portræt ===== -->
+        <section class="spread" aria-labelledby="intro-title">
+            <article class="page pink left">
+                <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
+                <h1 class="quote" id="intro-title">“alle starter et sted.”</h1>
+                <div class="intro-grid">
+                    <p>Jeg fotograferer med et brugt Canon-kamera og et helt almindeligt kit-objektiv, og jeg lærer lidt
+                        mere for hvert billede. Her samler jeg dem, jeg er gladest for indtil videre.</p>
+                    <figure class="photo" tabindex="0">
+                        <img src="fotografi/intro.webp" alt="Pige i grå striktrøje ved et grønt cafébord med kaffe og kage">
+                    </figure>
+                </div>
+                <div class="folio"><span>Issue #01</span><span>001</span></div>
+            </article>
+
+            <article class="page white right">
+                <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
+                <figure class="photo full" tabindex="0">
+                    <img src="fotografi/portraet.webp" alt="Smilende pige i trenchcoat med en kop kaffe udenfor en café">
+                </figure>
+                <div class="folio"><span>Issue #01</span><span>002</span></div>
+            </article>
+        </section>
+
+        <!-- ===== Opslag 2: pixel-citat + serie ===== -->
+        <section class="spread" aria-labelledby="serie-title">
+            <article class="page bleed left">
+                <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
+                <figure class="photo" tabindex="0" style="--gray: 1">
+                    <img src="fotografi/helside.webp" alt="Pige i jeans og halstørklæde står midt på en gade i København">
+                </figure>
+                <p class="pixel-quote" aria-hidden="true">“tag billedet alligevel.”</p>
+                <div class="folio"><span>Issue #01</span><span>003</span></div>
+            </article>
+
+            <article class="page white right">
+                <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
+                <div class="series">
+                    <div class="stack">
+                        <figure class="photo" tabindex="0">
+                            <img src="fotografi/serie-1.webp" alt="Pige i hvid top og brune bukser griner på fortovet">
+                        </figure>
+                        <div class="pink-block">
+                            <h2 id="serie-title">En eftermiddag i byen</h2>
+                            <p>To veninder, en gåtur gennem indre by og et kamera. Jeg ville fange det afslappede og
+                                legende imellem dem.</p>
+                        </div>
+                    </div>
+                    <div class="stack offset">
+                        <figure class="photo" tabindex="0">
+                            <img src="fotografi/serie-2.webp" alt="To veninder kigger på en mobil sammen på gaden">
+                        </figure>
+                        <figure class="photo" tabindex="0">
+                            <img src="fotografi/serie-3.webp" alt="To veninder sidder på et trappetrin foran en rød dør">
+                        </figure>
+                    </div>
+                </div>
+                <div class="folio"><span>Issue #01</span><span>004</span></div>
+            </article>
+        </section>
+
+        <!-- ===== Opslag 3: arkiv + kontakt ===== -->
+        <section class="spread" aria-labelledby="arkiv-title">
+            <article class="page pink left">
+                <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
+                <div class="archive-head">
+                    <h2 id="arkiv-title">Arkivet</h2>
+                    <p>Tryk på et billede for at se det i fuld størrelse.</p>
+                </div>
+                <div class="archive">
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-1.webp" alt="Kaffe og kakao med flødeskum på et hvidt bord"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-2.webp" alt="Buketter af solsikker"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-3.webp" alt="Bunke af orange, grønne og hvide græskar"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-4.webp" alt="Sort-hvidt billede af pige med cykel foran en hvid bygning"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-5.webp" alt="Orange efterårsblade"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-6.webp" alt="Pige drikker af en grøn kop på en café"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-7.webp" alt="Kridttavle med teksten Keep smiling foran en lille kaffebar"></figure>
+                    <figure class="photo" tabindex="0"><img src="fotografi/arkiv-8.webp" alt="Orange blomst tæt på"></figure>
+                </div>
+                <div class="folio"><span>Issue #01</span><span>005</span></div>
+            </article>
+
+            <article class="page white right contact" id="kontakt">
+                <div class="running-head"><span>Sandra</span><span>Kontakt</span></div>
+                <h2>“skal vi tage nogle billeder?”</h2>
+                <p>Har du en idé til et shoot, eller vil du bare sige hej? Skriv til mig, så finder vi ud af det sammen.
+                </p>
+                <div class="links">
+                    <a href="mailto:sandramller1902@gmail.com">sandramller1902@gmail.com</a>
+                    <a href="https://www.instagram.com/sandra_creative.studio/">Instagram: @sandra_creative.studio</a>
+                    <a href="https://substack.com/@sandramller1902">Substack: læs med i processen</a>
+                </div>
+                <div class="folio"><span>Issue #01</span><span>006</span></div>
+            </article>
+        </section>
+
+    </main>
+
+    <dialog class="lightbox" aria-label="Billede i fuld størrelse">
+        <img alt="">
+        <div class="lightbox-bar">
+            <button type="button" data-step="-1">Forrige</button>
+            <button type="button" data-close>Luk</button>
+            <button type="button" data-step="1">Næste</button>
+        </div>
+    </dialog>
+
+    <div class="box7">
+        <a href="https://www.instagram.com/sandramoeller__/">
+            <div class="iconer"><img src="iconer/insta.png" alt="instagram"></div>
+        </a>
+        <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-4677413b4/">
+            <div class="iconer"><img src="iconer/linkedin.png" alt="Linkedin"></div>
+        </a>
+        <a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed">
+            <div class="iconer"><img src="iconer/gmail.png" alt="gmail"></div>
+        </a>
+    </div>
+
+    <footer>
+        <a href="index.html" id="footer_svg">
+            <img src="footer_iimg/logo.png" alt="Sandra Møller logo">
+        </a>
+    </footer>
+
+    <script src="java/burger.js?v=6"></script>
+    <script>
+        // Lightbox: åbner billederne i fuld størrelse
+        const dialog = document.querySelector('.lightbox');
+        const bigImg = dialog.querySelector('img');
+        const photos = [...document.querySelectorAll('.photo')];
+        let current = 0;
+
+        function show(i) {
+            current = (i + photos.length) % photos.length;
+            const img = photos[current].querySelector('img');
+            bigImg.src = img.src;
+            bigImg.alt = img.alt;
+            if (!dialog.open) dialog.showModal();
+        }
+
+        photos.forEach((fig, i) => {
+            fig.addEventListener('click', () => show(i));
+            fig.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(i); }
+            });
+        });
+
+        dialog.querySelectorAll('[data-step]').forEach(b =>
+            b.addEventListener('click', () => show(current + Number(b.dataset.step))));
+        dialog.querySelector('[data-close]').addEventListener('click', () => dialog.close());
+        dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+        dialog.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') show(current + 1);
+            if (e.key === 'ArrowLeft') show(current - 1);
+        });
+    </script>
+</body>
+
+</html>

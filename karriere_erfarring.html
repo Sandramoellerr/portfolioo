@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>karriere & erfarring</title>
-    <link rel="stylesheet" href="css/karrirer-erfarring.css">
-    <link rel="stylesheet" href="css/generel.css">
+    <link rel="stylesheet" href="css/karrirer-erfarring.css?v=6">
+    <link rel="stylesheet" href="css/generel.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -25,7 +25,14 @@
         <nav>
             <ul class="menu">
                 <li><a href="om_mig.html">Hvem er jeg?</a></li>
-                <li><a class="active" href="karriere_erfarring.html">Karrierer & Erfaring</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle active" aria-expanded="false" aria-controls="undermenu-karriere">Karrierer & Erfaring</button>
+                    <ul class="undermenu" id="undermenu-karriere">
+                        <li><a href="karriere_erfarring.html" aria-current="page">Erhvervserfaring</a></li>
+                        <li><a href="fotografi.html">Fotografi</a></li>
+                        <li><span class="kommer">Webdesign <small>kommer snart</small></span></li>
+                    </ul>
+                </li>
                 <li><a href="mmd_studie.html">Multimediedesign studiet</a></li>
                 <li class="booking-btn"><a href="kontakt.html">Kontakt</a></li>
             </ul>
@@ -136,6 +143,7 @@
                 </p>
 
                 <a href="kontakt.html"><button class="kontakt-btn"> Lyst til samarbejde?</button></a>
+                <a class="kontakt-btn" href="fotografi.html">Se mine fotografier</a>
 
             </div>
 
@@ -272,6 +280,6 @@
         </a>
     </footer>
 </body>
-<script src="java/burger.js"></script>
+<script src="java/burger.js?v=6"></script>
 
 </html>

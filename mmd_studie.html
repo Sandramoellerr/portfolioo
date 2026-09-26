@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMD studiet</title>
-    <link rel="stylesheet" href="css/mmd.css">
-    <link rel="stylesheet" href="css/generel.css">
+    <link rel="stylesheet" href="css/mmd.css?v=6">
+    <link rel="stylesheet" href="css/generel.css?v=6">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -25,7 +25,14 @@
         <nav>
             <ul class="menu">
                 <li><a href="om_mig.html">Hvem er jeg?</a></li>
-                <li><a href="karriere_erfarring.html">Karrierer & Erfaring</a></li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="undermenu-karriere">Karrierer & Erfaring</button>
+                    <ul class="undermenu" id="undermenu-karriere">
+                        <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
+                        <li><a href="fotografi.html">Fotografi</a></li>
+                        <li><span class="kommer">Webdesign <small>kommer snart</small></span></li>
+                    </ul>
+                </li>
                 <li><a class="active" href="mmd_studie.html">Multimediedesign studiet</a></li>
                 <li class="booking-btn"><a href="kontakt.html">Kontakt</a></li>
             </ul>
@@ -108,7 +115,7 @@
 
                 <p class="small-text">
                     Til eksamen fik vi til opgave at lave et portfolio site, som skulle indeholde hvad vi havde lært
-                    under hele 1. semester Her er det tydeligt at se min udvikling, hvilket kun lige er begydt
+                    under hele 1. semester. Her er det tydeligt at se min udvikling, som kun lige er begyndt.
                 </p>
 
                 <p>
@@ -163,7 +170,7 @@
                 </p>
 
                 <p>
-                    Selvom jeg kun skal til at begynde på 2. semester, ser jeg allerede, hvor meget jeg har udviklet
+                    Selvom jeg kun er på 2. semester, ser jeg allerede, hvor meget jeg har udviklet
                     mig – både fagligt og
                     personligt. Hvert projekt har styrket min forståelse for design, udvikling og samarbejde, og jeg
                     oplever, at min
@@ -261,6 +268,6 @@
         </a>
     </footer>
 </body>
-<script src="java/burger.js"></script>
+<script src="java/burger.js?v=6"></script>
 
 </html>

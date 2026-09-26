@@ -12,6 +12,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* sikkerhedsnet: siden må aldrig kunne scrolle sidelæns
+   (clip i stedet for hidden, så den sticky header stadig virker) */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background: #f6f2ec;
   color: #222;
@@ -117,6 +124,13 @@ p {
   font-family: "Inter", sans-serif;
   line-height: 1.8;
   margin-inline: 2.5rem;
+}
+
+/* på små telefoner må lange overskrifter gerne bryde, så de ikke stikker ud */
+@media (max-width: 480px) {
+  h2 {
+    white-space: normal;
+  }
 }
 
 @media (min-width: 768px) {
@@ -260,6 +274,91 @@ nav a.active {
   transition: 0.2s linear;
 }
 
+/* ==========================
+   DROPDOWN (Karrierer & Erfaring)
+========================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 160%;
+  color: #42382e;
+}
+
+/* lille pil der vender, når menuen er åben */
+.dropdown-toggle::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.dropdown.open .dropdown-toggle::after {
+  transform: translateY(1px) rotate(-135deg);
+}
+
+.dropdown-toggle:hover {
+  font-weight: bolder;
+}
+
+.dropdown-toggle.active {
+  color: #321508;
+  border-bottom: 2px solid #b86b4b;
+}
+
+.undermenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 230px;
+  padding: 8px 0;
+  background: var(--color-bg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+}
+
+.dropdown.open .undermenu {
+  display: block;
+}
+
+.undermenu a,
+.undermenu .kommer {
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.undermenu a:hover {
+  background: var(--color-box-bg-2);
+}
+
+.undermenu a[aria-current="page"] {
+  color: #b86b4b;
+}
+
+.undermenu .kommer {
+  color: #9a918a;
+  cursor: default;
+}
+
+.undermenu .kommer small {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 /************************ burgermenu ******************/
 
 @media (max-width: 800px) {
@@ -315,6 +414,31 @@ nav a.active {
   /* margin i top/bund og siderne når menuen er foldet ud */
   nav.active .menu li {
     margin: 10px 20px;
+  }
+
+  /* dropdown inde i burgermenuen: vises under punktet i stedet for at svæve */
+  nav.active .menu .dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .undermenu {
+    position: static;
+    min-width: 0;
+    padding: 4px 0 0 12px;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  nav.active .menu .undermenu li {
+    margin: 0;
+  }
+
+  .undermenu a,
+  .undermenu .kommer {
+    padding: 6px 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   /* BOOKING BTN */
@@ -414,5 +538,27 @@ footer {
   .iconer {
     width: 70%;
     margin-inline: auto;
+  }
+}
+
+/* meget små telefoner (fx iPhone SE): mindre logo, knapper og ikoner */
+@media (max-width: 380px) {
+  header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .logo img {
+    height: 80px;
+    padding-inline: 0;
+  }
+
+  .kontakt-btn {
+    margin-left: 1.5rem;
+    padding-inline: 24px;
+  }
+
+  .iconer {
+    padding: 2rem 1.5rem;
   }
 }

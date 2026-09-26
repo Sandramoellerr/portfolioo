@@ -205,7 +205,8 @@
   line-height: 1.7;
 }
 #btn-speciel {
-  white-space: nowrap;
+  white-space: normal;
+  width: fit-content;
   margin-left: 2rem;
   margin-bottom: 2rem;
 }
@@ -348,7 +349,7 @@
 
     padding: 4rem;
 
-    width: 700px;
+    max-width: 700px;
 
     margin-left: -70px;
 
