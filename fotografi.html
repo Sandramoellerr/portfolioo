@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotografi</title>
-    <link rel="stylesheet" href="css/generel.css?v=6">
-    <link rel="stylesheet" href="css/fotografi.css?v=6">
+    <link rel="stylesheet" href="css/generel.css?v=10">
+    <link rel="stylesheet" href="css/fotografi.css?v=10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="icon" type="image/png" href="fav.png">
     <link
-        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Prata&family=Silkscreen&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=Prata&display=swap"
         rel="stylesheet">
 </head>
 
@@ -53,13 +53,13 @@
                 <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
                 <h1 class="quote" id="intro-title">“alle starter et sted.”</h1>
                 <div class="intro-grid">
-                    <p>Jeg fotograferer med et brugt Canon-kamera og et helt almindeligt kit-objektiv, og jeg lærer lidt
+                    <p class="kort">Jeg fotograferer med et brugt Canon-kamera og et helt almindeligt kit-objektiv, og jeg lærer lidt
                         mere for hvert billede. Her samler jeg dem, jeg er gladest for indtil videre.</p>
                     <figure class="photo" tabindex="0">
                         <img src="fotografi/intro.webp" alt="Pige i grå striktrøje ved et grønt cafébord med kaffe og kage">
                     </figure>
                 </div>
-                <div class="folio"><span>Issue #01</span><span>001</span></div>
+                <div class="folio"><span>Portrætter</span><span>001</span></div>
             </article>
 
             <article class="page white right">
@@ -67,7 +67,7 @@
                 <figure class="photo full" tabindex="0">
                     <img src="fotografi/portraet.webp" alt="Smilende pige i trenchcoat med en kop kaffe udenfor en café">
                 </figure>
-                <div class="folio"><span>Issue #01</span><span>002</span></div>
+                <div class="folio"><span>Portrætter</span><span>002</span></div>
             </article>
         </section>
 
@@ -79,7 +79,7 @@
                     <img src="fotografi/helside.webp" alt="Pige i jeans og halstørklæde står midt på en gade i København">
                 </figure>
                 <p class="pixel-quote" aria-hidden="true">“tag billedet alligevel.”</p>
-                <div class="folio"><span>Issue #01</span><span>003</span></div>
+                <div class="folio"><span>En eftermiddag i byen</span><span>003</span></div>
             </article>
 
             <article class="page white right">
@@ -90,9 +90,11 @@
                             <img src="fotografi/serie-1.webp" alt="Pige i hvid top og brune bukser griner på fortovet">
                         </figure>
                         <div class="pink-block">
-                            <h2 id="serie-title">En eftermiddag i byen</h2>
-                            <p>To veninder, en gåtur gennem indre by og et kamera. Jeg ville fange det afslappede og
-                                legende imellem dem.</p>
+                            <div class="kort">
+                                <h2 id="serie-title">En eftermiddag i byen</h2>
+                                <p>To veninder, en gåtur gennem indre by og et kamera. Jeg ville fange det afslappede
+                                    og legende imellem dem.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="stack offset">
@@ -104,7 +106,7 @@
                         </figure>
                     </div>
                 </div>
-                <div class="folio"><span>Issue #01</span><span>004</span></div>
+                <div class="folio"><span>En eftermiddag i byen</span><span>004</span></div>
             </article>
         </section>
 
@@ -114,7 +116,7 @@
                 <div class="running-head"><span>Sandra</span><span>Fotografi</span></div>
                 <div class="archive-head">
                     <h2 id="arkiv-title">Arkivet</h2>
-                    <p>Tryk på et billede for at se det i fuld størrelse.</p>
+                    <p class="kort">Tryk på et billede for at se det i fuld størrelse.</p>
                 </div>
                 <div class="archive">
                     <figure class="photo" tabindex="0"><img src="fotografi/arkiv-1.webp" alt="Kaffe og kakao med flødeskum på et hvidt bord"></figure>
@@ -126,7 +128,7 @@
                     <figure class="photo" tabindex="0"><img src="fotografi/arkiv-7.webp" alt="Kridttavle med teksten Keep smiling foran en lille kaffebar"></figure>
                     <figure class="photo" tabindex="0"><img src="fotografi/arkiv-8.webp" alt="Orange blomst tæt på"></figure>
                 </div>
-                <div class="folio"><span>Issue #01</span><span>005</span></div>
+                <div class="folio"><span>Arkivet</span><span>005</span></div>
             </article>
 
             <article class="page white right contact" id="kontakt">
@@ -139,7 +141,7 @@
                     <a href="https://www.instagram.com/sandra_creative.studio/">Instagram: @sandra_creative.studio</a>
                     <a href="https://substack.com/@sandramller1902">Substack: læs med i processen</a>
                 </div>
-                <div class="folio"><span>Issue #01</span><span>006</span></div>
+                <div class="folio"><span>Kontakt</span><span>006</span></div>
             </article>
         </section>
 
@@ -167,12 +169,74 @@
     </div>
 
     <footer>
+
+
+
+        <div class="image-slider">
+            <div class="image-track">
+                <img src="footer_iimg/IMG_0060.webp" alt="piger der fester">
+                <img src="footer_iimg/IMG_0139 (1).webp" alt="kaffe billede">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/scs-lau.webp" alt="smilende pige med kaffe på café">
+                <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
+                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/IMG_2309.webp" alt="billede i sengen med kafffe">
+                <img src="footer_iimg/IMG_1474.webp" alt="billede af sandra">
+                <img src="footer_iimg/scs-kaffekop.webp" alt="hånd med kaffekop">
+                <img src="footer_iimg/IMG_2475.webp" alt="billede fra maldiverne">
+                <img src="footer_iimg/IMG_2918.webp" alt="mad billede">
+                <img src="footer_iimg/IMG_4200.webp" alt="is">
+                <img src="footer_iimg/IMG_6817.webp" alt="muslinger">
+                <img src="footer_iimg/scs-nyhavn.webp" alt="Nyhavn">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
+                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/IMG_9242.webp" alt="billede af veninde">
+                <img src="footer_iimg/scs-kage.webp" alt="pige med kaffe og kage">
+                <img src="footer_iimg/IMG_1474.webp" alt="fly">
+                <img src="footer_iimg/IMG_8405.webp" alt="billede af surfboard">
+                <img src="footer_iimg/IMG_9793.webp" alt="operahuset">
+                <img src="footer_iimg/migogo.webp" alt="sandra og veninde">
+                <img src="footer_iimg/scs-emma.webp" alt="pige på gaden i København">
+                <img src="footer_iimg/IMG_5581.webp" alt="billede af kaffe">
+                <img src="footer_iimg/IMG_7639.webp" alt="mad">
+
+                <!-- gentag billederne så animationen bliver smooth -->
+                <img src="footer_iimg/IMG_0060.webp" alt="piger der fester">
+                <img src="footer_iimg/IMG_0139 (1).webp" alt="kaffe billede">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/scs-lau.webp" alt="smilende pige med kaffe på café">
+                <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
+                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/IMG_2309.webp" alt="billede i sengen med kafffe">
+                <img src="footer_iimg/IMG_1474.webp" alt="billede af sandra">
+                <img src="footer_iimg/scs-kaffekop.webp" alt="hånd med kaffekop">
+                <img src="footer_iimg/IMG_2475.webp" alt="billede fra maldiverne">
+                <img src="footer_iimg/IMG_2918.webp" alt="mad billede">
+                <img src="footer_iimg/IMG_4200.webp" alt="is">
+                <img src="footer_iimg/IMG_6817.webp" alt="muslinger">
+                <img src="footer_iimg/scs-nyhavn.webp" alt="Nyhavn">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
+                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/IMG_9242.webp" alt="billede af veninde">
+                <img src="footer_iimg/scs-kage.webp" alt="pige med kaffe og kage">
+                <img src="footer_iimg/IMG_1474.webp" alt="fly">
+                <img src="footer_iimg/IMG_8405.webp" alt="billede af surfboard">
+                <img src="footer_iimg/IMG_9793.webp" alt="operahuset">
+                <img src="footer_iimg/migogo.webp" alt="sandra og veninde">
+                <img src="footer_iimg/scs-emma.webp" alt="pige på gaden i København">
+                <img src="footer_iimg/IMG_5581.webp" alt="billede af kaffe">
+                <img src="footer_iimg/IMG_7639.webp" alt="mad">
+            </div>
+        </div>
+
         <a href="index.html" id="footer_svg">
             <img src="footer_iimg/logo.png" alt="Sandra Møller logo">
         </a>
     </footer>
 
-    <script src="java/burger.js?v=6"></script>
+    <script src="java/burger.js?v=10"></script>
     <script>
         // Lightbox: åbner billederne i fuld størrelse
         const dialog = document.querySelector('.lightbox');

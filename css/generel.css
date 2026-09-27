@@ -464,7 +464,7 @@ footer {
 .image-track {
   display: flex;
   width: max-content;
-  animation: scroll 70s linear infinite;
+  animation: scroll 87s linear infinite; /* ca. 3,3 sek. pr. billede */
 }
 #navn {
   padding-block: 4rem;
@@ -538,6 +538,32 @@ footer {
   .iconer {
     width: 70%;
     margin-inline: auto;
+  }
+}
+
+/* menupunkterne må ikke knække over to linjer */
+.menu a,
+.dropdown-toggle {
+  white-space: nowrap;
+}
+
+/* mellemstore skærme (fx iPad på langs): lidt mindre menu, så alt kan være der */
+@media (min-width: 801px) and (max-width: 1150px) {
+  header {
+    padding-inline: 24px;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  .menu {
+    gap: 18px;
+  }
+
+  .menu a,
+  .dropdown-toggle {
+    font-size: 1rem;
   }
 }
 
