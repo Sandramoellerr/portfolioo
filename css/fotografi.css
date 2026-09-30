@@ -3,8 +3,8 @@
 
 .magasin {
   --blush: var(--color-box-bg-2);
-  --paper: #fffdfb;
-  --ink: #222;
+  --paper: #ffffff; /* hvide magasinsider */
+  --ink: var(--color-tekst);
   --muted: #7a6a64;
   --accent: #b07a6a;
   --placeholder: #eadcd6;
@@ -52,17 +52,20 @@
 }
 
 .tilbage:hover {
-  color: #321508;
+  color: var(--color-tekst);
 }
 
 /* ---------- Opslag ---------- */
 .magasin {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem clamp(1rem, 4vw, 3rem) 6rem;
+  margin: 0;
+  padding: 2rem var(--side) 6rem; /* fælles sidemargin */
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(3rem, 7vw, 6rem);
+}
+
+.magasin > .spread {
+  padding-inline: 0; /* opslagene flugter selv med sidemarginen */
 }
 
 .spread {
@@ -117,7 +120,7 @@
 
 /* tekst der står på striberne får et lille "papirkort" bag sig, så den er let at læse */
 .kort {
-  background: rgba(255, 253, 251, 0.92);
+  background: rgba(245, 239, 230, 0.92);
   padding: 1.25rem 1.4rem;
   border-radius: 12px;
 }
@@ -145,8 +148,10 @@
   transform: scale(1.03);
 }
 .photo.full {
-  flex: 1;
-  min-height: 520px;
+  /* samme format som billedet (2:3), så hele portrættet vises uden at blive beskåret */
+  aspect-ratio: 2 / 3;
+  width: 75%; /* lidt mindre end siden, centreret */
+  margin: auto;
 }
 
 /* ---------- Opslag 1: citatet ---------- */
@@ -305,7 +310,7 @@
   border-bottom: 1px solid currentColor;
 }
 .contact .links a:hover {
-  color: #321508;
+  color: var(--color-tekst);
 }
 
 /* ---------- Lightbox ---------- */
@@ -347,7 +352,7 @@ dialog.lightbox::backdrop {
 .lightbox button:hover {
   background: var(--color-box-bg-2);
   border-color: var(--color-box-bg-2);
-  color: #222;
+  color: var(--color-tekst);
 }
 
 /* ---------- Første opslag åbner som et magasin ---------- */
@@ -390,7 +395,7 @@ dialog.lightbox::backdrop {
     min-height: 120vw;
   }
   .photo.full {
-    min-height: 110vw;
+    min-height: 0;
   }
   .intro-grid {
     grid-template-columns: 1fr;

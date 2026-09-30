@@ -2,7 +2,7 @@
 .grid1_1 {
   display: flex;
   flex-direction: column;
-  padding-block: 7rem;
+  padding-block: 3rem 5rem;
 }
 
 .info h1 {
@@ -36,7 +36,7 @@
 .kontakt_billede {
   width: 100%;
   height: auto;
-  padding: 2rem;
+  padding-block: 2rem;
 }
 @media (min-width: 768px) {
   .grid1_1 {
@@ -44,7 +44,6 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 400px); /* tekst | billede */
     gap: 5rem;
     align-items: center;
-    margin-inline: 7rem;
   }
 
   .info {
@@ -59,7 +58,9 @@
   .kontakt_billede img {
     width: 100%;
     height: auto;
-    margin-block: 7rem;
+  }
+  .grid1_1 {
+    padding-block: 6rem;
   }
 }
 

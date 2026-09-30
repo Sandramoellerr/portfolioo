@@ -8,8 +8,6 @@
   margin-bottom: 6rem;
 }
 .box1_billede {
-  width: 70%;
-  margin-inline: auto;
   margin-top: 4rem;
 }
 .info h1 {
@@ -23,10 +21,14 @@
 .streg1 {
   background-color: var(--color-header);
   display: grid;
-  padding: 2rem;
+  padding-block: 2rem;
+  /* banneret går helt ud til kanterne, men teksten flugter med --side */
+  margin-inline: calc(-1 * var(--side));
+  padding-inline: var(--side);
 }
 .streg1 p {
-  color: black;
+  max-width: none;
+  color: var(--color-tekst);
   align-items: end;
   font-style: italic;
   font-size: x-small;
@@ -39,49 +41,66 @@
 }
 
 @media (min-width: 768px) {
+  /* 2 kolonner x 2 rækker: billede + tekst øverst, banneret nederst i fuld bredde.
+     Billedet går ned over banneret, så banneret ligger bag billedet */
   .box1 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 2fr 3fr; /* billedet i venstre side, tekst til højre */
+    grid-template-rows: auto auto;
+    gap: 0;
   }
 
   .box1_billede {
-    width: 90%;
-    margin-left: 8rem;
-    margin-top: 9rem;
-    z-index: 2;
+    grid-column: 1;
+    grid-row: 1 / 3; /* går ned gennem begge rækker, til bunden af banneret */
+    z-index: 2; /* ligger oven på banneret */
+    align-self: stretch; /* billedet går fra navnet og helt ned til bunden af banneret */
+    width: auto;
+    margin: 5rem 0 0 0; /* top = samme som h1's margin-top, så billede og navn flugter */
+  }
+
+  .box1_billede img {
+    display: block; /* fjerner lille luft under billedet */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* beskærer i stedet for at strække billedet */
+    border-radius: 12px 12px 0 0; /* skarpe hjørner i bunden, hvor banneret slutter */
+  }
+
+  /* lader .info og .streg1 blive placeret direkte i .box1's grid */
+  .grid1_1 {
+    display: contents;
+  }
+
+  .info {
+    grid-column: 2;
+    grid-row: 1;
+    padding-left: 4rem; /* luft mellem billede og tekst */
   }
 
   .streg1 {
-    background-color: var(--color-header);
-    padding: 2rem;
-    margin-top: auto;
-    text-align: right;
-    margin-left: -1rem;
-    display: grid;
+    grid-column: 1 / -1; /* banneret går hele vejen hen over siden */
+    grid-row: 2;
     z-index: 1;
-  }
-
-  .grid1_1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 3rem;
-  }
-  .info {
-    margin-inline: auto;
+    background-color: var(--color-header);
+    text-align: right;
+    display: grid;
   }
   .info p {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 0.9rem;
   }
 
   .info h1 {
+    font-size: 4.5rem;
+    line-height: 1;
     margin-bottom: 2rem;
     margin-top: 5rem;
   }
   .info h2 {
+    font-size: 2.2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -93,8 +112,9 @@
 .box2 {
   overflow: hidden;
   width: 100%;
-  background-color: var(--color-box-bg-2);
-  padding: 3px;
+  background-color: var(--color-bg); /* creme */
+  border-block: 1px solid var(--color-bg2); /* tynde streger, så båndet stadig kan ses */
+  padding: 3px 0; /* rullebåndet går helt ud til kanten */
 }
 
 .scroll-content {
@@ -169,8 +189,6 @@
 }
 .box3_billede {
   order: 1;
-  width: 50%;
-  margin-inline: auto;
   margin-top: 3rem;
 }
 
@@ -178,6 +196,7 @@
   .box3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
   }
 
   .tekst {
@@ -186,14 +205,13 @@
 
   .citat {
     margin-top: 14rem;
-    margin-left: 12rem;
     font-size: 1.5rem;
   }
   .box3_billede {
     order: 2;
-    width: 50%;
+    width: 60%;
+    justify-self: end; /* flugter med højre side */
     margin-block: 10rem;
-    margin-inline: auto;
   }
 
   .mellemled {
@@ -212,6 +230,9 @@
 .oversigt {
   padding-top: 3rem;
   background-color: var(--color-bg);
+  /* beige felt går helt ud til kanten på mobil, teksten flugter med --side */
+  margin-inline: calc(-1 * var(--side));
+  padding-inline: var(--side);
 }
 
 .box4 p {
@@ -223,25 +244,19 @@
 }
 .billede4_1 {
   order: 3;
-  width: 70%;
   height: auto;
-  margin-inline: auto;
   margin-block: 4rem;
 }
 
 .billede4_2 {
   order: 3;
-  width: 70%;
   height: auto;
-  margin-inline: auto;
   margin-bottom: 4rem;
 }
 
 .billede4_3 {
   order: 3;
-  width: 70%;
   height: 80%;
-  margin-inline: auto;
   margin-bottom: 7rem;
 }
 
@@ -253,7 +268,7 @@
   display: block;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  width: 90%;
+  width: 100%;
   height: 1px;
   background-color: black;
 }
@@ -277,30 +292,29 @@
 
   .billede4_1 {
     order: 3;
-    width: 50%;
+    width: 60%;
     height: auto;
-    margin-inline: auto;
     margin-top: 7rem;
   }
 
   .billede4_2 {
     order: 3;
-    width: 50%;
+    width: 60%;
     height: auto;
-    margin-inline: auto;
     margin-bottom: 6rem;
   }
   .billede4_3 {
     order: 3;
-    width: 50%;
+    width: 60%;
     height: 80%;
-    margin-inline: auto;
     margin-top: 12rem;
     margin-bottom: 2rem;
   }
   .oversigt {
     order: 3;
     background-color: var(--color-box-bg-1);
+    margin-inline: 0;
+    padding-inline: 0;
   }
 }
 /* ==========================
@@ -309,8 +323,8 @@
 .box5 {
   display: flex;
   justify-content: space-between;
-  color: black;
-  background-color: white;
+  color: var(--color-tekst);
+  background-color: var(--color-bg);
 }
 
 /* ==========================
@@ -318,7 +332,7 @@
 ========================== */
 
 .box6 {
-  background-color: var(--color-box-bg-2);
+  background-color: var(--color-bg);
 }
 
 .billede_box6 {
@@ -328,23 +342,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-inline: auto;
-  background-color: white;
+  background-color: var(--color-bg);
   padding-block: 5rem;
+  padding-inline: 1.5rem; /* luft inde i den hvide boks */
 }
 .info_6 h3 {
   margin-block: 2rem;
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 5vw, 2rem); /* mindre på mobil, så ordene ikke stikker ud */
 }
 .billede1_6 {
   width: 60%;
   margin-top: 3rem;
-  margin-left: 3rem;
 }
 
 .billede2_6 {
   width: 60%;
-  margin-left: 6rem;
+  margin-left: auto; /* flugter med højre side */
   margin-block: 1rem;
 }
 
@@ -362,12 +375,13 @@
   .billede1_6 {
     position: absolute;
     bottom: 20px; /* luft til bunden */
-    width: 35%;
-    margin-left: 7rem;
+    left: var(--side); /* flugter med venstre side */
+    width: 28%;
+    margin: 0;
   }
 
   .billede1_6 img {
-    width: 80%;
+    width: 100%;
     display: block;
     object-fit: cover;
   }
@@ -375,14 +389,15 @@
   /* billede øverst højre */
   .billede2_6 {
     position: absolute;
-    right: 0;
+    right: var(--side); /* flugter med højre side */
     top: 10px; /* luft fra toppen */
-    width: 35%;
+    width: 28%;
+    margin: 0;
   }
 
   .billede2_6 img {
     margin-top: 4rem;
-    width: 80%;
+    width: 100%;
     display: block;
     object-fit: cover;
   }
@@ -397,7 +412,7 @@
     width: 40%;
     z-index: 2;
 
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(245, 239, 230, 0.92); /* creme */
     padding: 40px;
     text-align: center;
   }
