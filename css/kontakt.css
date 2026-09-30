@@ -1,4 +1,19 @@
-/*****KONTAKT SIDE (lidt anderledes end de andre)*******/
+/* ==========================================================
+   KONTAKT.CSS – siden "Kontakt" (lidt anderledes end de andre)
+   Farver, skrifttyper, header og footer ligger i generel.css.
+
+   Opbygning: først styling til mobil, og lige under kommer
+   det responsive (desktop) for sektionen.
+
+   Indhold:
+   BOX1 – "Lad os skabe noget sammen" + billede af mig
+   ========================================================== */
+
+/* ==========================================================
+   BOX1 – LAD OS SKABE NOGET SAMMEN
+   ========================================================== */
+
+/* på mobil står teksten øverst og billedet under */
 .grid1_1 {
   display: flex;
   flex-direction: column;
@@ -7,14 +22,14 @@
 
 .info h1 {
   font-size: 1.8rem;
-
   margin-top: 3rem;
 }
+
 .info h2 {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   text-align: start;
-  color: var(--color-box-bg-1);
+  color: var(--color-terracotta);
 }
 
 .info p {
@@ -22,28 +37,27 @@
   text-align: start;
 }
 
+/* "Jeg glæder mig til at høre fra dig ♡" */
 .speciel {
   text-align: center;
 }
-.kontakt {
-  text-align: center;
-  color: var(--color-box-bg-1);
-  font-style: italic;
-  font-size: 1rem;
-  margin-block: 3rem;
-  font-weight: bold;
-}
+
 .kontakt_billede {
   width: 100%;
   height: auto;
   padding-block: 2rem;
 }
+
+/* ---------- responsive: box1 ---------- */
+
+/* desktop (fra 768px): tekst til venstre, billede til højre */
 @media (min-width: 768px) {
   .grid1_1 {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 400px); /* tekst | billede */
     gap: 5rem;
     align-items: center;
+    padding-block: 6rem;
   }
 
   .info {
@@ -52,19 +66,10 @@
 
   .kontakt_billede {
     grid-column: 2;
-    width: 100%;
-  }
-
-  .kontakt_billede img {
-    width: 100%;
-    height: auto;
-  }
-  .grid1_1 {
-    padding-block: 6rem;
   }
 }
 
-/* mellemstore skærme: overskriften må bryde, så billedet ikke skubbes ud */
+/* mellemstore skærme (768-1100px): overskriften må bryde, så billedet ikke skubbes ud */
 @media (min-width: 768px) and (max-width: 1100px) {
   .grid1_1 h2 {
     white-space: normal;

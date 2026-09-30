@@ -1,13 +1,35 @@
-/* Fotografi – Sandra Møller Gregersen
-   Bruger samme fonte og farver som resten af sitet (se generel.css) */
+/* ==========================================================
+   FOTOGRAFI.CSS – siden "Fotografi" (bygget som et magasin)
+   Bruger samme fonte og farver som resten af sitet (se generel.css).
+
+   Opbygning: hver sektion har først styling til mobil, og lige
+   under kommer det responsive (tablet/desktop) for den sektion.
+   Magasinet har tre breakpoints:
+     - fra 561px: serien står i to kolonner
+     - fra 861px: opslagene bliver til to sider ved siden af hinanden
+
+   Indhold:
+   1. Variabler til magasinet
+   2. Grundlayout (magasinet, tilbage-link)
+   3. Opslag og sider
+   4. Billeder
+   5. Opslag 1: "Alle starter et sted"
+   6. Opslag 2: "tag billedet alligevel" + serien
+   7. Opslag 3: arkivet
+   8. Kontakt (sidste side)
+   9. Lightbox (billedet i stor størrelse)
+   10. Animation: første opslag åbner som et magasin
+   ========================================================== */
+
+/* ==========================================================
+   1. VARIABLER TIL MAGASINET
+   ========================================================== */
 
 .magasin {
-  --blush: var(--color-box-bg-2);
   --paper: #ffffff; /* hvide magasinsider */
   --ink: var(--color-tekst);
-  --muted: #7a6a64;
-  --accent: #b07a6a;
-  --placeholder: #eadcd6;
+  --accent: var(--color-terracotta);
+  --placeholder: #eadcd6; /* farven der ses, mens et billede loader */
 
   /* det stribede papir fra baggrunds-papir.png, lavet i CSS så det altid er skarpt */
   --stripe-pink: #fcdddb;
@@ -21,11 +43,22 @@
   --display: "Prata", serif;
   --serif: "Cormorant Garamond", serif;
   --sans: "Inter", sans-serif;
+}
 
+/* ==========================================================
+   2. GRUNDLAYOUT
+   ========================================================== */
+
+.magasin {
   color: var(--ink);
   font-family: var(--sans);
   font-size: 1rem;
   line-height: 1.7;
+  margin: 0;
+  padding: 2rem var(--side) 6rem; /* fælles sidemargin */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(3rem, 7vw, 6rem); /* luft mellem opslagene */
 }
 
 /* nulstiller layoutet fra generel.css inde i magasinet */
@@ -37,6 +70,7 @@
   color: var(--ink);
 }
 
+/* tydelig ramme når man bruger tab-tasten */
 .magasin a:focus-visible,
 .lightbox button:focus-visible,
 .photo:focus-visible {
@@ -44,6 +78,7 @@
   outline-offset: 3px;
 }
 
+/* linket "← Tilbage til karriere & erfaring" */
 .tilbage {
   justify-self: start;
   font-size: 0.9rem;
@@ -55,14 +90,11 @@
   color: var(--color-tekst);
 }
 
-/* ---------- Opslag ---------- */
-.magasin {
-  margin: 0;
-  padding: 2rem var(--side) 6rem; /* fælles sidemargin */
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(3rem, 7vw, 6rem);
-}
+/* ==========================================================
+   3. OPSLAG OG SIDER
+   Et opslag (.spread) består af to sider (.page).
+   På mobil står siderne under hinanden.
+   ========================================================== */
 
 .magasin > .spread {
   padding-inline: 0; /* opslagene flugter selv med sidemarginen */
@@ -70,34 +102,27 @@
 
 .spread {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   box-shadow: 0 30px 60px -30px rgba(60, 30, 45, 0.35);
 }
 
 .page {
   position: relative;
-  min-height: 640px;
   padding: 3.5rem clamp(1.5rem, 3.5vw, 3rem) 3.5rem;
   display: flex;
   flex-direction: column;
 }
 
-/* folden midt i opslaget ligger oven på baggrunden */
-.page.left {
-  --fold: linear-gradient(to left, rgba(0, 0, 0, 0.09), transparent 7%);
-}
-.page.right {
-  --fold: linear-gradient(to right, rgba(0, 0, 0, 0.09), transparent 7%);
-}
-
+/* siderne er enten stribede eller hvide */
 .page.pink {
   background: var(--fold, none), var(--stripes);
 }
+
 .page.white {
   background: var(--fold, none), var(--paper);
 }
 
-/* små overskrifter i toppen og bunden – samme stil som h3 på resten af sitet */
+/* små overskrifter i toppen og bunden af hver side – samme stil som h3 på resten af sitet */
 .running-head,
 .folio {
   position: absolute;
@@ -111,9 +136,11 @@
   text-transform: uppercase;
   color: var(--accent);
 }
+
 .running-head {
   top: 1.3rem;
 }
+
 .folio {
   bottom: 1.3rem;
 }
@@ -125,7 +152,33 @@
   border-radius: 12px;
 }
 
-/* ---------- Billeder ---------- */
+/* ---------- responsive: opslag og sider ---------- */
+
+/* desktop (fra 861px): to sider ved siden af hinanden, med en fold i midten */
+@media (min-width: 861px) {
+  .spread {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .page {
+    min-height: 640px;
+  }
+
+  /* folden midt i opslaget ligger oven på baggrunden */
+  .page.left {
+    --fold: linear-gradient(to left, rgba(0, 0, 0, 0.09), transparent 7%);
+  }
+
+  .page.right {
+    --fold: linear-gradient(to right, rgba(0, 0, 0, 0.09), transparent 7%);
+  }
+}
+
+/* ==========================================================
+   4. BILLEDER
+   Alle billeder i magasinet kan klikkes på og åbnes i stor størrelse.
+   ========================================================== */
+
 .photo {
   position: relative;
   margin: 0;
@@ -134,6 +187,7 @@
   border-radius: 12px;
   cursor: zoom-in;
 }
+
 .photo img {
   position: absolute;
   inset: 0;
@@ -141,54 +195,85 @@
   height: 100%;
   object-fit: cover;
   border-radius: 0;
+  /* sort-hvid: sæt style="--gray: 1" på et billede i HTML'en (bruges på "tag billedet alligevel") */
   filter: grayscale(var(--gray, 0));
   transition: transform 0.4s ease;
 }
+
 .photo:hover img {
   transform: scale(1.03);
 }
-.photo.full {
-  /* samme format som billedet (2:3), så hele portrættet vises uden at blive beskåret */
-  aspect-ratio: 2 / 3;
-  width: 75%; /* lidt mindre end siden, centreret */
-  margin: auto;
-}
 
-/* ---------- Opslag 1: citatet ---------- */
+/* ==========================================================
+   5. OPSLAG 1: "ALLE STARTER ET STED"
+   ========================================================== */
+
 .quote {
   font-family: var(--display);
   font-weight: 400;
   font-size: clamp(2.6rem, 6vw, 5rem);
   line-height: 1.05;
   margin: 1.5rem 0 1.75rem;
-  text-indent: -0.4em;
+  text-indent: -0.4em; /* anførselstegnet hænger lidt ud til venstre */
   padding-left: 0.4em;
 }
+
+/* tekst og billede under citatet – på mobil under hinanden */
 .intro-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   align-items: end;
   margin-top: auto;
 }
+
 .intro-grid p {
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.8;
 }
+
 .intro-grid .photo {
   aspect-ratio: 3 / 4;
 }
 
-/* ---------- Opslag 2: citat på helsidesbillede ---------- */
+/* portrættet på højre side */
+.photo.full {
+  /* samme format som billedet (2:3), så hele portrættet vises uden at blive beskåret */
+  aspect-ratio: 2 / 3;
+  width: 75%; /* lidt mindre end siden, centreret */
+  min-height: 0;
+  margin: auto;
+}
+
+/* ---------- responsive: opslag 1 ---------- */
+
+/* desktop (fra 861px): tekst og billede ved siden af hinanden */
+@media (min-width: 861px) {
+  .intro-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  }
+}
+
+/* ==========================================================
+   6. OPSLAG 2: "TAG BILLEDET ALLIGEVEL" + SERIEN
+   Venstre side: ét stort sort-hvidt billede med et citat ovenpå.
+   Højre side: tre billeder + tekstboksen "En eftermiddag i byen".
+   ========================================================== */
+
+/* siden med det store billede (billedet fylder hele siden) */
 .page.bleed {
   padding: 0;
+  min-height: 120vw;
 }
+
 .page.bleed .photo {
   position: absolute;
   inset: 0;
   border-radius: 0;
 }
+
+/* det hvide citat ovenpå billedet */
 .pixel-quote {
   position: absolute;
   z-index: 2;
@@ -205,55 +290,118 @@
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
   pointer-events: none;
 }
+
 .page.bleed .running-head,
 .page.bleed .folio {
   z-index: 2;
   color: #fff;
 }
 
+/* serien: på mobil står alt i én kolonne */
 .series {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   align-items: start;
   margin-top: 1rem;
 }
+
 .series .stack {
   display: grid;
   gap: 1.25rem;
 }
+
 .series .photo {
   aspect-ratio: 4 / 5;
 }
+
+/* den stribede boks med teksten */
 .pink-block {
   background: var(--stripes);
   padding: 0.6rem;
   border-radius: 12px;
 }
+
 .pink-block h2 {
   font-family: var(--serif);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.1;
   margin: 0 0 0.6rem;
 }
+
 .pink-block p {
   font-size: 0.85rem;
   line-height: 1.7;
   margin: 0;
 }
-.series .offset {
-  margin-top: 5rem;
+
+/* ---------- responsive: opslag 2 ---------- */
+
+/* tablet (fra 561px): serien i to kolonner, og tekstboksen strækker sig ned ud for billederne til højre */
+@media (min-width: 561px) {
+  .series {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .series .stack:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .series .pink-block {
+    flex: 1;
+    display: flex;
+    align-items: center; /* det beige kort sidder i midten med striber over og under */
+  }
+
+  .series .pink-block .kort {
+    flex: 1;
+    padding-block: 1.25rem; /* kortet er kun så højt som teksten */
+  }
+
+  .pink-block h2 {
+    font-size: 1.7rem;
+  }
 }
 
-/* ---------- Opslag 3: arkivet ---------- */
+/* desktop (fra 861px): opslaget gøres lavere, så hele opslaget kan ses på skærmen på én gang */
+@media (min-width: 861px) {
+  .page.bleed {
+    min-height: 640px;
+  }
+
+  .series .photo {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* højre kolonne står lidt lavere end venstre */
+  .series .offset {
+    margin-top: 2.5rem;
+  }
+
+  .page:has(.series) {
+    min-height: 0;
+    padding-block: 3rem;
+  }
+}
+
+/* ==========================================================
+   7. OPSLAG 3: ARKIVET
+   ========================================================== */
+
+/* overskriften "Arkivet" og teksten ved siden af – på mobil under hinanden */
 .archive-head {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: end;
+  align-items: start;
   gap: 1rem;
   margin: 1rem 0 1.5rem;
 }
+
 .archive-head h2 {
   font-family: var(--serif);
   font-weight: 500;
@@ -261,6 +409,7 @@
   line-height: 1;
   margin: 0;
 }
+
 .archive-head p {
   margin: 0;
   font-size: 0.8rem;
@@ -268,21 +417,47 @@
   max-width: 26ch;
   padding: 0.6rem 0.9rem;
 }
+
+/* billedgitteret: 2 kolonner på mobil */
 .archive {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-flow: dense;
   gap: 0.75rem;
 }
+
 .archive .photo {
   aspect-ratio: 1;
 }
+
+/* billede nr. 4 er bredt og fylder to kolonner */
 .archive .photo:nth-child(4) {
   grid-column: span 2;
-  aspect-ratio: auto;
+  aspect-ratio: 2 / 1;
 }
 
-/* ---------- Kontakt ---------- */
+/* ---------- responsive: opslag 3 ---------- */
+
+/* desktop (fra 861px): overskrift og tekst ved siden af hinanden, 3 kolonner billeder */
+@media (min-width: 861px) {
+  .archive-head {
+    flex-direction: row;
+    align-items: end;
+  }
+
+  .archive {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .archive .photo:nth-child(4) {
+    aspect-ratio: auto;
+  }
+}
+
+/* ==========================================================
+   8. KONTAKT (sidste side i magasinet)
+   ========================================================== */
+
 .contact h2 {
   font-family: var(--serif);
   font-style: italic;
@@ -293,27 +468,40 @@
   text-indent: -0.4em;
   padding-left: 0.4em;
 }
+
 .contact p {
   max-width: 36ch;
   margin: 0 0 1.5rem;
   line-height: 1.8;
 }
+
+/* links til mail, Instagram og Substack */
 .contact .links {
   display: grid;
   gap: 0.6rem;
   margin-top: auto;
   font-size: 0.95rem;
 }
+
 .contact .links a {
   justify-self: start;
   color: var(--accent);
   border-bottom: 1px solid currentColor;
 }
+
 .contact .links a:hover {
   color: var(--color-tekst);
 }
 
-/* ---------- Lightbox ---------- */
+/* ---------- responsive: kontakt ---------- */
+/* ser ens ud på mobil og desktop */
+
+/* ==========================================================
+   9. LIGHTBOX
+   Når man klikker på et billede, åbner det i stor størrelse.
+   Styres med javascript nederst i fotografi.html.
+   ========================================================== */
+
 dialog.lightbox {
   border: 0;
   padding: 0;
@@ -321,9 +509,12 @@ dialog.lightbox {
   max-width: 92vw;
   max-height: 92vh;
 }
+
+/* den mørke baggrund bag billedet */
 dialog.lightbox::backdrop {
   background: rgba(34, 28, 26, 0.88);
 }
+
 .lightbox img {
   display: block;
   width: auto;
@@ -332,95 +523,60 @@ dialog.lightbox::backdrop {
   object-fit: contain;
   border-radius: 12px;
 }
+
+/* knapperne under billedet (forrige, næste, luk) */
 .lightbox-bar {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   padding-top: 0.75rem;
 }
+
 .lightbox button {
   font-family: "Inter", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 1px;
-  color: var(--color-bg);
+  color: var(--color-creme);
   background: transparent;
-  border: 1px solid var(--color-bg);
+  border: 1px solid var(--color-creme);
   padding: 0.5rem 1.2rem;
   min-height: 44px;
   cursor: pointer;
 }
+
 .lightbox button:hover {
-  background: var(--color-box-bg-2);
-  border-color: var(--color-box-bg-2);
+  background: var(--color-lyserod);
+  border-color: var(--color-lyserod);
   color: var(--color-tekst);
 }
 
-/* ---------- Første opslag åbner som et magasin ---------- */
+/* ==========================================================
+   10. ANIMATION: FØRSTE OPSLAG ÅBNER SOM ET MAGASIN
+   Kun hvis brugeren ikke har slået animationer fra på sin enhed.
+   ========================================================== */
+
 @media (prefers-reduced-motion: no-preference) {
   .spread:first-of-type .page.left {
     animation: open-left 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     transform-origin: right center;
   }
+
   .spread:first-of-type .page.right {
     animation: open-right 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     transform-origin: left center;
   }
+
   @keyframes open-left {
     from {
       transform: perspective(1600px) rotateY(18deg);
       opacity: 0;
     }
   }
+
   @keyframes open-right {
     from {
       transform: perspective(1600px) rotateY(-18deg);
       opacity: 0;
     }
-  }
-}
-
-/* ---------- Mobil ---------- */
-@media (max-width: 860px) {
-  .spread {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .page {
-    min-height: auto;
-  }
-  .page.left,
-  .page.right {
-    --fold: none;
-  }
-  .page.bleed {
-    min-height: 120vw;
-  }
-  .photo.full {
-    min-height: 0;
-  }
-  .intro-grid {
-    grid-template-columns: 1fr;
-  }
-  .series .offset {
-    margin-top: 0;
-  }
-  .archive-head {
-    flex-direction: column;
-    align-items: start;
-  }
-  .archive {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .archive .photo:nth-child(4) {
-    aspect-ratio: 2 / 1;
-  }
-}
-
-/* telefoner: serien stables i én kolonne, så billeder og tekst får plads */
-@media (max-width: 560px) {
-  .series {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .pink-block h2 {
-    font-size: 1.5rem;
   }
 }

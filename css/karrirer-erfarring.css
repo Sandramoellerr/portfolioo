@@ -1,16 +1,36 @@
-/* ==========================
-   BOX1
-========================== */
+/* ==========================================================
+   KARRIRER-ERFARRING.CSS – siden "Karriere & erfaring"
+   Farver, skrifttyper, header og footer ligger i generel.css.
+
+   Opbygning: hver sektion har først styling til mobil, og lige
+   under kommer det responsive (desktop) for den sektion.
+
+   Indhold:
+   BOX1 – "Fra barista til Assistant Manager" (Espresso House)
+   BOX2 – "Ansvar med plads til kreativiteten" + latte-videoen
+   BOX3 – "Mit kreative univers": juice-billede + mine to Instagram-profiler
+   BOX4 – "Klar til næste kapitel" + "Læs mere" på mobil
+   ========================================================== */
+
+/* ==========================================================
+   BOX1 – FRA BARISTA TIL ASSISTANT MANAGER
+   ========================================================== */
 
 .box1 {
   margin-top: 3rem;
 }
+
 .intro h2 {
   margin-left: 0;
 }
+
 .intro h3 {
   margin-left: 0;
   font-style: italic;
+}
+
+.beskrivelse p {
+  margin-block: 2rem;
 }
 
 .billede_box1 {
@@ -18,10 +38,10 @@
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
-.beskrivelse p {
-  margin-block: 2rem;
-}
 
+/* ---------- responsive: box1 ---------- */
+
+/* desktop (fra 768px): tekst til venstre, billede til højre */
 @media (min-width: 768px) {
   .box1 {
     display: grid;
@@ -30,18 +50,12 @@
     margin-block: 3rem;
   }
 
-  /* billedet flugter med højre side */
-  .billede_box1 {
-    width: 70%;
-    justify-self: end;
-    margin-bottom: 3rem;
-  }
   .intro {
     margin-top: 9rem;
   }
 
   .intro h3 {
-    text-align: end;
+    text-align: start;
     font-size: smaller;
     letter-spacing: 2px;
   }
@@ -50,16 +64,24 @@
     margin-top: 4rem;
     margin-bottom: 2rem;
   }
-}
-/* ==========================
-   BOX2
-========================== */
 
+  /* billedet flugter med højre side */
+  .billede_box1 {
+    width: 70%;
+    justify-self: end;
+    margin-bottom: 3rem;
+  }
+}
+
+/* ==========================================================
+   BOX2 – ANSVAR MED PLADS TIL KREATIVITETEN
+   ========================================================== */
+
+/* baggrunden er det lyserøde stribede papir */
 .box2 {
   position: relative;
   background-image: url("../baggrunds-papir.png");
   background-size: 100% 100%;
-
   background-position: center;
   background-repeat: no-repeat;
   padding-block: 4rem;
@@ -68,6 +90,7 @@
   flex-direction: column;
 }
 
+/* et tyndt hvidt lag ovenpå papiret, så teksten er nemmere at læse */
 .box2::before {
   content: "";
   position: absolute;
@@ -75,23 +98,37 @@
   background: rgba(255, 255, 255, 0.116);
 }
 
+/* indholdet ligger ovenpå det hvide lag */
 .box2 > * {
   position: relative;
   z-index: 1;
 }
 
-/* MOBIL */
+/* på mobil kommer teksten først og video/billede bagefter */
 .om_mig {
   order: 1;
   max-width: 500px;
 }
+
+.om_mig h2 {
+  margin-top: 1rem;
+}
+
+.om_mig h3 {
+  color: var(--color-terracotta);
+  margin-block: 1rem 2.5rem;
+  text-align: start;
+  letter-spacing: 2px;
+}
+
 .billede_box2 {
   order: 2;
 }
+
 .billede_box2 img {
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: #b07a6a 1px solid;
+  border: var(--color-terracotta) 1px solid;
   object-position: top;
 }
 
@@ -99,21 +136,7 @@
   margin-block: 2rem;
 }
 
-.om_mig h2 {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.om_mig h3 {
-  color: #b07a6a;
-
-  margin-block: 1rem 2.5rem;
-  text-align: end;
-  letter-spacing: 2px;
-}
-/* ==========================
-   VIDEO I BOX2
-========================== */
+/* latte-videoen */
 .billede_box2 video {
   width: 100%;
   max-height: 480px;
@@ -124,7 +147,9 @@
   border-radius: 12px;
 }
 
-/* DESKTOP */
+/* ---------- responsive: box2 ---------- */
+
+/* desktop (fra 768px): video og billede til venstre, tekst til højre */
 @media (min-width: 768px) {
   .box2 {
     display: grid;
@@ -147,7 +172,6 @@
   .billede_box2 video {
     width: 70%;
     height: auto;
-
     object-fit: cover;
     object-position: top;
   }
@@ -162,9 +186,10 @@
   }
 }
 
-/* ==========================
-   BOX3
-========================== */
+/* ==========================================================
+   BOX3 – MIT KREATIVE UNIVERS
+   ========================================================== */
+
 .box3 {
   display: flex;
   flex-direction: column;
@@ -175,9 +200,9 @@
 .about_text h2 {
   line-height: 1;
   margin-block: 0 1.5rem;
-  text-align: center;
 }
 
+/* små tekster med store bogstaver */
 .small-text {
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -190,34 +215,40 @@
   line-height: 1.7;
 }
 
-/*billeder*/
+/* billederne */
 .about_images {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* mobil: billederne fylder hele bredden inden for sidemarginen */
+/* juice-billedet i sit eget format (3:4), så det ikke bliver mast */
 .stort {
   width: 100%;
-  height: 340px;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
-.lille {
+/* de to Instagram-skærmbilleder: vises helt, med en tynd ramme */
+.insta-kolonne {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.insta-skaerm {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
+  background: #fff;
+  border: 1px solid rgba(90, 58, 40, 0.15);
+  box-shadow: 0 8px 20px -12px rgba(90, 58, 40, 0.35);
 }
 
-.insta {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
+/* ---------- responsive: box3 ---------- */
 
+/* desktop (fra 900px): tekst til venstre, billeder til højre, kontakt-boks i fuld bredde under */
 @media (min-width: 900px) {
-  /* tekst til venstre, billeder til højre, kontakt-boks i fuld bredde under */
   .box3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -225,63 +256,46 @@
     column-gap: 4rem;
     row-gap: 3rem;
   }
+
   .box3 > a {
     grid-column: 1 / -1;
   }
+
   .specielh3 {
-    color: #b07a6a;
-    font-size: 1.5rem;
-    padding: 3rem;
-    text-align: center;
-    border: var(--color-header) 2px solid;
     margin: 0;
     margin-bottom: 6rem;
   }
+
   .about_text {
     max-width: 560px;
   }
 
+  /* juice-billedet til venstre, forskudt nedad i forhold til insta-skærmbillederne til højre */
   .about_images {
-    position: relative;
-    height: 650px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
   }
 
-  /* Store billede */
   .stort {
-    position: absolute;
-    width: 270px;
-    height: 420px;
-    object-fit: cover;
-
-    left: 0; /* flugter med venstre side */
-    top: 130px;
-
-    z-index: 1;
+    margin-top: 6rem; /* forskydningen */
   }
 
-  /* Lille billede */
-  .lille {
-    position: absolute;
-    width: 50%;
-    height: 300px;
-    object-fit: cover;
-
-    top: 0;
-    right: 0; /* flugter med højre side */
-
-    z-index: 2;
+  .insta-kolonne {
+    width: 100%;
   }
 }
 
-/* ==========================
-   BOX4
-========================== */
+/* ==========================================================
+   BOX4 – KLAR TIL NÆSTE KAPITEL
+   ========================================================== */
 
 .box4 {
-  background-color: var(--color-bg2);
+  background-color: var(--color-terracotta);
   padding-inline: var(--side); /* fælles sidemargin */
   padding-block: 5rem;
-  margin-bottom: 5rem; /* creme luft mellem den rosa boks og footeren, så farverne ikke støder sammen */
+  margin-bottom: 5rem; /* creme luft mellem den terracotta boks og footeren, så farverne ikke støder sammen */
 }
 
 .box4_images {
@@ -300,9 +314,9 @@
   object-fit: cover;
 }
 
-/* hvid boks: luft rundt om teksten */
+/* creme boks med luft rundt om teksten */
 .box4_text {
-  background: var(--color-bg); /* creme boks */
+  background: var(--color-creme);
   padding: 2.5rem 1.75rem;
   margin-top: 2rem;
 }
@@ -317,51 +331,82 @@
   margin-bottom: 1.2rem;
   line-height: 1.7;
 }
+
+/* "Læs mere": den korte tekst og knappen er skjult som udgangspunkt (bruges kun på mobil) */
+.kort-tekst,
+.laes-mere-knap {
+  display: none;
+}
+
+/* ---------- responsive: box4 ---------- */
+
+/* mobil (op til 767px): kort tekst + "Læs mere"-knap. Den lange tekst er skjult til man trykker */
+@media (max-width: 767px) {
+  .box4_text .kort-tekst {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .laes-mere-indhold {
+    display: none;
+  }
+
+  /* klassen "aaben" sættes på med javascript (java/laes-mere.js) */
+  .laes-mere-indhold.aaben {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  .laes-mere-knap {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--color-tekst);
+    border-bottom: 1px solid currentColor;
+  }
+
+  /* lille pil efter teksten, der vender når teksten er åben */
+  .laes-mere-knap::after {
+    content: " ↓";
+  }
+
+  .laes-mere-knap[aria-expanded="true"]::after {
+    content: " ↑";
+  }
+}
+
+/* desktop (fra 900px): billeder til venstre, og tekstboksen går lidt ind over dem */
 @media (min-width: 900px) {
   .box4 {
     position: relative;
-
     display: grid;
     grid-template-columns: 55% 45%;
     align-items: center;
     padding-block: 8rem;
-
-    background: var(--color-bg2);
   }
-
-  /* Hvid boks */
-
-  .box4_text {
-    background: var(--color-bg);
-
-    padding: 3.5rem;
-
-    max-width: none; /* flugter med højre side */
-    margin-top: 0;
-    margin-left: -70px;
-
-    z-index: 2;
-  }
-
-  /* Billeder */
 
   .box4_images {
-    display: flex;
-
-    gap: 1rem;
     justify-content: start;
   }
 
   .img1 {
     width: 330px;
     height: 420px;
-    object-fit: cover;
   }
 
   .img2 {
     width: 180px;
     margin-top: 3rem;
     height: 250px;
-    object-fit: cover;
+  }
+
+  .box4_text {
+    padding: 3.5rem;
+    max-width: none; /* flugter med højre side */
+    margin-top: 0;
+    margin-left: -70px; /* går lidt ind over billederne */
+    z-index: 2;
   }
 }

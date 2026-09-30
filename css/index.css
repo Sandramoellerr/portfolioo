@@ -1,38 +1,26 @@
-/* ==========================
-   BOX1
-========================== */
-.info p {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 6rem;
-}
+/* ==========================================================
+   INDEX.CSS – forsiden
+   Farver, skrifttyper, header og footer ligger i generel.css.
+
+   Opbygning: hver sektion har først styling til mobil, og lige
+   under kommer det responsive (desktop fra 768px) for den sektion.
+
+   Indhold:
+   BOX1 – intro: billede af mig, "SANDRA" og banneret
+   BOX2 – rullebåndet med mine kompetencer (UX Design, Figma osv.)
+   BOX3 – citatet fra min rejseleder + billede
+   BOX4 – polaroids + oversigt med links til undersiderne
+   BOX6 – "Visuel storytelling" med to billeder
+   ========================================================== */
+
+/* ==========================================================
+   BOX1 – INTRO
+   ========================================================== */
+
 .box1_billede {
   margin-top: 4rem;
 }
-.info h1 {
-  margin-bottom: 2rem;
-}
-.info h2 {
-  margin-top: 2rem;
-  margin-bottom: 1.6rem;
-  color: var(--color-box-bg-1);
-}
-.streg1 {
-  background-color: var(--color-header);
-  display: grid;
-  padding-block: 2rem;
-  /* banneret går helt ud til kanterne, men teksten flugter med --side */
-  margin-inline: calc(-1 * var(--side));
-  padding-inline: var(--side);
-}
-.streg1 p {
-  max-width: none;
-  color: var(--color-tekst);
-  align-items: end;
-  font-style: italic;
-  font-size: x-small;
-}
+
 .grid1_1 {
   display: flex;
   flex-direction: column;
@@ -40,6 +28,44 @@
   margin-top: 5rem;
 }
 
+.info h1 {
+  margin-bottom: 2rem;
+}
+
+.info h2 {
+  margin-top: 2rem;
+  margin-bottom: 1.6rem;
+  color: var(--color-terracotta);
+}
+
+.info p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 6rem;
+}
+
+/* banneret "Kun kreativitet sætter grænser" */
+.streg1 {
+  background-color: var(--color-graa-beige);
+  display: grid;
+  padding-block: 2rem;
+  /* banneret går helt ud til kanterne, men teksten flugter med --side */
+  margin-inline: calc(-1 * var(--side));
+  padding-inline: var(--side);
+}
+
+.streg1 p {
+  max-width: none;
+  color: var(--color-tekst);
+  align-items: end;
+  font-style: italic;
+  font-size: x-small;
+}
+
+/* ---------- responsive: box1 ---------- */
+
+/* desktop (fra 768px) */
 @media (min-width: 768px) {
   /* 2 kolonner x 2 rækker: billede + tekst øverst, banneret nederst i fuld bredde.
      Billedet går ned over banneret, så banneret ligger bag billedet */
@@ -78,49 +104,48 @@
     padding-left: 4rem; /* luft mellem billede og tekst */
   }
 
-  .streg1 {
-    grid-column: 1 / -1; /* banneret går hele vejen hen over siden */
-    grid-row: 2;
-    z-index: 1;
-    background-color: var(--color-header);
-    text-align: right;
-    display: grid;
-  }
-  .info p {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 0.9rem;
-  }
-
   .info h1 {
     font-size: 4.5rem;
     line-height: 1;
     margin-bottom: 2rem;
     margin-top: 5rem;
   }
+
   .info h2 {
     font-size: 2.2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
+
+  .info p {
+    font-size: 0.9rem;
+  }
+
+  .streg1 {
+    grid-column: 1 / -1; /* banneret går hele vejen hen over siden */
+    grid-row: 2;
+    z-index: 1;
+    text-align: right;
+  }
 }
 
-/* ==========================
-   BOX2
-========================== */
+/* ==========================================================
+   BOX2 – RULLEBÅND MED KOMPETENCER
+   Teksten står der to gange i HTML'en, så animationen kan køre i ring.
+   ========================================================== */
+
 .box2 {
   overflow: hidden;
   width: 100%;
-  background-color: var(--color-bg); /* creme */
-  border-block: 1px solid var(--color-bg2); /* tynde streger, så båndet stadig kan ses */
+  background-color: var(--color-creme);
+  border-block: 1px solid var(--color-terracotta); /* tynde streger, så båndet stadig kan ses */
   padding: 3px 0; /* rullebåndet går helt ud til kanten */
 }
 
 .scroll-content {
   display: flex;
   width: max-content;
-  animation: scroll 25s linear infinite;
+  animation: scroll 25s linear infinite; /* samme animation som billederne i footeren */
 }
 
 .scroll-item {
@@ -136,10 +161,12 @@
   font-size: 1rem;
 }
 
+/* de små streger mellem ordene */
 .scroll-item span {
   color: #8b6f47;
 }
 
+/* animation fra højre mod venstre */
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -149,18 +176,25 @@
     transform: translateX(-50%);
   }
 }
-@media (min-width: 768px) {
-  .box2 {
-    justify-content: center;
-  }
-}
-/* ==========================
-   BOX3
-========================== */
+
+/* ---------- responsive: box2 ---------- */
+/* rullebåndet ser ens ud på mobil og desktop, så der er ikke noget her */
+
+/* ==========================================================
+   BOX3 – CITAT FRA MIN REJSELEDER
+   ========================================================== */
+
 .box3 {
   display: flex;
   flex-direction: column;
 }
+
+/* på mobil kommer billedet først og teksten bagefter */
+.box3_billede {
+  order: 1;
+  margin-top: 3rem;
+}
+
 .tekst {
   order: 2;
 }
@@ -170,7 +204,7 @@
   margin-bottom: 7rem;
   margin-top: 2rem;
   align-items: end;
-  color: var(--color-footer);
+  color: var(--color-graa-beige);
 }
 
 .citat {
@@ -181,17 +215,18 @@
   align-items: center;
   color: rgb(130, 136, 106);
 }
+
+/* små tekster med store bogstaver */
 .small-text {
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 2px;
   margin-bottom: 2rem;
 }
-.box3_billede {
-  order: 1;
-  margin-top: 3rem;
-}
 
+/* ---------- responsive: box3 ---------- */
+
+/* desktop (fra 768px): citat til venstre, billede til højre */
 @media (min-width: 768px) {
   .box3 {
     display: grid;
@@ -207,63 +242,101 @@
     margin-top: 14rem;
     font-size: 1.5rem;
   }
+
   .box3_billede {
     order: 2;
     width: 60%;
     justify-self: end; /* flugter med højre side */
     margin-block: 10rem;
   }
-
-  .mellemled {
-    display: none;
-  }
 }
-/* ==========================
-   BOX4
-========================== */
+
+/* ==========================================================
+   BOX4 – POLAROIDS OG OVERSIGT
+   Venstre: tre polaroids. Højre: links til Om mig, Karriere, MMD og Kontakt.
+   ========================================================== */
+
 .box4 {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-box-bg-1);
+  background-color: var(--color-terracotta);
 }
 
+/* ---------- polaroids ---------- */
+.billederbox4 {
+  background-color: var(--color-terracotta);
+  /* mobil: polaroids i to kolonner, den sidste centreret under */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1rem;
+  padding-block: 3.5rem;
+}
+
+.polaroid {
+  margin: 0;
+  padding: 0.6rem 0.6rem 0;
+  background: #fffdf9;
+  box-shadow: 0 14px 28px -14px rgba(60, 30, 20, 0.55);
+  transition: transform 0.3s ease;
+}
+
+.polaroid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* den håndskrevne tekst under billedet */
+.polaroid figcaption {
+  font-family: "Allura", cursive;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-align: center;
+  color: var(--color-tekst);
+  padding: 0.6rem 0 0.8rem;
+}
+
+/* let skæve, som hvis de var sat op på en opslagstavle */
+.polaroid-1 {
+  transform: rotate(-3deg);
+}
+
+.polaroid-2 {
+  transform: rotate(2.5deg);
+}
+
+.polaroid-3 {
+  transform: rotate(-1.5deg);
+  grid-column: 1 / -1;
+  width: 50%;
+  justify-self: center;
+}
+
+/* retter sig op og bliver lidt større, når man holder musen over */
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+/* ---------- oversigt med links ---------- */
 .oversigt {
   padding-top: 3rem;
-  background-color: var(--color-bg);
+  background-color: var(--color-creme);
   /* beige felt går helt ud til kanten på mobil, teksten flugter med --side */
   margin-inline: calc(-1 * var(--side));
   padding-inline: var(--side);
+}
+
+.box4 h2 {
+  margin-top: 2rem;
 }
 
 .box4 p {
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
-.box4 h2 {
-  margin-top: 2rem;
-}
-.billede4_1 {
-  order: 3;
-  height: auto;
-  margin-block: 4rem;
-}
 
-.billede4_2 {
-  order: 3;
-  height: auto;
-  margin-bottom: 4rem;
-}
-
-.billede4_3 {
-  order: 3;
-  height: 80%;
-  margin-bottom: 7rem;
-}
-
-.billederbox4 {
-  background-color: var(--color-box-bg-1);
-}
-
+/* tynd streg under hvert link */
 .streg {
   display: block;
   margin-top: 1rem;
@@ -272,84 +345,82 @@
   height: 1px;
   background-color: black;
 }
+
+/* ---------- responsive: box4 ---------- */
+
+/* desktop (fra 768px): polaroids til venstre, en creme stribe i midten, oversigten til højre */
 @media (min-width: 768px) {
   .box4 {
     display: grid;
     grid-template-columns: 1fr 80px 1fr;
   }
 
+  /* den creme stribe i midten */
   .beige-box {
     display: flex;
     order: 2;
     width: 40px;
     height: 100%;
-    background-color: var(--color-bg);
-
+    background-color: var(--color-creme);
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
 
-  .billede4_1 {
-    order: 3;
-    width: 60%;
-    height: auto;
-    margin-top: 7rem;
+  /* polaroids stablet lodret og lidt overlappende, skiftevis til venstre og højre */
+  .billederbox4 {
+    display: flex;
+    flex-direction: column;
+    padding-block: 6rem;
   }
 
-  .billede4_2 {
-    order: 3;
-    width: 60%;
-    height: auto;
-    margin-bottom: 6rem;
+  .polaroid {
+    width: 58%;
+    padding: 0.8rem 0.8rem 0;
   }
-  .billede4_3 {
-    order: 3;
-    width: 60%;
-    height: 80%;
-    margin-top: 12rem;
-    margin-bottom: 2rem;
+
+  .polaroid figcaption {
+    font-size: 1.9rem;
   }
+
+  .polaroid-1 {
+    align-self: flex-start;
+  }
+
+  .polaroid-2 {
+    align-self: flex-end;
+    margin-top: -4rem;
+  }
+
+  .polaroid-3 {
+    width: 58%;
+    align-self: flex-start;
+    margin-top: -3rem;
+    margin-left: 12%;
+  }
+
   .oversigt {
     order: 3;
-    background-color: var(--color-box-bg-1);
+    background-color: var(--color-terracotta);
     margin-inline: 0;
     padding-inline: 0;
   }
 }
-/* ==========================
-   BOX5
-========================== */
-.box5 {
-  display: flex;
-  justify-content: space-between;
-  color: var(--color-tekst);
-  background-color: var(--color-bg);
-}
 
-/* ==========================
-   BOX6
-========================== */
+/* ==========================================================
+   BOX6 – VISUEL STORYTELLING
+   To billeder med en tekstboks ovenpå.
+   ========================================================== */
 
 .box6 {
-  background-color: var(--color-bg);
+  background-color: var(--color-creme);
 }
 
 .billede_box6 {
   padding-block: 2rem;
 }
-.info_6 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: var(--color-bg);
-  padding-block: 5rem;
-  padding-inline: 1.5rem; /* luft inde i den hvide boks */
-}
-.info_6 h3 {
-  margin-block: 2rem;
-  font-size: clamp(1.1rem, 5vw, 2rem); /* mindre på mobil, så ordene ikke stikker ud */
-}
+
+/* på mobil står billederne forskudt: det ene til venstre, det andet til højre */
 .billede1_6 {
   width: 60%;
   margin-top: 3rem;
@@ -361,13 +432,29 @@
   margin-block: 1rem;
 }
 
+.info_6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--color-creme);
+  padding-block: 5rem;
+  padding-inline: 1.5rem; /* luft inde i boksen */
+}
+
+.info_6 h3 {
+  margin-block: 2rem;
+  font-size: clamp(1.1rem, 5vw, 2rem); /* mindre på mobil, så ordene ikke stikker ud */
+}
+
+/* ---------- responsive: box6 ---------- */
+
+/* desktop (fra 768px): billederne i hvert sit hjørne og teksten ovenpå i midten */
 @media (min-width: 768px) {
   .box6 {
     position: relative;
     width: 100%;
     min-height: 700px;
     overflow: hidden;
-    background-color: var(--color-bg);
     margin-block: 8rem;
   }
 
@@ -381,8 +468,6 @@
   }
 
   .billede1_6 img {
-    width: 100%;
-    display: block;
     object-fit: cover;
   }
 
@@ -397,8 +482,6 @@
 
   .billede2_6 img {
     margin-top: 4rem;
-    width: 100%;
-    display: block;
     object-fit: cover;
   }
 
@@ -408,11 +491,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     width: 40%;
     z-index: 2;
-
-    background: rgba(245, 239, 230, 0.92); /* creme */
+    background: rgba(245, 239, 230, 0.92); /* creme, lidt gennemsigtig */
     padding: 40px;
     text-align: center;
   }

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="da">
+<!-- FORSIDEN – styling: css/index.css + css/generel.css -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forside</title>
-    <link rel="stylesheet" href="css/index.css?v=10">
-    <link rel="stylesheet" href="css/generel.css?v=10">
+    <title>Sandra Møller Gregersen · Portfolio</title>
+    <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
+    <link rel="stylesheet" href="css/index.css?v=12">
+    <link rel="stylesheet" href="css/generel.css?v=12">
+    <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="icon" type="image/png" href="fav.png">
+    <!-- favicon (ikonet i fanen) og ikon til iPhone-hjemmeskærm -->
+    <link rel="icon" type="image/png" href="fav.png?v=2">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Prata&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- ==================== HEADER: logo og menu (ens på alle sider) ==================== -->
     <header>
         <a href="index.html" class="logo">
             <img src="footer_iimg/logo_sm_brun.png" alt="SM Creative Studio logo">
@@ -24,8 +30,9 @@
         <nav>
             <ul class="menu">
                 <li><a href="om_mig.html">Hvem er jeg?</a></li>
+                <!-- dropdown: undermenu under "Karriere & erfaring" -->
                 <li class="dropdown">
-                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="undermenu-karriere">Karrierer & Erfaring</button>
+                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="undermenu-karriere">Karriere & erfaring</button>
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
@@ -35,6 +42,7 @@
                 <li><a href="mmd_studie.html">Multimediedesign studiet</a></li>
                 <li class="booking-btn"><a href="kontakt.html">Kontakt</a></li>
             </ul>
+            <!-- burgermenu: vises kun på mobil (styres af java/burger.js) -->
             <button class="burger" aria-label="menu">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -43,10 +51,11 @@
         </nav>
     </header>
     <main>
+        <!-- ==================== BOX1 – INTRO: billede af mig, "SANDRA" og banneret ==================== -->
         <section class="box1">
 
             <div class="box1_billede">
-                <img src="index_img/IMG_7112.webp" alt="billede af sandra">
+                <img src="index_img/IMG_7112.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
             </div>
             <div class="grid1_1">
                 <div class="info">
@@ -70,6 +79,7 @@
 
         </section>
 
+        <!-- ==================== BOX2 – RULLEBÅND MED MINE KOMPETENCER ==================== -->
         <section class="box2">
             <div class="scroll-content">
 
@@ -111,8 +121,9 @@
             </div>
         </section>
 
+        <!-- ==================== BOX3 – CITAT FRA MIN REJSELEDER ==================== -->
         <section class="box3">
-            <div class="box3_billede"> <img src="index_img/IMG_4181.webp" alt="billede fra rejse hvor sanda var tr">
+            <div class="box3_billede"> <img src="index_img/IMG_4181.webp" alt="Sandra med rejsegruppen på tur">
             </div>
             <div class="tekst">
                 <h3 class="citat small-text">"Sandra har været et samlingspunkt for hele rejsegruppen, ikke bare fordi
@@ -128,11 +139,22 @@
 
         </section>
 
+        <!-- ==================== BOX4 – POLAROIDS + OVERSIGT MED LINKS TIL UNDERSIDERNE ==================== -->
         <section class="box4">
+            <!-- små polaroids med håndskrevne billedtekster -->
             <div class="billederbox4">
-                <div class="billede4_1"><img src="index_img/gultop.webp" alt="billede af hånd "></div> <br>
-                <div class="billede4_2"><img src="index_img/tillykke12.webp" alt="12 tal bevis"></div>
-                <div class="billede4_3"><img src="footer_iimg/footer1.webp" alt="instagram"></div>
+                <figure class="polaroid polaroid-1">
+                    <img src="index_img/spejl-selfie.webp" alt="Spejlselfie af Sandra i orange sweater i en elevator">
+                    <figcaption>det er mig ♡</figcaption>
+                </figure>
+                <figure class="polaroid polaroid-2">
+                    <img src="index_img/tillykke12.webp" alt="Kort med teksten Tillykke med 12-tallet, Multimediedesign 1. semester">
+                    <figcaption>12 på 1. semester</figcaption>
+                </figure>
+                <figure class="polaroid polaroid-3">
+                    <img src="erfarring/kaffe.webp" alt="Cappuccino med latteart og en bolle på en café">
+                    <figcaption>kaffe &amp; kreativitet</figcaption>
+                </figure>
             </div>
             <div>
                 <div class="beige-box">
@@ -195,18 +217,15 @@
                 </a>
             </div>
         </section>
-        <section class="box5">
 
-
-        </section>
-
+        <!-- ==================== BOX6 – VISUEL STORYTELLING ==================== -->
         <section class="box6">
             <div class="billede_box6">
                 <div class="billede1_6">
-                    <img src="index_img/IMG_3813.webp" alt="maldiverne">
+                    <img src="index_img/IMG_3813.webp" alt="Sandra med en drink ved solnedgang på Maldiverne">
                 </div>
                 <div class="billede2_6">
-                    <img src="index_img/IMG_6374.webp" alt="skildpadde">
+                    <img src="index_img/IMG_6374.webp" alt="Havskildpadde fotograferet oppefra i klart vand">
                 </div>
             </div>
             <div class="info_6">
@@ -222,31 +241,34 @@
         </section>
 
     </main>
+    <!-- ==================== FOOTER (ens på alle sider) ==================== -->
     <footer>
+        <!-- ikon-bjælke: Instagram, LinkedIn og mail -->
         <div class="footer-ikoner">
             <a href="https://www.instagram.com/sandramoeller__/" aria-label="Instagram"><img src="iconer/insta.png" alt=""></a>
             <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-4677413b4/" aria-label="LinkedIn"><img src="iconer/linkedin.png" alt=""></a>
             <a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed" aria-label="Send en mail"><img src="iconer/gmail.png" alt=""></a>
         </div>
+        <!-- billedbånd der kører af sig selv (billederne står der to gange, så det kører i ring) -->
         <div class="image-slider">
             <div class="image-track">
                 <img src="footer_iimg/IMG_0060.webp" alt="piger der fester">
-                <img src="footer_iimg/IMG_0139 (1).webp" alt="kaffe billede">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/IMG_0139 (1).webp" alt="Kaffe">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-lau.webp" alt="smilende pige med kaffe på café">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
-                <img src="footer_iimg/IMG_2309.webp" alt="billede i sengen med kafffe">
-                <img src="footer_iimg/IMG_1474.webp" alt="billede af sandra">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
+                <img src="footer_iimg/IMG_2309.webp" alt="Kaffe i sengen">
+                <img src="footer_iimg/IMG_1474.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-kaffekop.webp" alt="hånd med kaffekop">
                 <img src="footer_iimg/IMG_2475.webp" alt="billede fra maldiverne">
-                <img src="footer_iimg/IMG_2918.webp" alt="mad billede">
+                <img src="footer_iimg/IMG_2918.webp" alt="Mad">
                 <img src="footer_iimg/IMG_4200.webp" alt="is">
                 <img src="footer_iimg/IMG_6817.webp" alt="muslinger">
                 <img src="footer_iimg/scs-nyhavn.webp" alt="Nyhavn">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
                 <img src="footer_iimg/IMG_9242.webp" alt="billede af veninde">
                 <img src="footer_iimg/scs-kage.webp" alt="pige med kaffe og kage">
                 <img src="footer_iimg/IMG_1474.webp" alt="fly">
@@ -259,22 +281,22 @@
 
                 <!-- gentag billederne så animationen bliver smooth -->
                 <img src="footer_iimg/IMG_0060.webp" alt="piger der fester">
-                <img src="footer_iimg/IMG_0139 (1).webp" alt="kaffe billede">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/IMG_0139 (1).webp" alt="Kaffe">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-lau.webp" alt="smilende pige med kaffe på café">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
-                <img src="footer_iimg/IMG_2309.webp" alt="billede i sengen med kafffe">
-                <img src="footer_iimg/IMG_1474.webp" alt="billede af sandra">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
+                <img src="footer_iimg/IMG_2309.webp" alt="Kaffe i sengen">
+                <img src="footer_iimg/IMG_1474.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-kaffekop.webp" alt="hånd med kaffekop">
                 <img src="footer_iimg/IMG_2475.webp" alt="billede fra maldiverne">
-                <img src="footer_iimg/IMG_2918.webp" alt="mad billede">
+                <img src="footer_iimg/IMG_2918.webp" alt="Mad">
                 <img src="footer_iimg/IMG_4200.webp" alt="is">
                 <img src="footer_iimg/IMG_6817.webp" alt="muslinger">
                 <img src="footer_iimg/scs-nyhavn.webp" alt="Nyhavn">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
                 <img src="footer_iimg/IMG_9242.webp" alt="billede af veninde">
                 <img src="footer_iimg/scs-kage.webp" alt="pige med kaffe og kage">
                 <img src="footer_iimg/IMG_1474.webp" alt="fly">
@@ -286,19 +308,21 @@
                 <img src="footer_iimg/IMG_7639.webp" alt="mad">
             </div>
         </div>
+        <!-- min signatur: link til min mail -->
         <div class="footer-indhold">
             <div class="footer-kontakt">
-                <p class="footer-overskrift signatur">Sandra Møller Gregersen</p>
-                <a class="footer-mail" href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed">sandramller1902@gmail.com</a>
+                <p class="footer-overskrift signatur"><a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed" aria-label="Sandra Møller Gregersen – send mig en mail">Sandra Møller Gregersen</a></p>
             </div>
         </div>
+        <!-- bundlinje -->
         <div class="footer-bund">
             <p>© 2026 Sandra Møller · Creative Studio</p>
             <a href="#">Til toppen ↑</a>
         </div>
 
     </footer>
+    <!-- javascript -->
+    <script src="java/burger.js?v=12"></script>
 </body>
-<script src="java/burger.js?v=10"></script>
 
 </html>

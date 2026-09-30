@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="da">
+<!-- "KARRIERE & ERFARING" – styling: css/karrirer-erfarring.css + css/generel.css -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>karriere & erfarring</title>
-    <link rel="stylesheet" href="css/karrirer-erfarring.css?v=10">
-    <link rel="stylesheet" href="css/generel.css?v=10">
+    <title>Karriere & erfaring · Sandra Møller Gregersen</title>
+    <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
+    <link rel="stylesheet" href="css/karrirer-erfarring.css?v=12">
+    <link rel="stylesheet" href="css/generel.css?v=12">
+    <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
-    <link rel="icon" type="image/png" href="fav.png">
+    <!-- favicon (ikonet i fanen) og ikon til iPhone-hjemmeskærm -->
+    <link rel="icon" type="image/png" href="fav.png?v=2">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Prata&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- ==================== HEADER: logo og menu (ens på alle sider) ==================== -->
     <header>
         <a href="index.html" class="logo">
             <img src="footer_iimg/logo_sm_brun.png" alt="SM Creative Studio logo">
@@ -25,8 +31,9 @@
         <nav>
             <ul class="menu">
                 <li><a href="om_mig.html">Hvem er jeg?</a></li>
+                <!-- dropdown: undermenu under "Karriere & erfaring" -->
                 <li class="dropdown">
-                    <button class="dropdown-toggle active" aria-expanded="false" aria-controls="undermenu-karriere">Karrierer & Erfaring</button>
+                    <button class="dropdown-toggle active" aria-expanded="false" aria-controls="undermenu-karriere">Karriere & erfaring</button>
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html" aria-current="page">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
@@ -36,6 +43,7 @@
                 <li><a href="mmd_studie.html">Multimediedesign studiet</a></li>
                 <li class="booking-btn"><a href="kontakt.html">Kontakt</a></li>
             </ul>
+            <!-- burgermenu: vises kun på mobil (styres af java/burger.js) -->
             <button class="burger" aria-label="menu">
                 <span class="line"></span>
                 <span class="line"></span>
@@ -44,6 +52,7 @@
         </nav>
     </header>
     <main>
+        <!-- ==================== BOX1 – FRA BARISTA TIL ASSISTANT MANAGER ==================== -->
         <section class="box1">
             <div class="intro">
                 <h2>Fra barista til <br> Assistant Manager</h2>
@@ -61,20 +70,20 @@
                 </div>
             </div>
             <div class="billede_box1">
-                <img src="erfarring/kaffe.webp" alt="Eespresso house">
+                <img src="erfarring/kaffe.webp" alt="Espresso House">
             </div>
 
 
 
         </section>
 
+        <!-- ==================== BOX2 – ANSVAR MED PLADS TIL KREATIVITETEN (+ latte-videoen) ==================== -->
         <section class="box2">
 
 
             <div class="om_mig">
-                <h2>Ansvar med plads
-                    <h3> TIL KREATIVITETEN</h3>
-                </h2>
+                <h2>Ansvar med plads</h2>
+                <h3>Til kreativiteten</h3>
                 <p>Ud over mine daglige arbejdsopgaver fik jeg mulighed for at være medansvarlig for Espresso Houses
                     sociale medier,
                     hvilket gav mig værdifuld praktisk erfaring med digital kommunikation og content creation.
@@ -104,19 +113,16 @@
                     <source src="erfarring/4c046a51-a5b4-4aea-9430-fbe9aff8b9f9.mp4" type="video/mp4">
                 </video>
 
-                <img src="erfarring/hooked.webp" alt="billede igennem mobil">
+                <img src="erfarring/hooked.webp" alt="Billede taget gennem en mobil">
             </div>
 
         </section>
+        <!-- ==================== BOX3 – MIT KREATIVE UNIVERS (juice-billede + mine Instagram-profiler) ==================== -->
         <section class="box3">
 
 
             <div class="about_text">
-                <h2>
-                    MIT KREATIVE <br>
-                    UNIVERS<br>
-
-                </h2>
+                <h2>Mit kreative <br>univers</h2>
 
                 <p class="small-text">
                     Ved siden af mit studie og arbejde driver jeg min egen Instagram-profil, hvor jeg deler mit kreative
@@ -142,15 +148,21 @@
                     multimediedesigner.
                 </p>
 
-                <a href="kontakt.html"><button class="kontakt-btn"> Lyst til samarbejde?</button></a>
+                <a class="kontakt-btn" href="kontakt.html">Lyst til samarbejde?</a>
                 <a class="kontakt-btn" href="fotografi.html">Se mine fotografier</a>
 
             </div>
 
             <div class="about_images">
-                <img class="stort" src="erfarring/lemode.webp" alt="lemonade">
+                <img class="stort" src="erfarring/lemode.webp" alt="To glas lemonade med frugt foran et pariserhjul">
 
-                <img class="lille" src="footer_iimg/footer1.webp" alt="min insta">
+                <!-- mine to Instagram-profiler, stablet under hinanden -->
+                <div class="insta-kolonne">
+                    <img class="insta-skaerm" src="erfarring/insta-privat.webp"
+                        alt="Min personlige Instagram-profil sandramoeller__">
+                    <img class="insta-skaerm" src="erfarring/insta-creative-studio.webp"
+                        alt="Min kreative Instagram-profil sandra_creative.studio med portrætter og streetstyle">
+                </div>
             </div>
 
 
@@ -158,12 +170,13 @@
                 <h3 class="specielh3">Kontakt mig her</h3>
             </a>
         </section>
+        <!-- ==================== BOX4 – KLAR TIL NÆSTE KAPITEL (+ "Læs mere" på mobil) ==================== -->
         <section class="box4">
 
             <div class="box4_images">
 
-                <img class="img1" src="erfarring/fremtid.webp" alt="fremtiden">
-                <img class="img2" src="erfarring/snakmedforældre.webp" alt="samtale med forældre">
+                <img class="img1" src="erfarring/fremtid.webp" alt="Fremtiden">
+                <img class="img2" src="erfarring/snakmedforældre.webp" alt="Samtale med forældre">
 
             </div>
 
@@ -178,59 +191,73 @@
                     fundament, som jeg tager med videre i min karriere.
                 </p>
 
-                <p>
-                    Gennem mit arbejde har jeg lært værdien af ansvar, struktur og samarbejde, samtidig med at jeg har
-                    udviklet mine
-                    kreative kompetencer gennem studiet og egne projekter. Mit arbejde i en institution har desuden
-                    styrket min evne til at
-                    aflæse mennesker, forstå forskellige behov og tilpasse min kommunikation til både børn, forældre og
-                    kolleger. Det har
-                    lært mig at møde forskellige situationer med empati, fleksibilitet og professionalisme –
-                    kompetencer, som jeg også ser
-                    som en stor styrke i samarbejdet med kunder og brugere.
+                <!-- kort version: vises kun på mobil -->
+                <p class="kort-tekst">
+                    Mit arbejde har lært mig ansvar, struktur og samarbejde, og at forstå forskellige mennesker og
+                    deres behov. Nu glæder jeg mig til at bruge det som multimediedesigner, hvor jeg kan kombinere
+                    kreativitet med brugeren i fokus.
                 </p>
 
-                <p>
-                    I dag ser jeg frem til at omsætte mine erfaringer i en professionel rolle som multimediedesigner,
-                    hvor jeg kan kombinere
-                    kreativitet med en brugerorienteret tilgang. <br> <br> Jeg ønsker at bidrage med engagement,
-                    nysgerrighed og
-                    en vilje til konstant
-                    at udvikle mig, <br> samtidig med at jeg skaber løsninger, der både er gennemtænkte, funktionelle og
-                    skaber værdi.
+                <!-- den fulde tekst: altid synlig på desktop, gemt bag "Læs mere" på mobil -->
+                <div class="laes-mere-indhold" id="laes-mere-box4">
+                    <p>
+                        Gennem mit arbejde har jeg lært værdien af ansvar, struktur og samarbejde, samtidig med at jeg har
+                        udviklet mine
+                        kreative kompetencer gennem studiet og egne projekter. Mit arbejde i en institution har desuden
+                        styrket min evne til at
+                        aflæse mennesker, forstå forskellige behov og tilpasse min kommunikation til både børn, forældre og
+                        kolleger. Det har
+                        lært mig at møde forskellige situationer med empati, fleksibilitet og professionalisme –
+                        kompetencer, som jeg også ser
+                        som en stor styrke i samarbejdet med kunder og brugere.
+                    </p>
 
-                </p>
+                    <p>
+                        I dag ser jeg frem til at omsætte mine erfaringer i en professionel rolle som multimediedesigner,
+                        hvor jeg kan kombinere
+                        kreativitet med en brugerorienteret tilgang. <br> <br> Jeg ønsker at bidrage med engagement,
+                        nysgerrighed og
+                        en vilje til konstant
+                        at udvikle mig, <br> samtidig med at jeg skaber løsninger, der både er gennemtænkte, funktionelle og
+                        skaber værdi.
+
+                    </p>
+                </div>
+                <button class="laes-mere-knap" type="button" aria-expanded="false" aria-controls="laes-mere-box4">Læs mere</button>
 
             </div>
 
         </section>
 
     </main>
+    <!-- ==================== FOOTER (ens på alle sider) ==================== -->
     <footer>
+        <!-- ikon-bjælke: Instagram, LinkedIn og mail -->
         <div class="footer-ikoner">
             <a href="https://www.instagram.com/sandramoeller__/" aria-label="Instagram"><img src="iconer/insta.png" alt=""></a>
             <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-4677413b4/" aria-label="LinkedIn"><img src="iconer/linkedin.png" alt=""></a>
             <a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed" aria-label="Send en mail"><img src="iconer/gmail.png" alt=""></a>
         </div>
+        <!-- billedbånd der kører af sig selv (billederne står der to gange, så det kører i ring) -->
         <div class="image-slider">
             <div class="image-track">
                 <img src="footer_iimg/IMG_0060.webp" alt="piger der fester">
-                <img src="footer_iimg/IMG_0139 (1).webp" alt="kaffe billede">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/IMG_0139 (1).webp" alt="Kaffe">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-lau.webp" alt="smilende pige med kaffe på café">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
-                <img src="footer_iimg/IMG_2309.webp" alt="billede i sengen med kafffe">
-                <img src="footer_iimg/IMG_1474.webp" alt="billede af sandra">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
+                <img src="footer_iimg/IMG_2309.webp" alt="Kaffe i sengen">
+                <img src="footer_iimg/IMG_1474.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-kaffekop.webp" alt="hånd med kaffekop">
                 <img src="footer_iimg/IMG_2475.webp" alt="billede fra maldiverne">
-                <img src="footer_iimg/IMG_2918.webp" alt="mad billede">
+                <img src="footer_iimg/IMG_2918.webp" alt="Mad">
                 <img src="footer_iimg/IMG_4200.webp" alt="is">
                 <img src="footer_iimg/IMG_6817.webp" alt="muslinger">
                 <img src="footer_iimg/scs-nyhavn.webp" alt="Nyhavn">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
                 <img src="footer_iimg/IMG_9242.webp" alt="billede af veninde">
                 <img src="footer_iimg/scs-kage.webp" alt="pige med kaffe og kage">
                 <img src="footer_iimg/IMG_1474.webp" alt="fly">
@@ -243,22 +270,22 @@
 
                 <!-- gentag billederne så animationen bliver smooth -->
                 <img src="footer_iimg/IMG_0060.webp" alt="piger der fester">
-                <img src="footer_iimg/IMG_0139 (1).webp" alt="kaffe billede">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/IMG_0139 (1).webp" alt="Kaffe">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-lau.webp" alt="smilende pige med kaffe på café">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
-                <img src="footer_iimg/IMG_2309.webp" alt="billede i sengen med kafffe">
-                <img src="footer_iimg/IMG_1474.webp" alt="billede af sandra">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
+                <img src="footer_iimg/IMG_2309.webp" alt="Kaffe i sengen">
+                <img src="footer_iimg/IMG_1474.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/scs-kaffekop.webp" alt="hånd med kaffekop">
                 <img src="footer_iimg/IMG_2475.webp" alt="billede fra maldiverne">
-                <img src="footer_iimg/IMG_2918.webp" alt="mad billede">
+                <img src="footer_iimg/IMG_2918.webp" alt="Mad">
                 <img src="footer_iimg/IMG_4200.webp" alt="is">
                 <img src="footer_iimg/IMG_6817.webp" alt="muslinger">
                 <img src="footer_iimg/scs-nyhavn.webp" alt="Nyhavn">
-                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="billede af sandra">
+                <img src="footer_iimg/065CBBF9-ECA3-4514-99D9-02DF929054F5.webp" alt="Sandra i hvid kjole foran en stenmur med lyserøde blomster">
                 <img src="footer_iimg/IMG_2113.webp" alt="billede af 2 piger">
-                <img src="footer_iimg/footer1.webp" alt="instagram">
+                <img src="footer_iimg/footer1.webp" alt="Skærmbillede af min Instagram-profil">
                 <img src="footer_iimg/IMG_9242.webp" alt="billede af veninde">
                 <img src="footer_iimg/scs-kage.webp" alt="pige med kaffe og kage">
                 <img src="footer_iimg/IMG_1474.webp" alt="fly">
@@ -271,18 +298,21 @@
             </div>
         </div>
 
+        <!-- min signatur: link til min mail -->
         <div class="footer-indhold">
             <div class="footer-kontakt">
-                <p class="footer-overskrift signatur">Sandra Møller Gregersen</p>
-                <a class="footer-mail" href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed">sandramller1902@gmail.com</a>
+                <p class="footer-overskrift signatur"><a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed" aria-label="Sandra Møller Gregersen – send mig en mail">Sandra Møller Gregersen</a></p>
             </div>
         </div>
+        <!-- bundlinje -->
         <div class="footer-bund">
             <p>© 2026 Sandra Møller · Creative Studio</p>
             <a href="#">Til toppen ↑</a>
         </div>
     </footer>
+    <!-- javascript -->
+    <script src="java/burger.js?v=12"></script>
+    <script src="java/laes-mere.js?v=12"></script>
 </body>
-<script src="java/burger.js?v=10"></script>
 
 </html>

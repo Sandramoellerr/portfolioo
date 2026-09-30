@@ -1,16 +1,36 @@
-/* ==========================
-   BOX1
-========================== */
+/* ==========================================================
+   MMD.CSS – siden "Multimediedesign studiet"
+   Farver, skrifttyper, header og footer ligger i generel.css.
+
+   Opbygning: hver sektion har først styling til mobil, og lige
+   under kommer det responsive (desktop) for den sektion.
+
+   Indhold:
+   BOX1 – "Et kreativt fundament" + billede
+   BOX2 – "Fra idé til digital løsning" på det lyserøde stribede papir
+   BOX3 – "Se mit eksamensprojekt" + billeder
+   BOX4 – "Kun begyndelsen" i den terracotta boks
+   ========================================================== */
+
+/* ==========================================================
+   BOX1 – ET KREATIVT FUNDAMENT
+   ========================================================== */
 
 .box1 {
   margin-top: 3rem;
 }
+
 .intro h2 {
   margin-left: 0;
 }
+
 .intro h3 {
   margin-left: 0;
   font-style: italic;
+}
+
+.beskrivelse p {
+  margin-block: 2rem;
 }
 
 .billede_box1 {
@@ -18,10 +38,10 @@
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
-.beskrivelse p {
-  margin-block: 2rem;
-}
 
+/* ---------- responsive: box1 ---------- */
+
+/* desktop (fra 768px): tekst til venstre, billede til højre */
 @media (min-width: 768px) {
   .box1 {
     display: grid;
@@ -30,18 +50,12 @@
     margin-block: 3rem;
   }
 
-  /* billedet flugter med højre side */
-  .billede_box1 {
-    width: 70%;
-    justify-self: end;
-    margin-bottom: 3rem;
-  }
   .intro {
     margin-top: 9rem;
   }
 
   .intro h3 {
-    text-align: end;
+    text-align: start;
     font-size: smaller;
     letter-spacing: 2px;
   }
@@ -50,16 +64,24 @@
     margin-top: 4rem;
     margin-bottom: 2rem;
   }
-}
-/* ==========================
-   BOX2
-========================== */
 
+  /* billedet flugter med højre side */
+  .billede_box1 {
+    width: 70%;
+    justify-self: end;
+    margin-bottom: 3rem;
+  }
+}
+
+/* ==========================================================
+   BOX2 – FRA IDÉ TIL DIGITAL LØSNING
+   ========================================================== */
+
+/* baggrunden er det lyserøde stribede papir */
 .box2 {
   position: relative;
   background-image: url("../baggrunds-papir.png");
   background-size: 100% 100%;
-
   background-position: center;
   background-repeat: no-repeat;
   padding-block: 4rem;
@@ -68,6 +90,7 @@
   flex-direction: column;
 }
 
+/* et tyndt hvidt lag ovenpå papiret, så teksten er nemmere at læse */
 .box2::before {
   content: "";
   position: absolute;
@@ -75,23 +98,37 @@
   background: rgba(255, 255, 255, 0.116);
 }
 
+/* indholdet ligger ovenpå det hvide lag */
 .box2 > * {
   position: relative;
   z-index: 1;
 }
 
-/* MOBIL */
+/* på mobil kommer teksten først og billederne bagefter */
 .om_mig {
   order: 1;
   max-width: 500px;
 }
+
+.om_mig h2 {
+  margin-top: 1rem;
+}
+
+.om_mig h3 {
+  color: var(--color-terracotta);
+  margin-block: 1rem 2.5rem;
+  text-align: start;
+  letter-spacing: 2px;
+}
+
 .billede_box2 {
   order: 2;
 }
+
 .billede_box2 img {
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border: #b07a6a 1px solid;
+  border: var(--color-terracotta) 1px solid;
   object-position: top;
 }
 
@@ -99,31 +136,9 @@
   margin-block: 2rem;
 }
 
-.om_mig h2 {
-  margin-top: 1rem;
-  text-align: center;
-}
+/* ---------- responsive: box2 ---------- */
 
-.om_mig h3 {
-  color: #b07a6a;
-
-  margin-block: 1rem 2.5rem;
-  text-align: end;
-  letter-spacing: 2px;
-}
-/* ==========================
-   VIDEO I BOX2
-========================== */
-.billede_box2 video {
-  width: 100%;
-  max-height: 420px;
-  object-fit: cover;
-  display: block;
-  margin: 2rem 0;
-  border-radius: 12px;
-}
-
-/* DESKTOP */
+/* desktop (fra 768px): billeder til venstre, tekst til højre */
 @media (min-width: 768px) {
   .box2 {
     display: grid;
@@ -142,11 +157,9 @@
     gap: 1rem;
   }
 
-  .billede_box2 img,
-  .billede_box2 video {
+  .billede_box2 img {
     width: 70%;
     height: auto;
-
     object-fit: cover;
     object-position: top;
   }
@@ -156,9 +169,10 @@
   }
 }
 
-/* ==========================
-   BOX3
-========================== */
+/* ==========================================================
+   BOX3 – SE MIT EKSAMENSPROJEKT
+   ========================================================== */
+
 .box3 {
   display: flex;
   flex-direction: column;
@@ -169,9 +183,9 @@
 .about_text h2 {
   line-height: 1;
   margin-block: 0 1.5rem;
-  text-align: center;
 }
 
+/* små tekster med store bogstaver */
 .small-text {
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -183,12 +197,15 @@
   margin-bottom: 1.3rem;
   line-height: 1.7;
 }
+
+/* knappen "Se mit eksamensprojekt" */
 #btn-speciel {
   white-space: normal;
   width: fit-content;
   margin-bottom: 2rem;
 }
-/*billeder*/
+
+/* billederne */
 .about_images {
   display: flex;
   flex-direction: column;
@@ -208,14 +225,10 @@
   object-fit: cover;
 }
 
-.insta {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
+/* ---------- responsive: box3 ---------- */
 
+/* desktop (fra 900px): tekst til venstre, billeder til højre, kontakt-boks i fuld bredde under */
 @media (min-width: 900px) {
-  /* tekst til venstre, billeder til højre, kontakt-boks i fuld bredde under */
   .box3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -223,63 +236,56 @@
     column-gap: 4rem;
     row-gap: 3rem;
   }
+
   .box3 > a {
     grid-column: 1 / -1;
   }
+
   .specielh3 {
-    color: #b07a6a;
-    font-size: 1.5rem;
-    padding: 3rem;
-    text-align: center;
-    border: var(--color-header) 2px solid;
     margin: 0;
     margin-bottom: 6rem;
   }
+
   .about_text {
     max-width: 560px;
   }
 
+  /* de to billeder ligger lidt over hinanden, som en collage */
   .about_images {
     position: relative;
     height: 650px;
   }
 
-  /* Store billede */
+  /* store billede */
   .stort {
     position: absolute;
     width: 270px;
     height: 420px;
-    object-fit: cover;
-
     left: 0; /* flugter med venstre side */
     top: 130px;
-
     z-index: 1;
   }
 
-  /* Lille billede */
+  /* lille billede */
   .lille {
     position: absolute;
     width: 50%;
     height: 300px;
-    object-fit: cover;
-
     top: 0;
     right: 0; /* flugter med højre side */
-
     z-index: 2;
   }
 }
 
-/* ==========================
-   BOX4
-========================== */
+/* ==========================================================
+   BOX4 – KUN BEGYNDELSEN
+   ========================================================== */
 
 .box4 {
-  background-color: var(--color-bg2);
+  background-color: var(--color-terracotta);
   padding-inline: var(--side); /* fælles sidemargin */
   padding-block: 5rem;
-  margin-bottom: 5rem; /* creme luft mellem den rosa boks og footeren, så farverne ikke støder sammen */
+  margin-bottom: 5rem; /* creme luft mellem den terracotta boks og footeren, så farverne ikke støder sammen */
 }
 
 .box4_images {
@@ -298,9 +304,9 @@
   object-fit: cover;
 }
 
-/* hvid boks: luft rundt om teksten */
+/* creme boks med luft rundt om teksten */
 .box4_text {
-  background: var(--color-bg); /* creme boks */
+  background: var(--color-creme);
   padding: 2.5rem 1.75rem;
   margin-top: 2rem;
 }
@@ -315,52 +321,40 @@
   margin-bottom: 1.2rem;
   line-height: 1.7;
 }
+
+/* ---------- responsive: box4 ---------- */
+
+/* desktop (fra 900px): billeder til venstre, og tekstboksen går lidt ind over dem */
 @media (min-width: 900px) {
   .box4 {
     position: relative;
-
     display: grid;
     grid-template-columns: 55% 45%;
     align-items: center;
     padding-block: 8rem;
-
-    background: var(--color-bg2);
   }
-
-  /* Hvid boks */
-
-  .box4_text {
-    background: var(--color-bg);
-
-    padding: 3.5rem;
-
-    max-width: none; /* flugter med højre side */
-    margin-top: 0;
-    margin-left: -70px;
-
-    z-index: 2;
-  }
-
-  /* Billeder */
 
   .box4_images {
-    display: flex;
-
-    gap: 1rem;
     justify-content: start;
   }
 
   .img1 {
     width: 330px;
     height: 420px;
-    object-fit: cover;
   }
 
   .img2 {
     width: 180px;
     margin-top: 3rem;
     height: 250px;
-    object-fit: cover;
     object-position: left;
+  }
+
+  .box4_text {
+    padding: 3.5rem;
+    max-width: none; /* flugter med højre side */
+    margin-top: 0;
+    margin-left: -70px; /* går lidt ind over billederne */
+    z-index: 2;
   }
 }

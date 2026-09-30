@@ -1,7 +1,58 @@
-/* ==========================
-   RESET
-========================== */
+/* ==========================================================
+   GENEREL.CSS
+   Den her fil bruges på ALLE sider. Her ligger alt det, der
+   går igen: farver, skrifttyper, header, menu, knapper og footer.
 
+   Opbygning: hver sektion har først styling til mobil, og lige
+   under kommer det responsive (tablet/desktop) for den sektion.
+   Så man ikke skal lede efter en media query langt nede i filen.
+
+   Indhold:
+   1. Farver og variabler
+   2. Grundstyling (reset, body, billeder, links)
+   3. Typografi (overskrifter og tekst)
+   4. Sidemargin
+   5. Knapper
+   6. Header og menu
+   7. Dropdown (Karriere & erfaring)
+   8. Footer
+   ========================================================== */
+
+/* ==========================================================
+   1. FARVER OG VARIABLER
+   ========================================================== */
+
+:root {
+  /* farverne på sitet – skift dem her, så skifter de alle steder */
+  --color-creme: #f5efe6; /* baggrunden på alle sider */
+  --color-lysebrun: #bba792; /* header og footer */
+  --color-graa-beige: #c8c4b6; /* banneret på forsiden + kanter */
+  --color-terracotta: #b07a6a; /* knapper og de rosa/brune bokse */
+  --color-terracotta-moerk: #9a6556; /* knapperne når man holder musen over */
+  --color-lyserod: #f8d3db; /* lyserød til hover i menuen og fotografi-siden */
+  --color-tekst: #5a3a28; /* al mørk tekst: mørkebrun i stedet for sort */
+
+  --box-shadow-header: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* FÆLLES SIDEMARGIN: alt indhold på alle sider flugter med denne afstand
+     til venstre og højre kant. 24px på mobil og vokser med skærmen. */
+  --side: clamp(1.5rem, 5vw, 5rem);
+}
+
+/* ---------- responsive: farver og variabler ---------- */
+
+/* desktop (fra 768px): mere luft ud til kanterne */
+@media (min-width: 768px) {
+  :root {
+    --side: clamp(3rem, 8vw, 9rem);
+  }
+}
+
+/* ==========================================================
+   2. GRUNDSTYLING
+   ========================================================== */
+
+/* nulstiller browserens egne margins og paddings */
 * {
   margin: 0;
   padding: 0;
@@ -12,35 +63,28 @@ html {
   scroll-behavior: smooth;
 }
 
-/* sikkerhedsnet: siden må aldrig kunne scrolle sidelæns
-   (clip i stedet for hidden, så den sticky header stadig virker) */
+/* sikkerhedsnet: siden må aldrig kunne scrolle sidelæns */
 html,
 body {
   overflow-x: clip;
 }
 
 body {
-  background: #f5efe6;
+  background: var(--color-creme);
   color: var(--color-tekst);
   font-family: "Inter", sans-serif;
   line-height: 1.7;
 }
 
-/* ==========================
-   IMG BASIC STYLING MOBILE
-========================== */
-
+/* billeder fylder deres boks og får runde hjørner */
 img {
   height: auto;
   width: 100%;
   display: block;
-}
-@media (min-width: 768px) {
-  img {
-    margin-top: 0;
-  }
+  border-radius: 12px;
 }
 
+/* fjerner tekst-styling på links */
 a {
   color: inherit;
   text-decoration: none;
@@ -50,46 +94,21 @@ ul {
   list-style: none;
 }
 
+/* fjerner browserens standard-knap */
 button {
   border: none;
-
   background: none;
   cursor: pointer;
   color: var(--color-tekst);
   font-family: inherit;
 }
 
-/* ==========================
-   FARVER
-========================== */
+/* ==========================================================
+   3. TYPOGRAFI
+   h1 = Prata (store navn), h2 = Cormorant Garamond (sektionsoverskrifter),
+   h3 = små overskrifter med store bogstaver, p = Inter (brødtekst)
+   ========================================================== */
 
-:root {
-  --color-header: #c8c4b6;
-  --color-header-bg: #bba792; /* lys brun baggrund i headeren */
-  --box-shadow-header: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  --color-bg: #f5efe6;
-  /* rosa/terracotta: helt dækkende, så den tydeligt adskiller sig fra den lyse brune header/footer */
-  --color-bg2: #b07a6a;
-  --color-box-bg-1: #b07a6a;
-  --color-box-bg-2: #f8d3db;
-
-  --btn: #fff2ff;
-  --border: 1px solid black;
-
-  --color-footer: #c8c4b6;
-
-  /* al mørk tekst på sitet: mørkebrun, ikke sort */
-  --color-tekst: #5a3a28;
-
-  /* FÆLLES SIDEMARGIN: alt indhold på alle sider flugter med denne afstand
-     til venstre og højre kant (24px på mobil, op til 80px på store skærme) */
-  --side: clamp(1.5rem, 5vw, 5rem);
-}
-
-/* ==========================
-   TYPOGRAFI
-========================== */
 h1,
 h2,
 h3,
@@ -99,7 +118,7 @@ p {
   flex-direction: column;
   justify-content: center;
   margin-inline: 0; /* sidemargin kommer fra sektionen (--side) */
-  max-width: 65ch;
+  max-width: 65ch; /* tekstlinjerne bliver ikke for lange at læse */
   font-weight: 500;
   text-align: left;
 }
@@ -134,13 +153,16 @@ p {
   line-height: 1.8;
 }
 
-/* på små telefoner må lange overskrifter gerne bryde, så de ikke stikker ud */
+/* ---------- responsive: typografi ---------- */
+
+/* små telefoner (op til 480px): lange overskrifter må gerne bryde, så de ikke stikker ud */
 @media (max-width: 480px) {
   h2 {
     white-space: normal;
   }
 }
 
+/* desktop (fra 768px): større overskrifter */
 @media (min-width: 768px) {
   h1 {
     font-size: 6rem;
@@ -148,13 +170,9 @@ p {
 
   h2 {
     font-size: 3rem;
-    font-family: "Cormorant Garamond", serif;
-    line-height: 1.2;
   }
 
   h3 {
-    font-size: 1.2rem;
-    font-family: "Inter", sans-serif;
     line-height: 1.2;
     font-size: smaller;
     letter-spacing: 2px;
@@ -162,76 +180,84 @@ p {
 
   p {
     font-size: 1rem;
-    color: var(--color-tekst);
     line-height: 1.8rem;
-    font-family: "Inter", sans-serif;
   }
 }
-/* ==========================
-   FÆLLES SIDEMARGIN
-========================== */
+
+/* ==========================================================
+   4. SIDEMARGIN
+   Alle sektioner får samme luft ud til siderne (--side),
+   så alt flugter på hele sitet.
+   ========================================================== */
+
 main > section,
 main > div {
   padding-inline: var(--side);
 }
 
-/* elementer der skal gå helt ud til kanten (fx banneret) inde i en sektion */
-.fuld-bredde {
-  margin-inline: calc(-1 * var(--side));
-  padding-inline: var(--side);
-}
+/* ==========================================================
+   5. KNAPPER
+   ========================================================== */
 
-/* ==========================
-   BTNS
-========================== */
-
+/* fx "Lyst til samarbejde?" – samme stil som Kontakt-knappen i menuen */
 .kontakt-btn {
   display: inline-block;
-
-  padding: 15px 40px;
-  background-color: var(--color-box-bg-2);
+  width: fit-content;
+  padding: 0.9rem 2rem;
   margin-top: 3rem;
-
-  transition: 0.3s;
-
+  background-color: var(--color-terracotta);
+  color: #fffaf5;
+  border-radius: 8px;
   font-size: 0.9rem;
-
   letter-spacing: 1px;
+  transition: background-color 0.2s;
 }
 
 .kontakt-btn:hover {
-  background-color: rgb(197, 133, 133);
+  background-color: var(--color-terracotta-moerk);
 }
+
+/* to knapper ved siden af hinanden får luft imellem */
+.kontakt-btn + .kontakt-btn {
+  margin-left: 0.75rem;
+}
+
+/* "Kontakt mig her"-boksen med kant */
 .specielh3 {
-  color: #b07a6a;
+  color: var(--color-terracotta);
   font-size: 1rem;
   padding: 1rem;
   text-align: center;
-  border: var(--color-header) 2px solid;
+  border: var(--color-graa-beige) 2px solid;
   margin-block: 6rem;
 }
+
 .specielh3:hover {
-  color: var(--color-header);
+  color: var(--color-graa-beige);
   border: #b86b4b 2px solid;
-  background-color: var(--color-bg);
+  background-color: var(--color-creme);
 }
 
-img {
-  border-radius: 12px;
+/* ---------- responsive: knapper ---------- */
+
+/* meget små telefoner (fx iPhone SE, op til 380px): knapperne bliver smallere */
+@media (max-width: 380px) {
+  .kontakt-btn {
+    padding-inline: 24px;
+  }
 }
-/* ==========================
-   HEADER
-========================== */
+
+/* ==========================================================
+   6. HEADER OG MENU
+   ========================================================== */
 
 header {
   position: relative; /* headeren bliver i toppen og følger ikke med når man scroller */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 14px var(--side);
-
-  background: var(--color-header-bg);
+  background: var(--color-lysebrun);
   box-shadow: var(--box-shadow-header);
   z-index: 1000;
 }
@@ -248,27 +274,7 @@ nav {
 
 .menu {
   display: flex;
-  list-style: none;
   gap: 30px;
-}
-
-nav a.active {
-  color: var(--color-tekst);
-  border-bottom: 2px solid #b86b4b;
-}
-
-/* Fjerner tekst-styling på linkene */
-.menu a {
-  font-size: 1.2rem;
-  font-family: var(--font-p-og-button);
-  letter-spacing: var(--font-letter-spacing);
-  line-height: 160%;
-  text-decoration: none;
-  color: var(--color-tekst);
-}
-
-.menu a:hover {
-  font-weight: bolder;
 }
 
 .menu li {
@@ -277,9 +283,26 @@ nav a.active {
   margin-bottom: 0;
 }
 
-/* Kontakt som brun/orange knap (samme farve som længere nede på siden) */
+.menu a {
+  font-size: 1.2rem;
+  line-height: 160%;
+  color: var(--color-tekst);
+  white-space: nowrap; /* menupunkterne må ikke knække over to linjer */
+}
+
+.menu a:hover {
+  font-weight: bolder;
+}
+
+/* den side man er på, får en streg under */
+nav a.active {
+  color: var(--color-tekst);
+  border-bottom: 2px solid #b86b4b;
+}
+
+/* Kontakt som terracotta knap */
 .booking-btn a {
-  background-color: #b07a6a;
+  background-color: var(--color-terracotta);
   color: #fffaf5;
   padding: 0.4rem 1.4rem;
   border-radius: 8px;
@@ -287,7 +310,7 @@ nav a.active {
 }
 
 .booking-btn a:hover {
-  background-color: #9a6556;
+  background-color: var(--color-terracotta-moerk);
 }
 
 /* ingen streg under knappen på kontaktsiden */
@@ -312,9 +335,96 @@ nav a.active {
   transition: 0.2s linear;
 }
 
-/* ==========================
-   DROPDOWN (Karrierer & Erfaring)
-========================== */
+/* ---------- responsive: header og menu ---------- */
+
+/* mobil og tablet (op til 800px): menuen bliver til en burgermenu */
+@media (max-width: 800px) {
+  .logo img {
+    height: 100px;
+    width: auto;
+    padding-block: 14px;
+  }
+
+  /* menuen er skjult, indtil man trykker på burgeren */
+  .menu {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    background-color: transparent;
+    border: 0;
+  }
+
+  /* de tre streger bliver til et kryds, når menuen er åben */
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+
+  /* burgermenuen når den er foldet ud */
+  nav.active .menu {
+    margin-top: 4rem;
+    display: block;
+    background-color: var(--color-lysebrun);
+    position: absolute;
+    top: 60px;
+    right: var(--side); /* flugter med burgerikonet */
+    width: auto; /* bredden følger teksten, så intet bliver skåret af */
+    min-width: 50%;
+    padding-right: 2rem; /* luft til højre */
+    border: 2px solid #fff; /* hvid kant rundt om menuen */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  /* margin i top/bund og siderne når menuen er foldet ud */
+  nav.active .menu li {
+    margin: 10px 20px;
+  }
+
+  .booking-btn {
+    width: 110px;
+  }
+}
+
+/* mellemstore skærme (fx iPad på langs, 801-1150px): lidt mindre menu, så alt kan være der */
+@media (min-width: 801px) and (max-width: 1150px) {
+  .logo img {
+    height: 80px;
+  }
+
+  .menu {
+    gap: 18px;
+  }
+
+  .menu a {
+    font-size: 1rem;
+  }
+}
+
+/* meget små telefoner (op til 380px): mindre logo */
+@media (max-width: 380px) {
+  .logo img {
+    height: 80px;
+  }
+}
+
+/* ==========================================================
+   7. DROPDOWN (Karriere & erfaring)
+   Undermenuen der åbner, når man trykker på "Karriere & erfaring".
+   ========================================================== */
+
 .dropdown {
   position: relative;
 }
@@ -327,6 +437,7 @@ nav a.active {
   font-size: 1.2rem;
   line-height: 160%;
   color: var(--color-tekst);
+  white-space: nowrap;
 }
 
 /* lille pil der vender, når menuen er åben */
@@ -353,6 +464,7 @@ nav a.active {
   border-bottom: 2px solid #b86b4b;
 }
 
+/* selve undermenuen – skjult indtil man åbner den */
 .undermenu {
   display: none;
   position: absolute;
@@ -360,7 +472,7 @@ nav a.active {
   left: 0;
   min-width: 230px;
   padding: 8px 0;
-  background: var(--color-bg);
+  background: var(--color-creme);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   z-index: 1001;
 }
@@ -378,13 +490,14 @@ nav a.active {
 }
 
 .undermenu a:hover {
-  background: var(--color-box-bg-2);
+  background: var(--color-lyserod);
 }
 
 .undermenu a[aria-current="page"] {
   color: #b86b4b;
 }
 
+/* "Webdesign – kommer snart" er grå og kan ikke klikkes */
 .undermenu .kommer {
   color: #9a918a;
   cursor: default;
@@ -397,63 +510,17 @@ nav a.active {
   text-transform: uppercase;
 }
 
-/************************ burgermenu ******************/
+/* ---------- responsive: dropdown ---------- */
 
+/* mellemstore skærme (801-1150px): "Karriere & erfaring" bliver lidt mindre ligesom resten af menuen */
+@media (min-width: 801px) and (max-width: 1150px) {
+  .dropdown-toggle {
+    font-size: 1rem;
+  }
+}
+
+/* mobil og tablet (op til 800px): undermenuen vises inde i burgermenuen i stedet for at svæve */
 @media (max-width: 800px) {
-  /* HEADER */
-  .logo img {
-    height: 100px;
-    width: auto;
-    padding-block: 14px;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  .burger {
-    display: block;
-    background-color: transparent;
-    border: 0;
-  }
-
-  .burger.active .line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-    transition: 0.2s linear;
-  }
-
-  .burger.active .line:nth-child(2) {
-    opacity: 0;
-    transition: 0.15s linear;
-  }
-
-  .burger.active .line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-    transition: 0.2s linear;
-  }
-
-  /* burgermenuen når den er foldet ud */
-  nav.active .menu {
-    margin-top: 4rem;
-    display: block;
-    background-color: var(--color-header-bg);
-    position: absolute;
-    top: 60px;
-    right: var(--side); /* flugter med burgerikonet */
-    width: auto; /* bredden følger teksten, så intet bliver skåret af */
-    min-width: 50%;
-    padding-right: 2rem; /* luft til højre */
-    border: 2px solid #fff; /* hvid kant rundt om menuen */
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
-
-  /* margin i top/bund og siderne når menuen er foldet ud */
-  nav.active .menu li {
-    margin: 10px 20px;
-  }
-
-  /* dropdown inde i burgermenuen: vises under punktet i stedet for at svæve */
   nav.active .menu .dropdown {
     flex-direction: column;
     align-items: flex-start;
@@ -474,24 +541,44 @@ nav a.active {
   .undermenu a,
   .undermenu .kommer {
     padding: 6px 0;
-    white-space: normal;
     overflow-wrap: anywhere;
   }
 
-  /* BOOKING BTN */
-  .booking-btn {
-    width: 110px;
+  .undermenu .kommer {
+    white-space: normal;
   }
 }
 
-/* ==========================
-       FOOTER
-========================== */
+/* ==========================================================
+   8. FOOTER
+   Rækkefølge: ikon-bjælke → billedbånd → signatur → bundlinje
+   ========================================================== */
+
 footer {
   overflow: hidden; /* skjuler billeder der er udenfor */
   width: 100%;
-  background: var(--color-header-bg); /* samme lyse brune som headeren */
+  background: var(--color-lysebrun); /* samme lyse brune som headeren */
   color: var(--color-tekst);
+}
+
+/* ---------- ikon-bjælke over billedbåndet ---------- */
+.footer-ikoner {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem var(--side);
+}
+
+/* ikonerne gøres hvide */
+.footer-ikoner img {
+  width: 30px;
+  border-radius: 0;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.2s;
+}
+
+.footer-ikoner a:hover img {
+  opacity: 0.7;
 }
 
 /* ---------- billedbånd (går helt ud til kanten) ---------- */
@@ -514,7 +601,7 @@ footer {
   border-radius: 0;
 }
 
-/* animation fra højre mod venstre */
+/* animation fra højre mod venstre (billederne står der to gange, så den kører i ring) */
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -525,7 +612,7 @@ footer {
   }
 }
 
-/* ---------- kontakt-tekst ---------- */
+/* ---------- signatur ---------- */
 .footer-indhold {
   padding: 3.5rem var(--side);
   text-align: center;
@@ -551,39 +638,18 @@ footer {
   font-weight: 400;
   font-size: 2.6rem;
   line-height: 1.1;
-  margin-bottom: 0.8rem;
 }
 
-.footer-mail {
-  font-size: 0.8rem;
-  border-bottom: 1px solid currentColor;
+/* signaturen er et link til min mail og bliver hvid ved hover */
+.footer-kontakt .signatur a {
+  transition: color 0.2s;
 }
 
-.footer-mail:hover {
+.footer-kontakt .signatur a:hover {
   color: #fff;
 }
 
-/* ---------- bjælke med ikoner over billedbåndet ---------- */
-.footer-ikoner {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem var(--side);
-}
-
-/* ikonerne gøres hvide */
-.footer-ikoner img {
-  width: 30px;
-  border-radius: 0;
-  filter: brightness(0) invert(1);
-  transition: opacity 0.2s;
-}
-
-.footer-ikoner a:hover img {
-  opacity: 0.7;
-}
-
-/* ---------- bundlinje ---------- */
+/* ---------- bundlinje med © og "Til toppen" ---------- */
 .footer-bund {
   display: flex;
   justify-content: space-between;
@@ -607,8 +673,15 @@ footer {
   color: #fff;
 }
 
-/*DESK*/
+/* ---------- responsive: footer ---------- */
+
+/* desktop (fra 768px): større billeder og signatur, mere luft */
 @media (min-width: 768px) {
+  .footer-ikoner {
+    gap: 2.5rem;
+    padding-block: 2.5rem;
+  }
+
   .image-track img {
     width: 300px;
     height: 300px;
@@ -626,43 +699,4 @@ footer {
   .footer-kontakt .signatur {
     font-size: 3.6rem;
   }
-
-  .footer-ikoner {
-    gap: 2.5rem;
-    padding-block: 2.5rem;
-  }
-}
-
-/* menupunkterne må ikke knække over to linjer */
-.menu a,
-.dropdown-toggle {
-  white-space: nowrap;
-}
-
-/* mellemstore skærme (fx iPad på langs): lidt mindre menu, så alt kan være der */
-@media (min-width: 801px) and (max-width: 1150px) {
-  .logo img {
-    height: 80px;
-  }
-
-  .menu {
-    gap: 18px;
-  }
-
-  .menu a,
-  .dropdown-toggle {
-    font-size: 1rem;
-  }
-}
-
-/* meget små telefoner (fx iPhone SE): mindre logo, knapper og ikoner */
-@media (max-width: 380px) {
-  .logo img {
-    height: 80px;
-  }
-
-  .kontakt-btn {
-    padding-inline: 24px;
-  }
-
 }
