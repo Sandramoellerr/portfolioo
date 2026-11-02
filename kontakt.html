@@ -8,7 +8,7 @@
     <title>Kontakt · Sandra Møller Gregersen</title>
     <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
     <link rel="stylesheet" href="css/kontakt.css?v=12">
-    <link rel="stylesheet" href="css/generel.css?v=12">
+    <link rel="stylesheet" href="css/generel.css?v=16">
     <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,10 +38,18 @@
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
-                        <li><span class="kommer">Webdesign <small>kommer snart</small></span></li>
+                        <li><a href="mette-thaisen.html">Webdesign – Mette Thaisen</a></li>
                     </ul>
                 </li>
-                <li><a href="mmd_studie.html">Multimediedesign studiet</a></li>
+                <!-- dropdown: undermenu under "Multimediedesign studiet" -->
+                <li class="dropdown">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="undermenu-mmd">Multimediedesign studiet</button>
+                    <ul class="undermenu" id="undermenu-mmd">
+                        <li><a href="mmd_studie.html">Om studiet</a></li>
+                        <li><a href="yum.html">Yum <small>skoleprojekt</small></a></li>
+                        <li><a href="orfeus.html">Orfeus <small>skoleprojekt</small></a></li>
+                    </ul>
+                </li>
                 <li class="booking-btn"><a class="active" href="kontakt.html">Kontakt</a></li>
             </ul>
             <!-- burgermenu: vises kun på mobil (styres af java/burger.js) -->
@@ -91,7 +99,7 @@
         <!-- ikon-bjælke: Instagram, LinkedIn og mail -->
         <div class="footer-ikoner">
             <a href="https://www.instagram.com/sandramoeller__/" aria-label="Instagram"><img src="iconer/insta.png" alt=""></a>
-            <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-4677413b4/" aria-label="LinkedIn"><img src="iconer/linkedin.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-7b06b0198/" aria-label="LinkedIn"><img src="iconer/linkedin.png" alt=""></a>
             <a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed" aria-label="Send en mail"><img src="iconer/gmail.png" alt=""></a>
         </div>
         <!-- billedbånd der kører af sig selv (billederne står der to gange, så det kører i ring) -->
@@ -166,7 +174,8 @@
         </div>
     </footer>
     <!-- javascript -->
-    <script src="java/burger.js?v=12"></script>
+    <script src="java/burger.js?v=13"></script>
+    <script src="java/animationer.js?v=5"></script>
 </body>
 
 </html>

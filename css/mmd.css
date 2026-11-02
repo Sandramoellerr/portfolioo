@@ -253,7 +253,7 @@
   /* de to billeder ligger lidt over hinanden, som en collage */
   .about_images {
     position: relative;
-    height: 650px;
+    height: 550px; /* = det store billedes top (130px) + højde (420px), så der ikke er tom plads i bunden */
   }
 
   /* store billede */

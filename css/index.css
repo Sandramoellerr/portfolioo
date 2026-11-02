@@ -6,6 +6,7 @@
    under kommer det responsive (desktop fra 768px) for den sektion.
 
    Indhold:
+   HERO – stort billede øverst
    BOX1 – intro: billede af mig, "SANDRA" og banneret
    BOX2 – rullebåndet med mine kompetencer (UX Design, Figma osv.)
    BOX3 – citatet fra min rejseleder + billede
@@ -14,18 +15,75 @@
    ========================================================== */
 
 /* ==========================================================
+   HERO
+   ========================================================== */
+
+/* billedet går helt ud til kanterne (ingen sidemargin) */
+main > .hero {
+  padding-inline: 0;
+}
+
+.hero {
+  overflow: hidden; /* så billedet ikke stikker ud, mens det zoomer */
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0; /* skarpe hjørner – helt ud til kanterne */
+}
+
+/* billedet toner frem og zoomer langsomt lidt ud, når siden åbner */
+@media (prefers-reduced-motion: no-preference) {
+  .hero img {
+    animation: hero-ind 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  @keyframes hero-ind {
+    from {
+      opacity: 0;
+      scale: 1.08;
+    }
+  }
+}
+
+/* ==========================================================
    BOX1 – INTRO
    ========================================================== */
 
-.box1_billede {
+/* mobil: "SANDRA" og intro først, så billedet, så resten af teksten og til sidst banneret */
+.box1 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* lader teksten og .streg1 blive placeret direkte i .box1, så rækkefølgen kan styres */
+.grid1_1,
+.info {
+  display: contents;
+}
+
+.info h1 {
+  order: 1;
   margin-top: 4rem;
 }
 
-.grid1_1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 5rem;
+.info > p {
+  order: 1;
+}
+
+.box1_billede {
+  order: 2;
+}
+
+.info-mere {
+  order: 3;
+  margin-top: 2rem;
+}
+
+.streg1 {
+  order: 4;
 }
 
 .info h1 {
@@ -47,7 +105,7 @@
 
 /* banneret "Kun kreativitet sætter grænser" */
 .streg1 {
-  background-color: var(--color-graa-beige);
+  background-color: var(--color-terracotta);
   display: grid;
   padding-block: 2rem;
   /* banneret går helt ud til kanterne, men teksten flugter med --side */
@@ -74,6 +132,7 @@
     grid-template-columns: 2fr 3fr; /* billedet i venstre side, tekst til højre */
     grid-template-rows: auto auto;
     gap: 0;
+    margin-top: 8rem;
   }
 
   .box1_billede {
@@ -99,9 +158,14 @@
   }
 
   .info {
+    display: block; /* på desktop står al teksten samlet i højre kolonne */
     grid-column: 2;
     grid-row: 1;
     padding-left: 4rem; /* luft mellem billede og tekst */
+  }
+
+  .info-mere {
+    margin-top: 0;
   }
 
   .info h1 {
@@ -253,7 +317,7 @@
 
 /* ==========================================================
    BOX4 – POLAROIDS OG OVERSIGT
-   Venstre: tre polaroids. Højre: links til Om mig, Karriere, MMD og Kontakt.
+   Venstre: polaroids i to kolonner. Højre: links til Om mig, Karriere, MMD og Kontakt.
    ========================================================== */
 
 .box4 {
@@ -265,7 +329,7 @@
 /* ---------- polaroids ---------- */
 .billederbox4 {
   background-color: var(--color-terracotta);
-  /* mobil: polaroids i to kolonner, den sidste centreret under */
+  /* mobil: polaroids i to kolonner */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem 1rem;
@@ -273,11 +337,14 @@
 }
 
 .polaroid {
+  align-self: start; /* strækkes ikke til rækkens højde, så kanten i bunden er lige smal på alle */
   margin: 0;
   padding: 0.6rem 0.6rem 0;
   background: #fffdf9;
   box-shadow: 0 14px 28px -14px rgba(60, 30, 20, 0.55);
   transition: transform 0.3s ease;
+  /* vinkel og forskydning sættes for hver polaroid længere nede */
+  transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0deg));
 }
 
 .polaroid img {
@@ -290,32 +357,58 @@
 /* den håndskrevne tekst under billedet */
 .polaroid figcaption {
   font-family: "Allura", cursive;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1;
   text-align: center;
   color: var(--color-tekst);
-  padding: 0.6rem 0 0.8rem;
+  /* smal kant i bunden: lidt luft og teksten holdes på én linje */
+  padding: 0.3rem 0 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* let skæve, som hvis de var sat op på en opslagstavle */
-.polaroid-1 {
-  transform: rotate(-3deg);
+/* tilfældigt spredt og skæve, som hvis de var sat op på en opslagstavle.
+   Mønsteret gentager sig for hver 6, så nye polaroids får det automatisk */
+.polaroid:nth-child(6n + 1) {
+  --r: -6deg;
+  --x: 0.3rem;
+  --y: 0.5rem;
 }
 
-.polaroid-2 {
-  transform: rotate(2.5deg);
+.polaroid:nth-child(6n + 2) {
+  --r: 4deg;
+  --x: -0.4rem;
+  --y: 1.5rem;
 }
 
-.polaroid-3 {
-  transform: rotate(-1.5deg);
-  grid-column: 1 / -1;
-  width: 50%;
-  justify-self: center;
+.polaroid:nth-child(6n + 3) {
+  --r: 2deg;
+  --x: 0.8rem;
+  --y: -0.3rem;
+}
+
+.polaroid:nth-child(6n + 4) {
+  --r: -7deg;
+  --x: -0.2rem;
+  --y: 0.8rem;
+}
+
+.polaroid:nth-child(6n + 5) {
+  --r: -2.5deg;
+  --x: -0.5rem;
+  --y: 0.2rem;
+}
+
+.polaroid:nth-child(6n) {
+  --r: 5.5deg;
+  --x: 0.4rem;
+  --y: 1rem;
 }
 
 /* retter sig op og bliver lidt større, når man holder musen over */
 .polaroid:hover {
-  transform: rotate(0deg) scale(1.03);
+  transform: translate(var(--x, 0), var(--y, 0)) rotate(0deg) scale(1.03);
 }
 
 /* ---------- oversigt med links ---------- */
@@ -367,36 +460,61 @@
     flex-direction: column;
   }
 
-  /* polaroids stablet lodret og lidt overlappende, skiftevis til venstre og højre */
+  /* polaroids i to kolonner, spredt ujævnt ud i hver sin celle */
   .billederbox4 {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 1.5rem;
+    align-content: start;
     padding-block: 6rem;
+    padding-right: 2rem;
   }
 
   .polaroid {
-    width: 58%;
-    padding: 0.8rem 0.8rem 0;
+    position: relative;
+    width: 78%;
+    padding: 0.7rem 0.7rem 0;
+  }
+
+  /* på desktop er der mere plads, så de spredes mere */
+  .polaroid:nth-child(6n + 1) {
+    justify-self: start;
+    --y: 0.5rem;
+  }
+
+  .polaroid:nth-child(6n + 2) {
+    justify-self: end;
+    --y: 3.5rem;
+  }
+
+  .polaroid:nth-child(6n + 3) {
+    justify-self: center;
+    --x: -1.5rem;
+    --y: 1rem;
+  }
+
+  .polaroid:nth-child(6n + 4) {
+    justify-self: start;
+    --x: 1rem;
+    --y: 2.5rem;
+  }
+
+  .polaroid:nth-child(6n + 5) {
+    justify-self: end;
+    --y: -0.5rem;
+  }
+
+  .polaroid:nth-child(6n) {
+    justify-self: center;
+    --x: 0.5rem;
+    --y: 2rem;
+  }
+
+  .polaroid:hover {
+    z-index: 1;
   }
 
   .polaroid figcaption {
-    font-size: 1.9rem;
-  }
-
-  .polaroid-1 {
-    align-self: flex-start;
-  }
-
-  .polaroid-2 {
-    align-self: flex-end;
-    margin-top: -4rem;
-  }
-
-  .polaroid-3 {
-    width: 58%;
-    align-self: flex-start;
-    margin-top: -3rem;
-    margin-left: 12%;
+    font-size: 1.4rem;
   }
 
   .oversigt {
@@ -404,6 +522,11 @@
     background-color: var(--color-terracotta);
     margin-inline: 0;
     padding-inline: 0;
+  }
+
+  /* hvide streger på den terracotta baggrund */
+  .streg {
+    background-color: white;
   }
 }
 

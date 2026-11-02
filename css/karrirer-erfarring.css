@@ -276,6 +276,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     align-items: start;
+    align-self: end; /* billederne slutter nede ved "Kontakt mig her", selvom teksten ved siden af er længere */
   }
 
   .stort {

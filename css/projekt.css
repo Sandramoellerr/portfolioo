@@ -1,0 +1,354 @@
+/* ==========================================================
+   PROJEKT.CSS – case-siderne (yum.html og orfeus.html)
+   Farver, skrifttyper, header og footer ligger i generel.css.
+
+   Opbygning: hver sektion har først styling til mobil, og lige
+   under kommer det responsive (desktop fra 768px) for den sektion.
+
+   Indhold:
+   1. Intro: projektnavn, kort beskrivelse, knapper og stort billede
+   2. Fakta: opgave, team, værktøjer og type
+   3. Sektioner med tekst og billede
+   4. Mobilvisning i en telefonramme
+   5. Næste projekt
+   6. Hele hjemmesiden i en ramme
+   7. Mærker: professionelt projekt eller skoleprojekt
+   ========================================================== */
+
+/* ==========================================================
+   1. INTRO
+   ========================================================== */
+
+.projekt-intro {
+  padding-top: 4rem;
+}
+
+/* lille linje over projektnavnet, fx "Tema 8 · Web II" */
+.projekt-intro h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 1rem;
+}
+
+.projekt-intro h1 {
+  margin-bottom: 1.5rem;
+}
+
+.projekt-intro .knapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.projekt-intro .knapper .kontakt-btn {
+  margin: 0;
+}
+
+/* skærmbillede af sitet i en lille browser-ramme */
+.browser {
+  margin-top: 3rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffdf9;
+  box-shadow: 0 30px 60px -30px rgba(60, 30, 20, 0.45);
+}
+
+/* de tre prikker i toppen af browser-rammen */
+.browser::before {
+  content: "";
+  display: block;
+  height: 28px;
+  background:
+    radial-gradient(circle at 16px 50%, #e3a497 5px, transparent 6px),
+    radial-gradient(circle at 34px 50%, #e8cf9a 5px, transparent 6px),
+    radial-gradient(circle at 52px 50%, #b9c7a6 5px, transparent 6px),
+    var(--color-graa-beige);
+}
+
+.browser img {
+  border-radius: 0;
+}
+
+/* ---------- responsive: intro ---------- */
+
+@media (min-width: 768px) {
+  .projekt-intro {
+    padding-top: 6rem;
+  }
+
+  .browser {
+    margin-top: 4rem;
+  }
+}
+
+/* ==========================================================
+   2. FAKTA
+   ========================================================== */
+
+.fakta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-block: 4rem;
+  padding-block: 2rem;
+  border-block: 1px solid var(--color-graa-beige);
+}
+
+.fakta h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 0.4rem;
+}
+
+.fakta p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------- responsive: fakta ---------- */
+
+@media (min-width: 768px) {
+  .fakta {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-block: 6rem;
+  }
+}
+
+/* ==========================================================
+   3. SEKTIONER MED TEKST OG BILLEDE
+   ========================================================== */
+
+.projekt-sektion {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.projekt-sektion h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 0.75rem;
+}
+
+.projekt-sektion h2 {
+  white-space: normal;
+  margin-bottom: 1.5rem;
+}
+
+.projekt-sektion p + p {
+  margin-top: 1rem;
+}
+
+/* punktliste med små terracotta streger */
+.projekt-sektion ul {
+  margin-top: 1rem;
+}
+
+.projekt-sektion li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.7;
+}
+
+.projekt-sektion li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 0.8rem;
+  height: 1.5px;
+  background: var(--color-terracotta);
+}
+
+.projekt-sektion figure {
+  margin: 0;
+}
+
+.projekt-sektion figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-terracotta);
+}
+
+/* terracotta felt med tal, fx "3,3 MB → 0,16 MB" */
+.tal-boks {
+  background-color: var(--color-terracotta);
+  color: #fffaf5;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.tal-boks p {
+  color: #fffaf5;
+}
+
+.tal-boks .tal {
+  font-family: "Prata", serif;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+/* ---------- responsive: sektioner ---------- */
+
+@media (min-width: 900px) {
+  /* tekst og billede ved siden af hinanden */
+  .projekt-sektion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5rem;
+    margin-bottom: 8rem;
+  }
+
+  /* hver anden sektion har billedet til venstre */
+  .projekt-sektion.spejlet > :first-child {
+    order: 2;
+  }
+}
+
+/* ==========================================================
+   4. MOBILVISNING I EN TELEFONRAMME
+   ========================================================== */
+
+.telefon {
+  width: min(260px, 70%);
+  margin-inline: auto;
+  padding: 10px;
+  border-radius: 36px;
+  background: var(--color-tekst);
+  box-shadow: 0 30px 60px -30px rgba(60, 30, 20, 0.6);
+}
+
+.telefon img {
+  border-radius: 28px;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ==========================================================
+   5. NÆSTE PROJEKT
+   ========================================================== */
+
+.naeste-projekt {
+  display: block;
+  margin-block: 2rem 6rem;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  background-color: var(--color-graa-beige);
+  transition: background-color 0.3s;
+}
+
+/* bliver terracotta med lys tekst, når man holder musen over */
+.naeste-projekt:hover {
+  background-color: var(--color-terracotta);
+}
+
+.naeste-projekt h3 {
+  color: var(--color-tekst);
+  margin-bottom: 0.5rem;
+}
+
+.naeste-projekt h2,
+.naeste-projekt h3 {
+  transition: color 0.3s;
+}
+
+.naeste-projekt:hover h2,
+.naeste-projekt:hover h3 {
+  color: #fffaf5;
+}
+
+.naeste-projekt h2 {
+  display: block; /* så pilen står i forlængelse af teksten */
+  white-space: normal;
+}
+
+/* pil der glider lidt til højre, når man holder musen over */
+.naeste-projekt h2::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.3s;
+}
+
+.naeste-projekt:hover h2::after {
+  transform: translateX(6px);
+}
+
+/* ==========================================================
+   6. HELE HJEMMESIDEN
+   Det rigtige site vises i en browser-ramme nederst på siden,
+   så man kan klikke rundt uden at forlade portfolioen.
+   ========================================================== */
+
+.hjemmeside {
+  margin-bottom: 5rem;
+  scroll-margin-top: 2rem; /* lidt luft over, når knappen scroller herned */
+}
+
+.hjemmeside h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 0.75rem;
+}
+
+.hjemmeside h2 {
+  margin-bottom: 1rem;
+}
+
+.hjemmeside .browser {
+  margin-top: 2rem;
+}
+
+.hjemmeside iframe {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 560px;
+  max-height: 900px;
+  border: 0;
+  background: #fff;
+}
+
+/* ==========================================================
+   7. MÆRKER: PROFESSIONELT PROJEKT ELLER SKOLEPROJEKT
+   Gør det tydeligt, hvilke projekter der er rigtige kundeopgaver,
+   og hvilke der er skoleopgaver.
+   ========================================================== */
+
+.projekt-maerke {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.45rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* rigtig kundeopgave: fyldt terracotta */
+.projekt-maerke.professionelt {
+  background-color: var(--color-terracotta);
+  color: #fffaf5;
+}
+
+/* skoleprojekt: kun en kant */
+.projekt-maerke.skole {
+  border: 1.5px solid var(--color-tekst);
+  color: var(--color-tekst);
+}
+
+/* boks under intro-teksten på skoleprojekterne */
+.skole-note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-terracotta);
+  background-color: var(--color-graa-beige);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}

@@ -15,28 +15,33 @@ burger.addEventListener("click", () => {
   nav.classList.toggle("active");
 });
 
-// ---------- 2. DROPDOWN under "Karriere & erfaring" ----------
-const dropdown = document.querySelector(".dropdown");
-const dropdownToggle = document.querySelector(".dropdown-toggle");
+// ---------- 2. DROPDOWNS ("Karriere & erfaring" og "Multimediedesign studiet") ----------
+const dropdowns = document.querySelectorAll(".dropdown");
 
-// åbner eller lukker undermenuen (open = true/false)
+// åbner eller lukker en undermenu (open = true/false)
 // aria-expanded fortæller skærmlæsere om menuen er åben
-function setDropdown(open) {
+function setDropdown(dropdown, open) {
   dropdown.classList.toggle("open", open);
-  dropdownToggle.setAttribute("aria-expanded", open);
+  dropdown.querySelector(".dropdown-toggle").setAttribute("aria-expanded", open);
 }
 
-// klik på "Karriere & erfaring" skifter mellem åben og lukket
-dropdownToggle.addEventListener("click", () => {
-  setDropdown(!dropdown.classList.contains("open"));
+dropdowns.forEach((dropdown) => {
+  // klik på knappen skifter mellem åben og lukket – og lukker de andre
+  dropdown.querySelector(".dropdown-toggle").addEventListener("click", () => {
+    const open = !dropdown.classList.contains("open");
+    dropdowns.forEach((andre) => setDropdown(andre, false));
+    setDropdown(dropdown, open);
+  });
 });
 
-// lukker menuen ved klik udenfor den
+// lukker menuerne ved klik udenfor dem
 document.addEventListener("click", (e) => {
-  if (!dropdown.contains(e.target)) setDropdown(false);
+  dropdowns.forEach((dropdown) => {
+    if (!dropdown.contains(e.target)) setDropdown(dropdown, false);
+  });
 });
 
-// lukker menuen når man trykker på Escape
+// lukker menuerne når man trykker på Escape
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") setDropdown(false);
+  if (e.key === "Escape") dropdowns.forEach((dropdown) => setDropdown(dropdown, false));
 });

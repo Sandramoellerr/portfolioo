@@ -16,6 +16,7 @@
    6. Header og menu
    7. Dropdown (Karriere & erfaring)
    8. Footer
+   9. Animationer (scroll)
    ========================================================== */
 
 /* ==========================================================
@@ -25,7 +26,7 @@
 :root {
   /* farverne på sitet – skift dem her, så skifter de alle steder */
   --color-creme: #f5efe6; /* baggrunden på alle sider */
-  --color-lysebrun: #bba792; /* header og footer */
+  --color-lysebrun: #f5efe6; /* header og footer */
   --color-graa-beige: #c8c4b6; /* banneret på forsiden + kanter */
   --color-terracotta: #b07a6a; /* knapper og de rosa/brune bokse */
   --color-terracotta-moerk: #9a6556; /* knapperne når man holder musen over */
@@ -229,7 +230,8 @@ main > div {
   padding: 1rem;
   text-align: center;
   border: var(--color-graa-beige) 2px solid;
-  margin-block: 6rem;
+  margin-top: 2rem; /* lidt luft op til billederne over knappen */
+  margin-bottom: 6rem;
 }
 
 .specielh3:hover {
@@ -481,8 +483,7 @@ nav a.active {
   display: block;
 }
 
-.undermenu a,
-.undermenu .kommer {
+.undermenu a {
   display: block;
   padding: 10px 20px;
   font-size: 1rem;
@@ -497,17 +498,13 @@ nav a.active {
   color: #b86b4b;
 }
 
-/* "Webdesign – kommer snart" er grå og kan ikke klikkes */
-.undermenu .kommer {
-  color: #9a918a;
-  cursor: default;
-}
-
-.undermenu .kommer small {
-  display: block;
-  font-size: 0.7rem;
+/* lille grå mærke efter menupunktet, fx "Yum SKOLEPROJEKT" */
+.undermenu a small {
+  margin-left: 6px;
+  font-size: 0.65rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+  color: #9a918a;
 }
 
 /* ---------- responsive: dropdown ---------- */
@@ -538,14 +535,9 @@ nav a.active {
     margin: 0;
   }
 
-  .undermenu a,
-  .undermenu .kommer {
+  .undermenu a {
     padding: 6px 0;
     overflow-wrap: anywhere;
-  }
-
-  .undermenu .kommer {
-    white-space: normal;
   }
 }
 
@@ -557,7 +549,7 @@ nav a.active {
 footer {
   overflow: hidden; /* skjuler billeder der er udenfor */
   width: 100%;
-  background: var(--color-lysebrun); /* samme lyse brune som headeren */
+  background: var(--color-terracotta); /* samme lyse brune som headeren */
   color: var(--color-tekst);
 }
 
@@ -699,4 +691,73 @@ footer {
   .footer-kontakt .signatur {
     font-size: 3.6rem;
   }
+}
+
+/* ==========================================================
+   9. ANIMATIONER
+   Styres af java/animationer.js. Kun hvis brugeren ikke har
+   slået animationer fra på sin enhed.
+   ========================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* headeren glider blidt ned, når siden åbner */
+  header {
+    animation: header-ind 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+
+  @keyframes header-ind {
+    from {
+      opacity: 0;
+      translate: 0 -100%;
+    }
+  }
+
+  /* indhold starter usynligt og lidt længere nede ... */
+  .reveal {
+    opacity: 0;
+    translate: 0 28px;
+    transition:
+      opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+      translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+      scale 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  /* billeder bliver også en anelse større, mens de kommer frem */
+  .reveal-billede {
+    scale: 0.96;
+  }
+
+  /* billeder med data-glid kommer ind udefra, fra hver sin side */
+  .reveal[data-glid] {
+    transition-duration: 1.3s;
+  }
+
+  .reveal[data-glid="venstre"] {
+    translate: -70vw 0;
+  }
+
+  .reveal[data-glid="hoejre"] {
+    translate: 70vw 0;
+  }
+
+  /* ... og glider på plads, når man scroller ned til det */
+  .reveal.vist {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+/* tynd streg øverst, der viser hvor langt man har scrollet */
+.statuslinje {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 1001; /* over headeren */
+  pointer-events: none;
 }

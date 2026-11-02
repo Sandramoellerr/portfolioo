@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Møller Gregersen · Portfolio</title>
     <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
-    <link rel="stylesheet" href="css/index.css?v=12">
-    <link rel="stylesheet" href="css/generel.css?v=12">
+    <link rel="stylesheet" href="css/index.css?v=24">
+    <link rel="stylesheet" href="css/generel.css?v=16">
     <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,10 +36,18 @@
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
-                        <li><span class="kommer">Webdesign <small>kommer snart</small></span></li>
+                        <li><a href="mette-thaisen.html">Webdesign – Mette Thaisen</a></li>
                     </ul>
                 </li>
-                <li><a href="mmd_studie.html">Multimediedesign studiet</a></li>
+                <!-- dropdown: undermenu under "Multimediedesign studiet" -->
+                <li class="dropdown">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="undermenu-mmd">Multimediedesign studiet</button>
+                    <ul class="undermenu" id="undermenu-mmd">
+                        <li><a href="mmd_studie.html">Om studiet</a></li>
+                        <li><a href="yum.html">Yum <small>skoleprojekt</small></a></li>
+                        <li><a href="orfeus.html">Orfeus <small>skoleprojekt</small></a></li>
+                    </ul>
+                </li>
                 <li class="booking-btn"><a href="kontakt.html">Kontakt</a></li>
             </ul>
             <!-- burgermenu: vises kun på mobil (styres af java/burger.js) -->
@@ -51,6 +59,11 @@
         </nav>
     </header>
     <main>
+        <!-- ==================== HERO: stort billede helt ud til kanterne ==================== -->
+        <section class="hero">
+            <img src="index_img/hero.jpg" alt="Sandra fotograferer med et Canon-kamera foran en grøn facade – Sandra Creative Studio">
+        </section>
+
         <!-- ==================== BOX1 – INTRO: billede af mig, "SANDRA" og banneret ==================== -->
         <section class="box1">
 
@@ -65,12 +78,15 @@
                         hvor æstetik og funktionalitet går hånd i hånd. Jeg finder glæde i at
                         udforske nye idéer, skabe gennemarbejdede designs og omsætte tanker til
                         brugervenlige digitale løsninger med fokus på detaljer og en stærk visuel identitet.</p>
-                    <h2>Kreativ digital designer <br> med fokus på <br>brugeroplevelser</h2>
+                    <!-- på mobil står denne del under billedet -->
+                    <div class="info-mere">
+                        <h2>Kreativ digital designer <br> med fokus på <br>brugeroplevelser</h2>
 
-                    <p>Gennem mine projekter arbejder jeg med UX/UI-design, webudvikling,
-                        visuel identitet og konceptudvikling. Jeg interesserer mig især for
-                        at skabe brugervenlige digitale løsninger med fokus på detaljer,
-                        designprocessen og den gode brugerrejse.</p>
+                        <p>Gennem mine projekter arbejder jeg med UX/UI-design, webudvikling,
+                            visuel identitet og konceptudvikling. Jeg interesserer mig især for
+                            at skabe brugervenlige digitale løsninger med fokus på detaljer,
+                            designprocessen og den gode brugerrejse.</p>
+                    </div>
                 </div>
                 <span class="streg1">
                     <p>Kun kreativitet sætter grænser</p>
@@ -143,15 +159,28 @@
         <section class="box4">
             <!-- små polaroids med håndskrevne billedtekster -->
             <div class="billederbox4">
-                <figure class="polaroid polaroid-1">
+                <figure class="polaroid">
                     <img src="index_img/spejl-selfie.webp" alt="Spejlselfie af Sandra i orange sweater i en elevator">
                     <figcaption>det er mig ♡</figcaption>
                 </figure>
-                <figure class="polaroid polaroid-2">
+                <figure class="polaroid">
                     <img src="index_img/tillykke12.webp" alt="Kort med teksten Tillykke med 12-tallet, Multimediedesign 1. semester">
                     <figcaption>12 på 1. semester</figcaption>
                 </figure>
-                <figure class="polaroid polaroid-3">
+                <figure class="polaroid">
+                    <img src="erfarring/kaffe.webp" alt="Cappuccino med latteart og en bolle på en café">
+                    <figcaption>kaffe &amp; kreativitet</figcaption>
+                </figure>
+                <!-- pladsholdere: skift billede, alt-tekst og billedtekst ud senere -->
+                <figure class="polaroid">
+                    <img src="index_img/spejl-selfie.webp" alt="Spejlselfie af Sandra i orange sweater i en elevator">
+                    <figcaption>det er mig ♡</figcaption>
+                </figure>
+                <figure class="polaroid">
+                    <img src="index_img/tillykke12.webp" alt="Kort med teksten Tillykke med 12-tallet, Multimediedesign 1. semester">
+                    <figcaption>12 på 1. semester</figcaption>
+                </figure>
+                <figure class="polaroid">
                     <img src="erfarring/kaffe.webp" alt="Cappuccino med latteart og en bolle på en café">
                     <figcaption>kaffe &amp; kreativitet</figcaption>
                 </figure>
@@ -221,10 +250,11 @@
         <!-- ==================== BOX6 – VISUEL STORYTELLING ==================== -->
         <section class="box6">
             <div class="billede_box6">
-                <div class="billede1_6">
+                <!-- data-glid: billedet glider ind fra den side, når man scroller ned (java/animationer.js) -->
+                <div class="billede1_6" data-glid="venstre">
                     <img src="index_img/IMG_3813.webp" alt="Sandra med en drink ved solnedgang på Maldiverne">
                 </div>
-                <div class="billede2_6">
+                <div class="billede2_6" data-glid="hoejre">
                     <img src="index_img/IMG_6374.webp" alt="Havskildpadde fotograferet oppefra i klart vand">
                 </div>
             </div>
@@ -246,7 +276,7 @@
         <!-- ikon-bjælke: Instagram, LinkedIn og mail -->
         <div class="footer-ikoner">
             <a href="https://www.instagram.com/sandramoeller__/" aria-label="Instagram"><img src="iconer/insta.png" alt=""></a>
-            <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-4677413b4/" aria-label="LinkedIn"><img src="iconer/linkedin.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/sandra-m%C3%B8ller-7b06b0198/" aria-label="LinkedIn"><img src="iconer/linkedin.png" alt=""></a>
             <a href="mailto:sandramller1902@gmail.com?subject=Ansøgning%20eller%20jobmulighed" aria-label="Send en mail"><img src="iconer/gmail.png" alt=""></a>
         </div>
         <!-- billedbånd der kører af sig selv (billederne står der to gange, så det kører i ring) -->
@@ -322,7 +352,8 @@
 
     </footer>
     <!-- javascript -->
-    <script src="java/burger.js?v=12"></script>
+    <script src="java/burger.js?v=13"></script>
+    <script src="java/animationer.js?v=5"></script>
 </body>
 
 </html>
