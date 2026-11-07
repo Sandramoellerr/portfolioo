@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- siden skal ikke vises i Google og andre søgemaskiner -->
+    <meta name="robots" content="noindex, nofollow">
     <title>Sandra Møller Gregersen · Portfolio</title>
     <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
-    <link rel="stylesheet" href="css/index.css?v=24">
+    <link rel="stylesheet" href="css/index.css?v=26">
     <link rel="stylesheet" href="css/generel.css?v=16">
     <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +38,7 @@
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
+                        <li><a href="rejser.html">Rejsefotografi</a></li>
                         <li><a href="mette-thaisen.html">Webdesign – Mette Thaisen</a></li>
                     </ul>
                 </li>
@@ -62,6 +65,43 @@
         <!-- ==================== HERO: stort billede helt ud til kanterne ==================== -->
         <section class="hero">
             <img src="index_img/hero.jpg" alt="Sandra fotograferer med et Canon-kamera foran en grøn facade – Sandra Creative Studio">
+        </section>
+
+        <!-- ==================== UDVALGTE PROJEKTER: mine UX/UI-cases lige under hero ==================== -->
+        <section class="udvalgte">
+            <div class="udvalgte-top">
+                <h3>Udvalgte projekter</h3>
+                <h2>UX/UI-cases fra research til færdig løsning</h2>
+            </div>
+            <div class="case-kort-liste">
+                <a class="case-kort" href="mette-thaisen.html">
+                    <div class="case-kort-billede">
+                        <img src="projekter/mette-forside.jpg" alt="Forsiden af Mette Thaisens hjemmeside med Mette på stranden">
+                    </div>
+                    <p class="case-kort-maerke professionelt">Kundeopgave · Webdesign</p>
+                    <h4>Mette Thaisen Kropsterapi</h4>
+                    <p>En tryg vej fra første besøg til booking for klienter, der er pressede af stress og traumer.</p>
+                    <span class="case-kort-link">Se casen</span>
+                </a>
+                <a class="case-kort" href="orfeus.html">
+                    <div class="case-kort-billede">
+                        <img src="projekter/orfeus-forside.jpg" alt="Kampagnesiden for Orfeus med overskriften Du er ikke alene">
+                    </div>
+                    <p class="case-kort-maerke">Skoleprojekt · UX og indhold</p>
+                    <h4>Orfeus – Du er ikke alene</h4>
+                    <p>Interviews, affinity mapping og brugertest, der gør det lettere for unge pårørende at søge hjælp.</p>
+                    <span class="case-kort-link">Se casen</span>
+                </a>
+                <a class="case-kort" href="yum.html">
+                    <div class="case-kort-billede">
+                        <img src="projekter/yum-forside.jpg" alt="Forsiden af YUM med stort blåt logo og et søgefelt">
+                    </div>
+                    <p class="case-kort-maerke">Skoleprojekt · UI og udvikling</p>
+                    <h4>YUM – opskrifter til unge</h4>
+                    <p>Fra et rodet første udkast til en enkel side, hvor man finder aftensmad på få klik.</p>
+                    <span class="case-kort-link">Se casen</span>
+                </a>
+            </div>
         </section>
 
         <!-- ==================== BOX1 – INTRO: billede af mig, "SANDRA" og banneret ==================== -->
@@ -171,18 +211,17 @@
                     <img src="erfarring/kaffe.webp" alt="Cappuccino med latteart og en bolle på en café">
                     <figcaption>kaffe &amp; kreativitet</figcaption>
                 </figure>
-                <!-- pladsholdere: skift billede, alt-tekst og billedtekst ud senere -->
                 <figure class="polaroid">
-                    <img src="index_img/spejl-selfie.webp" alt="Spejlselfie af Sandra i orange sweater i en elevator">
-                    <figcaption>det er mig ♡</figcaption>
+                    <img src="index_img/billede5.webp" alt="Hånd med guldringe og et lille rødt hjerte mod en rød strikbluse">
+                    <figcaption>små detaljer</figcaption>
                 </figure>
                 <figure class="polaroid">
-                    <img src="index_img/tillykke12.webp" alt="Kort med teksten Tillykke med 12-tallet, Multimediedesign 1. semester">
-                    <figcaption>12 på 1. semester</figcaption>
+                    <img src="index_img/gultop.webp" alt="Sandra i gul strik med et glas hvidvin på en solrig terrasse">
+                    <figcaption>skål for sommeren</figcaption>
                 </figure>
                 <figure class="polaroid">
-                    <img src="erfarring/kaffe.webp" alt="Cappuccino med latteart og en bolle på en café">
-                    <figcaption>kaffe &amp; kreativitet</figcaption>
+                    <img src="rejser/koala.jpg" alt="Koalamor med en unge på ryggen klatrer i et træ">
+                    <figcaption>hej fra Australien</figcaption>
                 </figure>
             </div>
             <div>

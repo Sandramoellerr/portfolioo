@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- siden skal ikke vises i Google og andre søgemaskiner -->
+    <meta name="robots" content="noindex, nofollow">
     <title>Mette Thaisen · Sandra Møller Gregersen</title>
     <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
-    <link rel="stylesheet" href="css/projekt.css?v=5">
+    <link rel="stylesheet" href="css/projekt.css?v=7">
     <link rel="stylesheet" href="css/generel.css?v=16">
     <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +39,7 @@
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
+                        <li><a href="rejser.html">Rejsefotografi</a></li>
                         <li><a href="mette-thaisen.html">Webdesign – Mette Thaisen</a></li>
                     </ul>
                 </li>
@@ -98,10 +101,43 @@
             </div>
         </section>
 
-        <!-- ==================== OPGAVEN ==================== -->
-        <section class="projekt-sektion">
+        <!-- ==================== KORT FORTALT: problem, proces og resultat ==================== -->
+        <section class="kort-fortalt">
             <div>
-                <h3>Opgaven</h3>
+                <h3>Udfordringen</h3>
+                <p>Mettes klienter er ofte pressede af stress, angst eller traumer. Siden skulle føles tryg og
+                    føre naturligt videre til en booking.</p>
+            </div>
+            <div>
+                <h3>Processen</h3>
+                <p>Brief med kunden, struktur efter klientens spørgsmål, første version og derefter løbende
+                    feedbackrunder over seks uger.</p>
+            </div>
+            <div>
+                <h3>Resultatet</h3>
+                <p>En hjemmeside med 7 sider, eget fotoshoot og direkte link til bookingsystemet, lavet til rigtige
+                    klienter.</p>
+            </div>
+        </section>
+
+        <!-- ==================== MIN ROLLE ==================== -->
+        <section class="min-rolle">
+            <h3>Min rolle</h3>
+            <h2>Hele hjemmesiden, fra idé til færdig side</h2>
+            <p>Jeg arbejdede alene og direkte med kunden, så jeg stod for hele forløbet:</p>
+            <ul>
+                <li>Afklaring af behov og indhold sammen med Mette.</li>
+                <li>Struktur, sitemap og visuelt design.</li>
+                <li>Udvikling i HTML, CSS og JavaScript, responsivt på mobil, tablet og desktop.</li>
+                <li>Feedbackrunder, rettelser og versionsstyring i Git.</li>
+            </ul>
+        </section>
+
+        <!-- ==================== 01 OPGAVEN ==================== -->
+        <section class="projekt-sektion">
+            <div class="kapitel">
+                <span class="kapitel-nr">01</span>
+                <h3>Brief · Opgaven</h3>
                 <h2>En rolig vej fra første besøg til booking</h2>
                 <p>Mettes klienter er ofte pressede af stress, angst eller et nervesystem, der har været på
                     overarbejde for længe. Derfor skulle hjemmesiden føles rolig og tryg, være let at overskue og
@@ -114,14 +150,77 @@
             </div>
         </section>
 
-        <!-- ==================== DESIGNET ==================== -->
+        <!-- ==================== 02 STRUKTUR ==================== -->
+        <section>
+            <div class="kapitel">
+                <span class="kapitel-nr">02</span>
+                <h3>Struktur · Sitemap</h3>
+                <h2>Svar på de spørgsmål, en ny klient har</h2>
+                <p>Siderne er bygget op efter de spørgsmål, en ny klient typisk stiller sig selv, før de tør booke.</p>
+            </div>
+            <div class="indsigter">
+                <div class="indsigt">
+                    <p class="nr">Spørgsmål 1</p>
+                    <h4>Er det her noget for mig?</h4>
+                    <p>Forsiden og siden om Manuvision forklarer, hvad behandlingen er, og hvem den hjælper.</p>
+                </div>
+                <div class="indsigt">
+                    <p class="nr">Spørgsmål 2</p>
+                    <h4>Hvad sker der, og hvad koster det?</h4>
+                    <p>Forløb og priser viser trin for trin, hvad man kan forvente.</p>
+                </div>
+                <div class="indsigt">
+                    <p class="nr">Spørgsmål 3</p>
+                    <h4>Kan jeg stole på hende?</h4>
+                    <p>Om mig viser uddannelse, certificeringer og klientudtalelser.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 03 ITERATIONER: før og efter ==================== -->
+        <section>
+            <div class="kapitel">
+                <span class="kapitel-nr">03</span>
+                <h3>Iterationer · Feedback fra kunden</h3>
+                <h2>Fra første version til færdig side</h2>
+                <p>Den første version var klar i starten af september. Derefter justerede jeg siden løbende ud fra Mettes
+                    feedback i godt seks uger, styret i Git.</p>
+            </div>
+            <div class="foer-efter">
+                <figure>
+                    <span class="etiket">Før</span>
+                    <img src="projekter/mette-foer.jpg" alt="Første version af forsiden med overskriften Find hjem i din krop igen og en generel tekst">
+                    <figcaption>Første version, september</figcaption>
+                </figure>
+                <figure class="efter">
+                    <span class="etiket">Efter</span>
+                    <img src="projekter/mette-efter.jpg" alt="Den færdige forside, hvor teksten taler direkte til symptomer som uro i kroppen og dårlig søvn">
+                    <figcaption>Færdig version, oktober</figcaption>
+                </figure>
+            </div>
+            <ul class="aendringer">
+                <li><strong>Teksten taler til klienten, ikke om behandleren</strong>Forsiden starter nu med de
+                    symptomer, klienten kan genkende, fx uro i kroppen og dårlig søvn, i stedet for en generel
+                    tekst.</li>
+                <li><strong>Menuen bruger klientens ord</strong>"Praktisk information" blev til tydelige
+                    menupunkter som "Ydelser og forløb".</li>
+                <li><strong>Ny sektion: "Har du mistet balancen?"</strong>lige under heroen, så man hurtigt
+                    kan mærke, om behandlingen er noget for en.</li>
+                <li><strong>Ægte billeder fra et fotoshoot</strong>på stranden og i klinikken gør siden mere
+                    personlig og tillidsvækkende.</li>
+                <li><strong>Klientudtalelser i en "Læs mere"-harmonika</strong>så siderne ikke bliver tunge at
+                    læse.</li>
+            </ul>
+        </section>
+
+        <!-- ==================== 04 DESIGNET ==================== -->
         <section class="projekt-sektion spejlet">
-            <div>
+            <div class="kapitel">
+                <span class="kapitel-nr">04</span>
                 <h3>Designet</h3>
                 <h2>Ro, natur og tillid</h2>
-                <p>Udtrykket bygger på billeder fra et fotoshoot ved stranden og i klinikken, bløde farver og
-                    masser af luft. Teksterne er delt op i korte afsnit, og lange klientudtalelser er samlet i en
-                    "Læs mere"-harmonika, så siderne ikke bliver tunge at læse.</p>
+                <p>Udtrykket bygger på billeder fra fotoshootet, bløde farver og masser af luft. Teksterne er delt
+                    op i korte afsnit, så de er lette at læse for en, der i forvejen er presset.</p>
                 <p>Om mig-siden viser Mettes uddannelse og certificeringer tydeligt, så nye klienter kan se, at de
                     er i trygge hænder.</p>
             </div>
@@ -133,7 +232,7 @@
 
         <!-- ==================== KLAR TIL RIGTIG BRUG ==================== -->
         <section class="projekt-sektion">
-            <div>
+            <div class="kapitel">
                 <h3>Klar til rigtig brug</h3>
                 <h2>Mere end et flot design</h2>
                 <ul>
@@ -141,12 +240,30 @@
                     <li>Responsivt design, testet og rettet på mobil, tablet og desktop.</li>
                     <li>Billeder i flere størrelser og beskrivende filnavne og alt-tekster for hurtighed og SEO.</li>
                     <li>Direkte link til Mettes bookingsystem og sociale medier.</li>
-                    <li>Løbende rettelser efter kundens feedback, styret i Git.</li>
                 </ul>
             </div>
             <div class="tal-boks">
-                <p class="tal">7 sider</p>
-                <p>fra forside til privatlivspolitik, bygget til at blive brugt af rigtige klienter.</p>
+                <p class="tal">7 sider · 6 uger</p>
+                <p>fra første version til færdig side, bygget til at blive brugt af rigtige klienter.</p>
+            </div>
+        </section>
+
+        <!-- ==================== LÆRING ==================== -->
+        <section class="laering">
+            <div>
+                <h3>Det lærte jeg</h3>
+                <ul>
+                    <li>At oversætte kundens ønsker og feedback til konkrete designændringer.</li>
+                    <li>At skrive til brugerens situation og ikke kun om ydelsen.</li>
+                    <li>At holde styr på mange små rettelser med Git.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Næste gang</h3>
+                <ul>
+                    <li>Lave wireframes og få dem godkendt, før jeg koder, så der bliver færre runder.</li>
+                    <li>Brugerteste med et par af Mettes klienter og måle, hvor mange der booker via siden.</li>
+                </ul>
             </div>
         </section>
 

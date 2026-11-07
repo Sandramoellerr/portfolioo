@@ -19,6 +19,8 @@
    8. Kontakt (sidste side)
    9. Lightbox (billedet i stor størrelse)
    10. Animation: første opslag åbner som et magasin
+   11. Rejser (rejser.html)
+   12. "Læs også": link til det andet magasin
    ========================================================== */
 
 /* ==========================================================
@@ -578,5 +580,73 @@ dialog.lightbox::backdrop {
       transform: perspective(1600px) rotateY(-18deg);
       opacity: 0;
     }
+  }
+}
+
+/* ==========================================================
+   11. REJSER (rejser.html bruger samme magasin)
+   ========================================================== */
+
+/* liggende billede på en hel side, fx luftballonen – vises i sit eget format */
+.photo.full.liggende {
+  aspect-ratio: 8 / 7;
+  width: 100%;
+}
+
+/* ==========================================================
+   12. "LÆS OGSÅ": link til det andet magasin
+   Står under opslagene på både fotografi.html og rejser.html.
+   ========================================================== */
+
+.naeste-nummer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 110px;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.25rem 1.25rem 1.75rem;
+  border-radius: 12px;
+  background: var(--stripes);
+  box-shadow: 0 30px 60px -30px rgba(60, 30, 45, 0.35);
+}
+
+.naeste-nummer-tekst {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.naeste-nummer-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.naeste-nummer-titel {
+  font-family: var(--display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.05;
+  color: var(--ink);
+  transition: transform 0.3s;
+}
+
+.naeste-nummer:hover .naeste-nummer-titel {
+  transform: translateX(6px);
+}
+
+.naeste-nummer img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ---------- responsive: læs også ---------- */
+
+/* desktop (fra 861px): kortet fylder ikke hele bredden */
+@media (min-width: 861px) {
+  .naeste-nummer {
+    grid-template-columns: minmax(0, 1fr) 150px;
+    width: min(100%, 620px);
+    justify-self: center;
   }
 }

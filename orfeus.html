@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- siden skal ikke vises i Google og andre søgemaskiner -->
+    <meta name="robots" content="noindex, nofollow">
     <title>Orfeus · Sandra Møller Gregersen</title>
     <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
-    <link rel="stylesheet" href="css/projekt.css?v=5">
+    <link rel="stylesheet" href="css/projekt.css?v=7">
     <link rel="stylesheet" href="css/generel.css?v=16">
     <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +39,7 @@
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
+                        <li><a href="rejser.html">Rejsefotografi</a></li>
                         <li><a href="mette-thaisen.html">Webdesign – Mette Thaisen</a></li>
                     </ul>
                 </li>
@@ -100,55 +103,217 @@
             </div>
         </section>
 
-        <!-- ==================== UDFORDRINGEN ==================== -->
-        <section class="projekt-sektion">
+        <!-- ==================== KORT FORTALT: problem, proces og resultat ==================== -->
+        <section class="kort-fortalt">
             <div>
-                <h3>Udfordringen</h3>
-                <h2>At bryde tabuet om at søge hjælp</h2>
-                <p>Vores research viste, at pårørende ofte føler skam, skyld og ensomhed og ikke ved, hvordan de
-                    skal søge hjælp. Vi spurgte derfor: Hvordan kan digitalt indhold nedbryde tabuet for unge og give
-                    dem en følelse af anerkendelse og fællesskab hos Orfeus?</p>
-                <p>Vi lavede desk research på organisationer som TUBA, Red Barnet og CAS, analyserede, hvordan de
-                    taler til unge på sociale medier, og interviewede pårørende om deres oplevelser.</p>
+                <h3>Problemet</h3>
+                <p>Unge pårørende til mennesker med et misbrug føler skam, skyld og ensomhed og ved ikke, hvordan
+                    de skal søge hjælp.</p>
+            </div>
+            <div>
+                <h3>Processen</h3>
+                <p>Interviews, affinity mapping, How Might We, Value Proposition Canvas, moodboard, Figma-prototype
+                    og brugertest før og efter.</p>
+            </div>
+            <div>
+                <h3>Resultatet</h3>
+                <p>En kampagneside og SoMe-koncept, hvor 100 % af testpersonerne syntes, at opbygningen var
+                    overskuelig.</p>
+            </div>
+        </section>
+
+        <!-- ==================== MIN ROLLE ==================== -->
+        <!-- TJEK: ret punkterne, så de passer præcist til det, du selv lavede i gruppen -->
+        <section class="min-rolle">
+            <h3>Min rolle</h3>
+            <h2>Designproces og visuelt udtryk</h2>
+            <p>Vi var fem i gruppen og arbejdede på tværs af research, design og kode. Mit fokus var
+                designprocessen: at omsætte indsigterne fra research til et visuelt udtryk.</p>
+            <ul>
+                <li>Idéer og skitser til, hvordan målgruppens følelser kunne vises visuelt.</li>
+                <li>Post-it-konceptet, de personlige illustrationer og klistermærkerne.</li>
+                <li>Test af designet undervejs og justeringer ud fra feedbacken.</li>
+            </ul>
+        </section>
+
+        <!-- ==================== PROCESTRIN ==================== -->
+        <section>
+        <ol class="proces-trin" aria-label="Designprocessen">
+            <li>Discover</li>
+            <li>Define</li>
+            <li>Develop</li>
+            <li>Deliver</li>
+        </ol>
+        </section>
+
+        <!-- ==================== 01 DISCOVER: research ==================== -->
+        <section class="projekt-sektion">
+            <div class="kapitel">
+                <span class="kapitel-nr">01</span>
+                <h3>Discover · Research</h3>
+                <h2>Hvad oplever unge pårørende egentlig?</h2>
+                <p>Vi startede med desk research på Orfeus og lignende organisationer som TUBA, Red Barnet og CAS.
+                    TUBA skilte sig ud ved at tale direkte til unge og normalisere problemerne, så det bliver
+                    lettere at række ud.</p>
+                <p>Derefter interviewede vi pårørende om deres relation til personen med misbruget, deres følelser,
+                    og hvad der havde gjort det lettere at søge hjælp.</p>
             </div>
             <div class="telefon">
                 <img src="projekter/orfeus-mobil.jpg" alt="Kampagnesiden vist på en mobil">
             </div>
         </section>
 
-        <!-- ==================== KONCEPTET ==================== -->
-        <section class="projekt-sektion spejlet">
-            <div>
-                <h3>Konceptet</h3>
-                <h2>Du er ikke alene</h2>
-                <p>Ud fra indsigterne udviklede vi et koncept med personlige fortællinger, citater og genkendelige
-                    situationer fra pårørendes hverdag. Håndskrevne post-its, illustrationer og klistermærker skulle
-                    gøre udtrykket trygt, personligt og genkendeligt.</p>
-                <p>Vi testede designet undervejs og brugte feedbacken til at justere. Testen viste for eksempel, at
-                    runde billeder gav mere ro og nærvær end firkantede, så dem skiftede vi til.</p>
+        <!-- ==================== 02 DEFINE: syntese og indsigter ==================== -->
+        <section>
+            <div class="kapitel">
+                <span class="kapitel-nr">02</span>
+                <h3>Define · Syntese</h3>
+                <h2>Fra citater til indsigter</h2>
+                <p>Vi samlede citater og observationer fra interviewene og sorterede dem med affinity mapping i
+                    Figma. Temaerne var løgne, omverdenens manglende forståelse, følelser og behovet for hjælp.</p>
             </div>
-            <figure>
-                <img src="projekter/orfeus-postits.jpg" alt="Sektionen 1 ud af 5 med illustrerede ansigter og post-its med citater fra pårørende">
-                <figcaption>Post-its med citater fra pårørende, som åbner hele fortællingen</figcaption>
+            <figure class="billede-bred">
+                <img src="projekter/orfeus-affinity.jpg" alt="Affinity map i Figma med gule, lilla, blå og røde post-its sorteret i grupper">
+                <figcaption>Affinity mapping: citaterne fra interviewene sorteret i temaer</figcaption>
             </figure>
+
+            <div class="indsigter">
+                <div class="indsigt">
+                    <p class="nr">Indsigt 1</p>
+                    <h4>Den pårørende bliver glemt</h4>
+                    <p>De pårørende føler, at de ikke er berettigede til hjælp, fordi det ikke er dem, der har
+                        misbruget.</p>
+                    <p class="derfor">Derfor: et klart budskab om, at du også må få hjælp.</p>
+                </div>
+                <div class="indsigt">
+                    <p class="nr">Indsigt 2</p>
+                    <h4>Omverdenen forstår det ikke</h4>
+                    <p>Mange frygter at blive dømt og oplever, at andre ikke forstår, hvorfor de bliver i
+                        relationen.</p>
+                    <p class="derfor">Derfor: rigtige citater fra pårørende, så man kan spejle sig i andre.</p>
+                </div>
+                <div class="indsigt">
+                    <p class="nr">Indsigt 3</p>
+                    <h4>Det er svært at tage første skridt</h4>
+                    <p>Målgruppen vil ofte klare det selv og ved ikke, hvad rådgivningen går ud på.</p>
+                    <p class="derfor">Derfor: tydelige CTA'er og enkel information om det gratis og anonyme
+                        tilbud.</p>
+                </div>
+            </div>
         </section>
 
-        <!-- ==================== PROCESSEN ==================== -->
-        <section class="projekt-sektion">
-            <div>
-                <h3>Processen</h3>
-                <h2>Fra research til færdig side</h2>
-                <ul>
-                    <li>Double Diamond som ramme: discover, define, develop og deliver.</li>
-                    <li>Interviews, syntese og How Might We-spørgsmål, der blev til målgruppe og Value Proposition Canvas.</li>
-                    <li>Moodboard, content strategi, kunderejse og indholdsplan for SoMe.</li>
-                    <li>Prototype i Figma og den færdige side bygget i Astro og udgivet på Netlify.</li>
-                </ul>
+        <!-- ==================== HOW MIGHT WE + MÅLGRUPPE ==================== -->
+        <section class="projekt-sektion spejlet">
+            <div class="kapitel">
+                <h3>Problemstilling</h3>
+                <h2>How might we gøre det mere naturligt og mindre skamfuldt at søge hjælp?</h2>
+                <p>Indsigterne blev til fire How Might We-spørgsmål, som vi brugte som retningslinjer resten af
+                    projektet. Målgruppen blev unge pårørende under 30 år.</p>
+                <p>I en Value Proposition Canvas koblede vi målgruppens pains, som skam, tabu og frygt, med det,
+                    Orfeus kan tilbyde: genkendelse, konkrete råd og et trygt fællesskab.</p>
             </div>
             <div class="tal-boks">
                 <p class="tal">1 ud af 5</p>
-                <p>danskere er potentielt berørt af misbrug, enten selv eller som pårørende. Tallet er et af sidens
-                    bærende budskaber.</p>
+                <p>danskere er potentielt berørt af misbrug, enten selv eller som pårørende. Tallet blev et af
+                    sidens bærende budskaber.</p>
+            </div>
+        </section>
+
+        <!-- ==================== 03 DEVELOP: koncept og design ==================== -->
+        <section>
+            <div class="kapitel">
+                <span class="kapitel-nr">03</span>
+                <h3>Develop · Koncept</h3>
+                <h2>"Når deres bytur bliver dit ansvar"</h2>
+                <p>Konceptet bruger bylivet som ramme for de følelser, en pårørende kan stå med: at vente på svar,
+                    hente en påvirket ven eller dække over nogen. Indholdet fører målgruppen gennem tre trin:
+                    genkendelse, tryghed og handling.</p>
+                <p>Fra et fælles moodboard valgte vi de beige, brune og grønne farver og abstrakte figurer, så
+                    udtrykket stadig føles som Orfeus, bare nyfortolket til en yngre målgruppe.</p>
+            </div>
+            <figure class="billede-bred">
+                <img src="projekter/orfeus-moodboard.jpg" alt="Moodboard med illustrationer, citater og plakater i rød, grøn, beige og orange">
+                <figcaption>Fælles moodboard: illustrationer, håndskrift og varme, rolige farver</figcaption>
+            </figure>
+        </section>
+
+        <section class="projekt-sektion">
+            <div class="kapitel">
+                <h3>Designvalg</h3>
+                <h2>Trygt, personligt og genkendeligt</h2>
+                <ul>
+                    <li>Den grønne fra Orfeus' identitet er bevaret, men suppleret med en orange accentfarve på alle
+                        CTA'er, så det er tydeligt, hvor man kan klikke.</li>
+                    <li>Håndskrevne post-its med citater fra pårørende åbner fortællingen og skaber genkendelse.</li>
+                    <li>Klik på et citat åbner et kort, personligt indlæg i en popover.</li>
+                    <li>Klistermærker med QR-kode gør Orfeus synlig der, hvor de unge er: på caféer, spillesteder og
+                        uddannelser.</li>
+                </ul>
+            </div>
+            <figure>
+                <img src="projekter/orfeus-klistermaerker.jpg" alt="To fotos af grønne Orfeus-klistermærker med QR-kode sat op på en lygtepæl og et cykelstativ i byen">
+                <figcaption>Klistermærkerne testet ude i byen</figcaption>
+            </figure>
+        </section>
+
+        <!-- ==================== 04 DELIVER: test og iteration ==================== -->
+        <section>
+            <div class="kapitel">
+                <span class="kapitel-nr">04</span>
+                <h3>Deliver · Test og iteration</h3>
+                <h2>Testet før og efter</h2>
+                <p>Vi lavede først en Likert-test af Orfeus' nuværende hjemmeside. Folk kunne lide farver og
+                    æstetik, men navigation, sammenhæng og lysten til at tage kontakt scorede lavt. Det blev
+                    fokus i vores prototype.</p>
+            </div>
+            <figure class="billede-bred">
+                <img src="projekter/orfeus-prototype.jpg" alt="Figma-prototype med post-its med citater, en hero med teksten Du er ikke alene og en grøn sektion med teksten Det er ikke skamfuldt at søge hjælp">
+                <figcaption>Figma-prototypen: overskuelig struktur, tydelige CTA'er og personlige citater</figcaption>
+            </figure>
+
+            <ul class="aendringer">
+                <li><strong>Firkantede billeder blev runde</strong>Testen viste, at runde billeder gav mere ro og
+                    nærvær.</li>
+                <li><strong>Tydeligere vej til kontakt</strong>Orange CTA'er og mere information om, hvem
+                    rådgivningen er for, og hvordan den foregår.</li>
+                <li><strong>Mere tillid</strong>Personlige citater, præsentation af rådgiverne og illustrationer.</li>
+            </ul>
+
+            <div class="resultater">
+                <div class="resultat">
+                    <p class="tal">100 %</p>
+                    <p>var enige eller meget enige i, at opbygningen var overskuelig.</p>
+                </div>
+                <div class="resultat">
+                    <p class="tal">75 %</p>
+                    <p>var meget enige i, at rådgivningstilbuddet var let at forstå.</p>
+                </div>
+                <div class="resultat">
+                    <p class="tal">75 %</p>
+                    <p>var meget enige i, at førstehåndsindtrykket fik dem til at føle sig trygge ved at søge
+                        hjælp.</p>
+                </div>
+            </div>
+            <p class="kilde-note">Likert-test af den færdige prototype. Et lille antal testpersoner, så tallene viser
+                en retning og ikke en statistisk sandhed.</p>
+        </section>
+
+        <!-- ==================== LÆRING ==================== -->
+        <section class="laering">
+            <div>
+                <h3>Det lærte jeg</h3>
+                <ul>
+                    <li>Rigtige citater fra brugerne er stærkere end noget, vi selv kunne skrive.</li>
+                    <li>At teste den eksisterende løsning først gav os et klart udgangspunkt at måle på.</li>
+                    <li>Et følsomt emne kræver en rolig, ikke-dømmende tone i både tekst og design.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Næste gang</h3>
+                <ul>
+                    <li>Teste med flere personer fra målgruppen for at få mere sikre resultater.</li>
+                    <li>Måle kampagnens effekt på SoMe: gemninger, delinger og henvendelser.</li>
+                </ul>
             </div>
         </section>
 

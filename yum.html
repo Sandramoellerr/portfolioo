@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- siden skal ikke vises i Google og andre søgemaskiner -->
+    <meta name="robots" content="noindex, nofollow">
     <title>Yum · Sandra Møller Gregersen</title>
     <!-- CSS: generel.css bruges på alle sider, den anden fil kun på denne side -->
-    <link rel="stylesheet" href="css/projekt.css?v=5">
+    <link rel="stylesheet" href="css/projekt.css?v=7">
     <link rel="stylesheet" href="css/generel.css?v=16">
     <!-- skrifttyper fra Google Fonts: Allura, Cormorant Garamond, Inter og Prata -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +39,7 @@
                     <ul class="undermenu" id="undermenu-karriere">
                         <li><a href="karriere_erfarring.html">Erhvervserfaring</a></li>
                         <li><a href="fotografi.html">Fotografi</a></li>
+                        <li><a href="rejser.html">Rejsefotografi</a></li>
                         <li><a href="mette-thaisen.html">Webdesign – Mette Thaisen</a></li>
                     </ul>
                 </li>
@@ -99,26 +102,147 @@
             </div>
         </section>
 
-        <!-- ==================== UDFORDRINGEN ==================== -->
-        <section class="projekt-sektion">
+        <!-- ==================== KORT FORTALT: problem, proces og resultat ==================== -->
+        <section class="kort-fortalt">
             <div>
-                <h3>Udfordringen</h3>
+                <h3>Problemet</h3>
+                <p>Unge, der lige er flyttet hjemmefra, vil gerne lave rigtig mad, men tid og sværhedsgrad står i
+                    vejen.</p>
+            </div>
+            <div>
+                <h3>Processen</h3>
+                <p>Double Diamond, moodboard, mobile first-skitser, et første udkast der blev lavet om, og en
+                    dynamisk side bygget på et API.</p>
+            </div>
+            <div>
+                <h3>Resultatet</h3>
+                <p>En opskriftsside, hvor man kan kombinere måltid, køkken, tid og søgning og finde en opskrift på
+                    få klik.</p>
+            </div>
+        </section>
+
+        <!-- ==================== MIN ROLLE ==================== -->
+        <section class="min-rolle">
+            <h3>Min rolle</h3>
+            <h2>Design og udvikling af søgning og flow</h2>
+            <p>Vi var tre i gruppen og arbejdede på hver vores branch i Git. Jeg stod for omkring to tredjedele af
+                commits og arbejdede især med:</p>
+            <ul>
+                <li>Søgningen og flowet "ønsk en opskrift", når en søgning ikke giver resultater.</li>
+                <li>Filtre, "See more" og en tilbage-knap, der husker dine valg.</li>
+                <li>Burgermenuen, knapper og responsivt design på tværs af siderne.</li>
+                <li>Billedoptimering til WebP og oprydning, så koden er let at læse.</li>
+            </ul>
+        </section>
+
+        <!-- ==================== PROCESTRIN ==================== -->
+        <section>
+        <ol class="proces-trin" aria-label="Designprocessen">
+            <li>Discover</li>
+            <li>Define</li>
+            <li>Develop</li>
+            <li>Deliver</li>
+        </ol>
+        </section>
+
+        <!-- ==================== 01 MÅLGRUPPE OG BEHOV ==================== -->
+        <section class="projekt-sektion">
+            <div class="kapitel">
+                <span class="kapitel-nr">01</span>
+                <h3>Discover · Målgruppen</h3>
                 <h2>Ikke mere havregryn til aftensmad</h2>
-                <p>Målgruppen er unge, der lige er flyttet hjemmefra. De vil gerne lave rigtig mad, men tid og
-                    sværhedsgrad er de største barrierer. Derfor skulle sitet gøre det hurtigt at finde en opskrift,
-                    der passer til både måltidet, tiden og evnerne.</p>
-                <p>Data kommer fra DummyJSON Recipes API, så hele indholdet bygges med JavaScript ud fra de
-                    opskrifter, API'et sender tilbage.</p>
+                <p>Målgruppen er unge, der lige er flyttet hjemmefra. De vil gerne lave rigtig mad, og de har
+                    mobilen i hånden, når de skal finde på noget, så vi designede mobile first.</p>
+                <p>Vi så to barrierer: tid og sværhedsgrad. Hvis en opskrift ser lang eller svær ud, ender det med
+                    rugbrød eller havregryn.</p>
             </div>
             <div class="telefon">
                 <img src="projekter/yum-mobil.jpg" alt="YUM's forside vist på en mobil">
             </div>
         </section>
 
-        <!-- ==================== LØSNINGEN ==================== -->
+        <!-- ==================== 02 INDSIGTER → DESIGNBESLUTNINGER ==================== -->
+        <section>
+            <div class="kapitel">
+                <span class="kapitel-nr">02</span>
+                <h3>Define · Fra behov til funktioner</h3>
+                <h2>Hver funktion løser et konkret problem</h2>
+                <p>API'et indeholder mange data om hver opskrift. Vi valgte kun det, der hjælper målgruppen, og
+                    fravalgte resten, fx rating og kalorier.</p>
+            </div>
+            <div class="indsigter">
+                <div class="indsigt">
+                    <p class="nr">Behov 1</p>
+                    <h4>Tiden er knap</h4>
+                    <p>Tid er den største barriere en almindelig hverdag.</p>
+                    <p class="derfor">Derfor: filter på tid og et "Under 20 min"-mærke allerede på forsiden.</p>
+                </div>
+                <div class="indsigt">
+                    <p class="nr">Behov 2</p>
+                    <h4>Er det for svært?</h4>
+                    <p>Sværhedsgraden afgør, om man tør gå i gang.</p>
+                    <p class="derfor">Derfor: tid og sværhedsgrad vises på hver opskrift, før man klikker ind.</p>
+                </div>
+                <div class="indsigt">
+                    <p class="nr">Behov 3</p>
+                    <h4>Søgningen giver ingenting</h4>
+                    <p>En tom søgning er en blindgyde, og så forlader man siden.</p>
+                    <p class="derfor">Derfor: giver søgningen nul resultater, kan man ønske opskriften i en formular.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 03 DEVELOP: moodboard og iteration ==================== -->
         <section class="projekt-sektion spejlet">
-            <div>
-                <h3>Løsningen</h3>
+            <div class="kapitel">
+                <span class="kapitel-nr">03</span>
+                <h3>Develop · Visuel retning</h3>
+                <h2>Store billeder og markante fonte</h2>
+                <p>Moodboardet tog udgangspunkt i det, målgruppen ser på sociale medier og hos brands som GANNI:
+                    store billeder, markerede fonte i uppercase og en legende, uformel tone.</p>
+                <p>Det blev til et stort YUM-logo, håndskrevne noter som "No more oatmeal for dinner" og runde,
+                    venlige knapper.</p>
+            </div>
+            <figure>
+                <img src="projekter/yum-moodboard.jpg" alt="Moodboard med Instagram-inspiration, GANNI, plakater med store fonte og noten Store billeder og markerede fonte med uppercase">
+                <figcaption>Moodboard: store billeder og markerede fonte med uppercase</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <div class="kapitel">
+                <h3>Iteration</h3>
+                <h2>Fra første udkast til færdig forside</h2>
+                <p>Det første udkast var mørkerødt med mange knapper, tekstbokse og billeder på én gang. I den
+                    endelige version fik logoet, én kort sætning og søgefeltet hovedrollen.</p>
+            </div>
+            <div class="foer-efter mobil">
+                <figure>
+                    <span class="etiket">Før</span>
+                    <img src="projekter/yum-udkast.jpg" alt="Første udkast af YUM i mørkerød med mange knapper, et stort pizzabillede og pladsholdertekst">
+                    <figcaption>Første udkast</figcaption>
+                </figure>
+                <figure class="efter">
+                    <span class="etiket">Efter</span>
+                    <img src="projekter/yum-ny.jpg" alt="Den endelige YUM-forside med stort blåt logo, et billede af en ung kok og et søgefelt">
+                    <figcaption>Endelig version</figcaption>
+                </figure>
+            </div>
+            <ul class="aendringer">
+                <li><strong>Én tydelig handling</strong>Søgefeltet står øverst, så man kan finde en opskrift med
+                    det samme.</li>
+                <li><strong>Mere luft, mindre støj</strong>Færre farver og elementer gør siden roligere at
+                    overskue på en lille skærm.</li>
+                <li><strong>En tydelig identitet</strong>Det blå YUM-logo og den lyse baggrund gør brandet let at
+                    genkende.</li>
+            </ul>
+        </section>
+
+        <!-- ==================== 04 DELIVER: løsningen ==================== -->
+        <section class="projekt-sektion">
+            <div class="kapitel">
+                <span class="kapitel-nr">04</span>
+                <h3>Deliver · Løsningen</h3>
                 <h2>Find den rigtige opskrift på få klik</h2>
                 <ul>
                     <li>Filtre for måltid, køkken og tid, som kan kombineres med søgning.</li>
@@ -127,26 +251,44 @@
                     <li>Giver en søgning ingen resultater, kan man ønske opskriften via en formular.</li>
                 </ul>
             </div>
-            <figure>
-                <img src="projekter/yum-proces.jpg" alt="Slide med Double Diamond-processen, to mobilskitser af YUM og et moodboard">
-                <figcaption>Fra Double Diamond og moodboard til den færdige mobilversion</figcaption>
-            </figure>
+            <div class="browser">
+                <img src="projekter/yum-forside.jpg" alt="Forsiden af YUM på desktop">
+            </div>
         </section>
 
         <!-- ==================== TEKNIK OG BÆREDYGTIGHED ==================== -->
-        <section class="projekt-sektion">
-            <div>
+        <section class="projekt-sektion spejlet">
+            <div class="kapitel">
                 <h3>Teknik &amp; bæredygtighed</h3>
                 <h2>Let kode, der kører direkte i browseren</h2>
                 <p>Sitet er bygget i ren HTML, CSS og JavaScript uden frameworks. Opskrifterne hentes én gang pr.
                     side og filtreres i browseren, fordi API'et ikke kan kombinere flere filtre i ét kald. Listen
                     viser 12 opskrifter ad gangen, så billederne først hentes, når man beder om flere.</p>
-                <p>Vi arbejdede på hver vores branch i Git og mergede ind i main, når en del virkede.</p>
             </div>
             <div class="tal-boks">
                 <p class="tal">3,3 MB → 0,16 MB</p>
                 <p>Herobilledet blev konverteret til WebP, så forsiden indlæses langt hurtigere og bruger mindre
                     data.</p>
+            </div>
+        </section>
+
+        <!-- ==================== LÆRING ==================== -->
+        <section class="laering">
+            <div>
+                <h3>Det lærte jeg</h3>
+                <ul>
+                    <li>At skære ned: det første udkast prøvede at vise alt på én gang.</li>
+                    <li>At vælge data ud fra brugerens behov og ikke bare vise alt, API'et sender.</li>
+                    <li>At arbejde i Git med egne branches og løse merge-konflikter i et team.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Næste gang</h3>
+                <ul>
+                    <li>Brugerteste med rigtige unge fra målgruppen, før designet låses.</li>
+                    <li>En branch pr. funktion og pull requests med review.</li>
+                    <li>Lazy loading på billeder og ensartede navne i koden.</li>
+                </ul>
             </div>
         </section>
 

@@ -13,6 +13,8 @@
    5. Næste projekt
    6. Hele hjemmesiden i en ramme
    7. Mærker: professionelt projekt eller skoleprojekt
+   8. Case-skabelon: kort fortalt, min rolle, procestrin,
+      kapitler, indsigter, før/efter, resultater og læring
    ========================================================== */
 
 /* ==========================================================
@@ -351,4 +353,395 @@
   border-radius: 0 8px 8px 0;
   font-size: 0.9rem;
   line-height: 1.6;
+}
+
+/* ==========================================================
+   8. CASE-SKABELON
+   Byggeklodser, der viser hele designprocessen og ikke kun det
+   færdige resultat: problem → research → indsigter → idéer →
+   iterationer → test → resultat → læring.
+   ========================================================== */
+
+/* ---------- 8a. Kort fortalt: problem, proces og resultat ---------- */
+
+.kort-fortalt {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.kort-fortalt > div {
+  padding: 1.75rem;
+  border-radius: 12px;
+  background-color: #fffaf5;
+  border: 1px solid var(--color-graa-beige);
+}
+
+.kort-fortalt h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 0.6rem;
+}
+
+.kort-fortalt p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ---------- 8b. Min rolle ---------- */
+
+.min-rolle {
+  margin-inline: var(--side); /* boksen flugter med resten af indholdet */
+  margin-bottom: 5rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--color-tekst);
+  color: #fffaf5;
+}
+
+.min-rolle h3 {
+  color: var(--color-lyserod);
+  margin-bottom: 0.75rem;
+}
+
+.min-rolle h2 {
+  white-space: normal;
+  color: #fffaf5;
+  margin-bottom: 1rem;
+}
+
+.min-rolle p,
+.min-rolle li {
+  color: #fffaf5;
+}
+
+.min-rolle ul {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.min-rolle li {
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.min-rolle li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.8rem;
+  height: 1.5px;
+  background: var(--color-lyserod);
+}
+
+/* ---------- 8c. Procestrin: Discover → Define → Develop → Deliver ---------- */
+
+.proces-trin {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 5rem;
+  counter-reset: trin;
+  list-style: none;
+  padding: 0;
+}
+
+.proces-trin li {
+  counter-increment: trin;
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-tekst);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.proces-trin li::before {
+  content: "0" counter(trin) "  ";
+  color: var(--color-terracotta);
+}
+
+/* ---------- 8d. Kapitel-overskrift med nummer ---------- */
+
+.kapitel {
+  margin-bottom: 2.5rem;
+}
+
+.kapitel-nr {
+  display: block;
+  font-family: "Prata", serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-terracotta);
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+}
+
+.kapitel h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 0.75rem;
+}
+
+.kapitel h2 {
+  white-space: normal;
+  margin-bottom: 1.25rem;
+}
+
+.kapitel p + p {
+  margin-top: 1rem;
+}
+
+/* stort billede i fuld bredde med billedtekst */
+.billede-bred {
+  margin: 0 0 5rem;
+}
+
+.billede-bred img {
+  border-radius: 12px;
+  box-shadow: 0 30px 60px -35px rgba(60, 30, 20, 0.45);
+}
+
+.billede-bred figcaption,
+.foer-efter figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-terracotta);
+}
+
+/* ---------- 8e. Indsigter fra research ---------- */
+
+.indsigter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.indsigt {
+  padding: 1.75rem;
+  border-radius: 12px;
+  background-color: var(--color-lyserod);
+}
+
+.indsigt .nr {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-terracotta-moerk);
+  margin-bottom: 0.75rem;
+}
+
+.indsigt h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.indsigt p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* "Derfor ..." – hvad indsigten førte til i designet */
+.indsigt .derfor {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(90, 58, 40, 0.2);
+  font-weight: 600;
+}
+
+/* ---------- 8f. Før og efter ---------- */
+
+.foer-efter {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.foer-efter figure {
+  margin: 0;
+  position: relative;
+}
+
+/* lille mærke i hjørnet: "Før" / "Efter" */
+.foer-efter .etiket {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #fffaf5;
+  color: var(--color-tekst);
+}
+
+.foer-efter .efter .etiket {
+  background-color: var(--color-terracotta);
+  color: #fffaf5;
+}
+
+.foer-efter img {
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -25px rgba(60, 30, 20, 0.5);
+}
+
+/* to telefoner ved siden af hinanden (Yum) */
+.foer-efter.mobil {
+  grid-template-columns: 1fr 1fr;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+/* liste over hvad der blev ændret og hvorfor */
+.aendringer {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.aendringer li {
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--color-terracotta);
+  background-color: #fffaf5;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.6;
+}
+
+.aendringer strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- 8g. Resultater i tal ---------- */
+
+.resultater {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.resultat {
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--color-terracotta);
+  color: #fffaf5;
+}
+
+.resultat .tal {
+  font-family: "Prata", serif;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  color: #fffaf5;
+  margin-bottom: 0.75rem;
+}
+
+.resultat p {
+  color: #fffaf5;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.kilde-note {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 5rem;
+}
+
+/* ---------- 8h. Læring og næste skridt ---------- */
+
+.laering {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.laering > div {
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-graa-beige);
+}
+
+.laering h3 {
+  color: var(--color-terracotta);
+  margin-bottom: 1rem;
+}
+
+.laering li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+.laering li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 0.8rem;
+  height: 1.5px;
+  background: var(--color-terracotta);
+}
+
+/* ---------- responsive: case-skabelon ---------- */
+
+@media (min-width: 768px) {
+  .kort-fortalt {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 7rem;
+  }
+
+  .min-rolle {
+    padding: 3rem;
+    margin-bottom: 7rem;
+  }
+
+  .proces-trin {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .indsigter {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .indsigter.to {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .foer-efter {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .resultater {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .laering {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kapitel {
+    max-width: 60ch;
+  }
+
+  .billede-bred,
+  .indsigter,
+  .aendringer,
+  .laering {
+    margin-bottom: 7rem;
+  }
 }
